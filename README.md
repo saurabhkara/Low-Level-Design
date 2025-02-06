@@ -1,1 +1,7 @@
-"# Low-Level-Design" 
+"# Low-Level-Design"
+
+## - OOPs Concept
+
+## - SOLID Principles
+
+##
