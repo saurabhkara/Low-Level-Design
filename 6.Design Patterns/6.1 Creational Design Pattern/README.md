@@ -8,4 +8,6 @@
 4. Builder design pattern
 5. Abstract design pattern
 
-### 1. Singleton design pattern : The Singleton design pattern is a structural design pattern that ensures a class has only one instance and provides a global point of access to that instance. It’s useful when you want to control access to shared resources, like a configuration object, logging service, or database connection.
+### 1. Singleton Design Pattern : The Singleton design pattern is a structural design pattern that ensures a class has only one instance and provides a global point of access to that instance. It’s useful when you want to control access to shared resources, like a configuration object, logging service, or database connection.
+
+### 2. Factory Design Pattern : The Factory Design Pattern is a creational pattern used to abstract the process of object creation. It allows you to create objects without specifying the exact class of object that will be created.

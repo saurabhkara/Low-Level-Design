@@ -53,3 +53,41 @@ const iifeInstance1 = instance.getInstance();
 const iifeInstance2 = instance.getInstance();
 
 console.log(iifeInstance1 === iifeInstance2);
+
+//1.2 Factory Design pattern
+
+class Sedan {
+  constructor(vehicleNumber) {
+    this.vehicleNumber = vehicleNumber;
+  }
+
+  drive() {
+    console.log("Driving Sedan", this.vehicleNumber);
+  }
+}
+
+class SUV {
+  constructor(vehicleNumber) {
+    this.vehicleNumber = vehicleNumber;
+  }
+
+  drive() {
+    console.log("Driving SUV", this.vehicleNumber);
+  }
+}
+
+function VehicleFactory(carType, vehicleNumber) {
+  if (carType === "SUV") {
+    return new SUV(vehicleNumber);
+  } else if (carType === "SEDAN") {
+    return new Sedan(vehicleNumber);
+  } else {
+    throw "Please enter correct Car type";
+  }
+}
+
+const carfact1 = VehicleFactory("SUV", "8656S");
+const carfact2 = VehicleFactory("SEDAN", "6896SD");
+
+console.log(carfact1.drive());
+console.log(carfact2.drive());
