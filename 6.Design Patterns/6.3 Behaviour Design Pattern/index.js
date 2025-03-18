@@ -40,3 +40,47 @@ subject.subscribe(observer1);
 subject.subscribe(observer2);
 subject.sendNotification("Sell Started");
 subject.sendNotification("Sell ending in 10mins");
+
+//1.2 Strategy design pattern
+
+class PaymentStrategy {
+  pay(amount) {
+    throw new Event(
+      "Payment Strategy cannot instantiate, it should be extended"
+    );
+  }
+}
+
+class DebitCardPayment extends PaymentStrategy {
+  pay(amount) {
+    console.log("Payment made using Debit card", amount);
+  }
+}
+
+class UPIPayment extends PaymentStrategy {
+  pay(amount) {
+    console.log("Payment made using UPI", amount);
+  }
+}
+
+class PaymentContext {
+  constructor(instance) {
+    this.instance = instance;
+  }
+
+  makePayment(amount) {
+    this.instance.pay(amount);
+  }
+
+  setPaymentMethod(instance) {
+    this.instance = instance;
+  }
+}
+
+const paymentCnxt = new PaymentContext(new DebitCardPayment());
+paymentCnxt.makePayment(200);
+
+const upiPay = new UPIPayment();
+
+paymentCnxt.setPaymentMethod(upiPay);
+paymentCnxt.makePayment(500);
