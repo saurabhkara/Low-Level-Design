@@ -27,5 +27,3 @@
 ### Abstraction - Abstraction is concept of hiding unneccesary information from outer wolrd while only showing neccessary information.
 
 ### Polymorphism - Polymorphism is an ability of an object to take on multiple forms.
-
-//For reference Checkout this https://www.freecodecamp.org/news/object-oriented-javascript-for-beginners/
