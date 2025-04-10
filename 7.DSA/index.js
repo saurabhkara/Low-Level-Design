@@ -1,4 +1,4 @@
-// Leet Question 125
+//1. Leet Question 125
 
 const str1 = "A man, a plan, a canal: Panama99";
 
@@ -13,3 +13,19 @@ function isValidPalindrom(str) {
 }
 
 console.log(isValidPalindrom(str1));
+
+//2. Armstrong number
+
+function armstrongNumber(number) {
+  let temp = number;
+  let sum = 0;
+  const power = number.toString().length;
+  while (temp > 0) {
+    let lastDigit = temp % 10;
+    temp = parseInt(temp / 10);
+    sum = sum + lastDigit ** 3;
+  }
+  console.log("Sum for finding armstrong number", sum);
+  return number === sum;
+}
+console.log(armstrongNumber(153));
