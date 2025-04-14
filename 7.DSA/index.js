@@ -72,7 +72,7 @@ function removeDuplicateElemUsingObject(arr) {
 
 removeDuplicateElemUsingObject(arr3);
 
-// Using set
+// Using set - T(n) =O(n)
 
 function removeDuplicateElemUsingSet(arr) {
   const set = new Set(arr);
