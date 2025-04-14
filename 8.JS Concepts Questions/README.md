@@ -1,1 +1,3 @@
-# Javascript Concepts Questions
+# Javascript Concepts Questions Practice
+
+## Prototype chaining
