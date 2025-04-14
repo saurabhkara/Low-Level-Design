@@ -6,6 +6,7 @@
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1.  | [A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters (Leetcode 125)](#a-phrase-is-a-palindrome-if-after-converting-all-uppercase-letters-into-lowercase-letters-and-removing-all-non-alphanumeric-characters) |
 | 2.  | [Armstrong number](#armstrong-number)                                                                                                                                                                                                                                                             |
+| 3.  | [Remove Duplicate element from array](#remove-duplicate-element-from-array)                                                                                                                                                                                                                       |
 
 ## A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters
 
@@ -41,3 +42,7 @@ A number is armstrong number, the sum of its own digits and each digits raised t
 }
 console.log(armstrongNumber(153))```
 ````
+
+## Remove Duplicate element from array
+
+Using Brute force method

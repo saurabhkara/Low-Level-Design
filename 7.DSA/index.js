@@ -29,3 +29,55 @@ function armstrongNumber(number) {
   return number === sum;
 }
 console.log(armstrongNumber(153));
+
+//3. Remove duplicate element from array
+
+//using Brute force method- T(n)= O(n2)
+
+const arr3 = [8, 6, 7, 8, 3, 2, 7, 6, 1, 0];
+
+function removeDuplicateElemBruteForce(arr) {
+  const uniqueElemArr = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    let duplicate = false;
+    let uniqueElemArrLenght = uniqueElemArr.length;
+    for (let j = 0; j < uniqueElemArrLenght; j++) {
+      if (uniqueElemArr[j] === arr[i]) {
+        duplicate = true;
+        break;
+      }
+    }
+    if (!duplicate) {
+      uniqueElemArr[uniqueElemArrLenght] = arr[i];
+    }
+  }
+  console.log(uniqueElemArr);
+}
+
+removeDuplicateElemBruteForce(arr3);
+
+// using Object - T(n)=O(n);
+
+function removeDuplicateElemUsingObject(arr) {
+  const obj = {};
+  for (let i = 0; i < arr.length; i++) {
+    if (!obj[arr[i]]) {
+      obj[arr[i]] = arr[i];
+    }
+  }
+  const values = Object.values(obj);
+  console.log(values);
+}
+
+removeDuplicateElemUsingObject(arr3);
+
+// Using set
+
+function removeDuplicateElemUsingSet(arr) {
+  const set = new Set(arr);
+  console.log([...set]);
+  return [...set];
+}
+
+removeDuplicateElemUsingSet(arr3);
