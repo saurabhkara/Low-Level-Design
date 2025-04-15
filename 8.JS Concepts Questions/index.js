@@ -132,4 +132,67 @@ function outerFun() {
 
 outerFun();
 
-//
+//11. Classes in JavaScript
+// Classes in Javascript syntatic sugar over JavaScript existing prototype based inheritance.
+
+//12. Promise in Javascript
+// A promise in Javascript is an object that may produce a single in future with either resolved or  rejected(a reason that it is not resolved) value.
+// It has three state - 1.Pending  2.Resolve  3.Rejected
+
+const promise1 = new Promise((resolve, reject) => {
+  return resolve("resolved");
+  return reject("resolved");
+});
+
+//13. Why do we need Promise?
+// Promise is use handle asynchronous operation. It provides an alternative approach for callbacks by reducing callback hell and writting cleaner code.
+
+//14. What is Callback functions ?
+// Callback function is function that passed into another function as argument. And this function is invoked inside outer function to complete some actions.
+
+function innerCallback() {
+  console.log("inner method invoked");
+}
+
+function outerCallback(callback) {
+  const id = setTimeout(() => {
+    callback();
+  }, 2000);
+}
+
+outerCallback(innerCallback);
+
+// Callbacks are needed because javascript is event driven language. That means instead for waiting for response javascript keep executing while listing other events
+
+// 15.Callback hell
+// Callback hell is anti pattern with multple nested callbacks.
+
+//16.Promise chaining
+// The process of executing sequence of asynchronous task one after another using promise is known as promise chaining
+
+//17.Promise combinators
+//Promise.all([])
+//Promise.allSettled([])
+//Promise.any()
+//Promise.race()
+
+//18. What are pros and cons of Promise over callbacks
+// Promise are easy to write,read than callback hell
+// Easy to write sequential asynchronous code with .then()
+// Easy to write parallel asynchronous code with Promise.all()
+
+//19. What is PWA?
+//Progressive Web Applications are a type of mobile app delivered through the web, built using common web technologies including HTML, CSS and JavaScript. These PWAs are deployed to servers, accessible through URLs, and indexed by search engines.
+
+//20. How to get the number of arguments passed to function?
+// arguments.length
+
+//21. What is the way to find the number of parameters expected by a function
+// You can use function.length syntax to find the number of parameters expected by a function
+function sum(num1, num2, num3, num4) {
+  return num1 + num2 + num3 + num4;
+}
+sum.length;
+
+//22. What is a polyfill ?
+// A polyfill is a piece of JS code used to provide modern functionality on older browsers that do not natively support it.
