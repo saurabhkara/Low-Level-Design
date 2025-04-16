@@ -213,4 +213,49 @@ console.log(res1, res2, res3);
 const result4 = false ? 0 : 0 ? 56 : 23;
 console.log(result4);
 
-//25 .
+//25 .Iterable in Objects
+
+const obj25 = {
+  name: "Saurabh",
+  profession: "Software developr",
+  [Symbol.iterator]: function () {
+    const keys = Object.keys(this);
+    let currentIndex = 0;
+    return {
+      next: function () {
+        return {
+          value: obj25[keys[currentIndex++]],
+          done: currentIndex > keys.length,
+        };
+      },
+    };
+  },
+};
+
+const objIterator = obj25[Symbol.iterator]();
+console.log(objIterator.next());
+console.log(objIterator.next());
+console.log(objIterator.next());
+
+//26. Deboucing
+
+function ConsoleName(name) {
+  console.log(name, " is called using deboucing method");
+}
+
+function debounceMethod(func) {
+  let setTimeoutId;
+  return function (name) {
+    if (setTimeoutId) {
+      clearTimeout(setTimeoutId);
+    }
+    setTimeoutId = setTimeout(() => {
+      func(name);
+    }, 2000);
+  };
+}
+
+const debouncef = debounceMethod(ConsoleName);
+debouncef("Saurabh");
+debouncef("Ashu");
+debouncef("kumar");
