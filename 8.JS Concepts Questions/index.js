@@ -196,3 +196,21 @@ sum.length;
 
 //22. What is a polyfill ?
 // A polyfill is a piece of JS code used to provide modern functionality on older browsers that do not natively support it.
+
+//23. How do you check whether a string contains a substring?
+// Multiple ways to search substring - includes(), indexOf(), and using regular expression
+
+const str23 = "checking and testing js methods";
+
+const res1 = str23.includes("testing");
+const res2 = str23.indexOf("and");
+const res3 = str23.match(/ing/gi);
+
+console.log(res1, res2, res3);
+
+//24. Nested conditional operator
+
+const result4 = false ? 0 : 0 ? 56 : 23;
+console.log(result4);
+
+//25 .
