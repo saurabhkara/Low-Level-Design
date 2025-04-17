@@ -81,3 +81,26 @@ function removeDuplicateElemUsingSet(arr) {
 }
 
 removeDuplicateElemUsingSet(arr3);
+
+// 4. Min and Max element of given array
+
+const arr4 = [4, -1, 8, 9, 3, 0, 15];
+
+function minMax(arr) {
+  let min = Infinity;
+  let max = -Infinity;
+  let currentIndex = 0;
+  while (currentIndex < arr.length) {
+    const currentValue = arr[currentIndex++];
+    if (min > currentValue) {
+      min = currentValue;
+    }
+    if (max < currentValue) {
+      max = currentValue;
+    }
+  }
+
+  return { minValue: min, maxValue: max };
+}
+
+console.log(minMax(arr4));

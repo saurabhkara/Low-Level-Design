@@ -7,6 +7,7 @@
 | 1.  | [A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters (Leetcode 125)](#a-phrase-is-a-palindrome-if-after-converting-all-uppercase-letters-into-lowercase-letters-and-removing-all-non-alphanumeric-characters) |
 | 2.  | [Armstrong number](#armstrong-number)                                                                                                                                                                                                                                                             |
 | 3.  | [Remove Duplicate element from array](#remove-duplicate-element-from-array)                                                                                                                                                                                                                       |
+| 4.  | [Find minimmum and maximum value of array](#find-minimum-and-maximum-value-of-array)                                                                                                                                                                                                              |
 
 ## A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters
 
@@ -95,4 +96,29 @@ function removeDuplicateElemUsingSet(arr) {
 }
 
 removeDuplicateElemUsingSet(arr3);
+```
+
+## Find Minimum and Maximum value of array
+
+```
+const arr4 = [4, -1, 8, 9, 3, 0, 15];
+
+function minMax(arr) {
+  let min = Infinity;
+  let max = -Infinity;
+  let currentIndex = 0;
+  while (currentIndex < arr.length) {
+    const currentValue = arr[currentIndex++];
+    if (min > currentValue) {
+      min = currentValue;
+    }
+    if (max < currentValue) {
+      max = currentValue;
+    }
+  }
+
+  return { minValue: min, maxValue: max };
+}
+
+console.log(minMax(arr4));
 ```
