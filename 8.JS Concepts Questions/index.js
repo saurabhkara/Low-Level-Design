@@ -240,7 +240,7 @@ console.log(objIterator.next());
 //26. Deboucing
 
 function ConsoleName(name) {
-  console.log(name, " is called using deboucing method");
+  console.log(name, " is called method");
 }
 
 function debounceMethod(func) {
@@ -257,5 +257,26 @@ function debounceMethod(func) {
 
 const debouncef = debounceMethod(ConsoleName);
 debouncef("Saurabh");
-debouncef("Ashu");
+debouncef("Ashwini");
 debouncef("kumar");
+
+//27. Throatling
+
+function throatling(func, delay) {
+  let timeId = null;
+  return function (...args) {
+    if (timeId !== null) {
+      return;
+    }
+    timeId = setTimeout(() => {
+      func(...args);
+      timeId = null;
+    }, delay);
+  };
+}
+
+const throatFunc = throatling(ConsoleName, 500);
+
+console.log(throatFunc("Saurabh is calling throttling"));
+console.log(throatFunc("Saurabh is calling throattling"));
+console.log(throatFunc("Saurabh is calling"));
