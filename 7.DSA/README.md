@@ -8,6 +8,7 @@
 | 2.  | [Armstrong number](#armstrong-number)                                                                                                                                                                                                                                                             |
 | 3.  | [Remove Duplicate element from array](#remove-duplicate-element-from-array)                                                                                                                                                                                                                       |
 | 4.  | [Find minimmum and maximum value of array](#find-minimum-and-maximum-value-of-array)                                                                                                                                                                                                              |
+| 5.  | [Two Sum leet Code question](#two-sum-question)                                                                                                                                                                                                                                                   |
 
 ## A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters
 
@@ -121,4 +122,54 @@ function minMax(arr) {
 }
 
 console.log(minMax(arr4));
+```
+
+## Two sum question
+
+```
+// Brute force approach -T(n) = O(n2)
+function twoSum(arr, sum) {
+  if (!Array.isArray(arr)) {
+    return;
+  }
+  const resultIndex = [];
+  for (let i = 0; i < arr.length - 1; i++) {
+    for (let j = 1; j < arr.length; j++) {
+      if (arr[i] + arr[j] === sum) {
+        resultIndex[0] = i;
+        resultIndex[1] = j;
+        return resultIndex;
+      }
+    }
+  }
+  return [];
+}
+
+console.log(twoSum(arr5, sum5));
+
+//Using Object - T(n)= O(n)
+
+function twoSumUsingObj(arr, target) {
+  if (!Array.isArray(arr)) {
+    return;
+  }
+  const obj = {};
+  for (let index = 0; index < arr.length; index++) {
+    obj[arr[index]] = index;
+  }
+
+  for (let key in obj) {
+    const complement = target - key;
+    if (!!obj[complement]) {
+      const firstIndex = obj[key];
+      const secondIndex = obj[complement];
+      return [firstIndex, secondIndex];
+    }
+  }
+
+  return [];
+}
+
+console.log(twoSumUsingObj(arr5, sum5));
+
 ```
