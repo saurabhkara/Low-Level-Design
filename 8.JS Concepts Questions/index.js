@@ -280,3 +280,35 @@ const throatFunc = throatling(ConsoleName, 500);
 console.log(throatFunc("Saurabh is calling throttling"));
 console.log(throatFunc("Saurabh is calling throattling"));
 console.log(throatFunc("Saurabh is calling"));
+
+// 28. Flattern Array
+
+const arr28 = [5, [6, 8, 7], [3, 1, 6, [0, 1]]];
+
+function flatternArray(arr) {
+  if (!Array.isArray(arr)) {
+    return;
+  }
+  const result = [];
+
+  for (let item of arr) {
+    if (!Array.isArray(item)) {
+      let length = result.length;
+      result[length] = item;
+    } else {
+      const subResult = flatternArray(item);
+      for (let inItem of subResult) {
+        let length = result.length;
+        result[length] = inItem;
+      }
+    }
+  }
+
+  return result;
+}
+
+console.log(flatternArray(arr28));
+
+//28. flattern object
+
+const obj28 = {};
