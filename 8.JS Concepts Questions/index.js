@@ -311,4 +311,53 @@ console.log(flatternArray(arr28));
 
 //28. flattern object
 
-const obj28 = {};
+const obj28 = {
+  name: "Saurabh",
+  address: {
+    street: 456,
+    City: "Ara",
+    State: "Bihar",
+  },
+};
+
+function flatternObj(obj, name) {
+  if (!obj || typeof obj !== "object" || Array.isArray(obj)) {
+    return "invalid";
+  }
+
+  const result = {};
+
+  for (let key in obj) {
+    if (typeof obj[key] !== "object") {
+      result[`${name}${key}`] = obj[key];
+    } else {
+      const subObj = flatternObj(obj[key], `${key}_`);
+      for (let prop in subObj) {
+        result[`${name}${prop}`] = subObj[prop];
+      }
+    }
+  }
+  return result;
+}
+
+console.log(flatternObj(obj28, ""));
+
+// 29. Difference between Shallow and Deep copy
+// A shallow copy copies only the first level of the object or array. If the original contains nested objects or arrays, the references to those nested values are shared between the original and the copy.
+//A deep copy duplicates all levels, meaning nested objects/arrays are also cloned. The new copy is completely independent.
+
+const obj29A = {
+  name: "Saurabh",
+};
+
+//shallow copy
+const obj29B = obj29A;
+
+//Deep copy for first level obj
+const obj29C = { ...obj29A };
+
+obj29C.name = "Deepak";
+
+console.log(obj29C, obj29A);
+
+//30.
