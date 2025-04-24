@@ -360,4 +360,47 @@ obj29C.name = "Deepak";
 
 console.log(obj29C, obj29A);
 
-//30.
+//30. 2:0 => 2 is element of arr30B and 0 is how many times 2 is repeating in arr30A;
+
+//T(n)=O(n2)
+
+let arr30A = [3, 4, 5, 6, 5, 4, 5];
+let arr30B = [2, 3, 4, 5, 6];
+
+function repeatingElements(arr1, arr2) {
+  const result = arr1.map((item1) => {
+    const count = arr2.reduce((acc, item2) => {
+      if (item1 === item2) {
+        acc = acc + 1;
+      }
+
+      return acc;
+    }, 0);
+
+    return `${item1}: ${count}`;
+  });
+
+  return result;
+}
+
+console.log(repeatingElements(arr30B, arr30A));
+
+// 31. Program to sort only positive number
+const arr31 = [-1, 40, 20, -4, 10, 2, 70, -2, 6, 9];
+
+function sortOnlyPositive(arr) {
+  if (!Array.isArray(arr)) {
+    return;
+  }
+
+  const sortedArr = arr.filter((item) => item > 0).sort((a, b) => a - b);
+  let index = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > 0) {
+      arr[i] = sortedArr[index++];
+    }
+  }
+  return arr;
+}
+
+console.log(sortOnlyPositive(arr31));
