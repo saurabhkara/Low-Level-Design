@@ -217,3 +217,31 @@ function removeDuplicateAndMerge(arr) {
 }
 
 console.log(removeDuplicateAndMerge(originalArr7));
+
+// you can use Reduce method instead of seprate object and forloop
+
+// 8. Shift zero at the end of array
+const arr8 = [10, 0, 230, 7, 9, 0, 10];
+
+//brute force approach T(n)=O(n) Optimal
+function shiftZeroToEnd(arr) {
+  if (!Array.isArray(arr) | (arr.length === 0)) {
+    return;
+  }
+
+  let zeroCount = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === 0) {
+      zeroCount++;
+    } else {
+      arr[i - zeroCount] = arr[i];
+    }
+  }
+
+  for (let i = arr.length - zeroCount; i < arr.length; i++) {
+    arr[i] = 0;
+  }
+  return arr;
+}
+
+console.log(shiftZeroToEnd(arr8));
