@@ -9,6 +9,10 @@
 | 3.  | [Remove Duplicate element from array](#remove-duplicate-element-from-array)                                                                                                                                                                                                                       |
 | 4.  | [Find minimmum and maximum value of array](#find-minimum-and-maximum-value-of-array)                                                                                                                                                                                                              |
 | 5.  | [Two Sum leet Code question](#two-sum-question)                                                                                                                                                                                                                                                   |
+| 6.  | [Factorial of given number](#factorial-of-number)                                                                                                                                                                                                                                                 |
+| 7.  | [Remove duplicate keys and merge array values of an object in JavaScript](#remove-duplicate-keys-and-merge-array-values)                                                                                                                                                                          |
+
+|
 
 ## A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters
 
@@ -171,5 +175,76 @@ function twoSumUsingObj(arr, target) {
 }
 
 console.log(twoSumUsingObj(arr5, sum5));
+
+```
+
+## Factorial of number
+
+```
+//Iterative way  - T(n) = O(n)
+function factorialUsingIterative(num) {
+  if (!num) {
+    return;
+  }
+  if (num === 0 || num === 1) {
+    return num;
+  }
+  let result = 1;
+  for (let i = 1; i <= num; i++) {
+    result = result * i;
+  }
+  return result;
+}
+
+console.log(factorialUsingIterative(5));
+
+// Recursive way T(n)= O(n)
+
+function factorialRecursive(num) {
+  if (!num) {
+    return;
+  }
+
+  if (num === 1) {
+    return 1;
+  }
+
+  return num * factorialRecursive(num - 1);
+}
+
+console.log(factorialRecursive(6));
+
+```
+
+Remove-duplicate-keys-and-merge-array-values
+
+## Remove duplicate keys and merge array values
+
+```
+
+const originalArr7 = [
+  { id: 1, element: [1, 2] },
+  { id: 2, element: [3, 4] },
+  { id: 2, element: ["a", "b"] },
+  { id: 3, element: ["a2b"] },
+];
+
+function removeDuplicateAndMerge(arr) {
+  const obj = {};
+
+  for (let item of arr) {
+    if (obj[item.id]) {
+      const arri2 = obj[item.id].element;
+      const arrii = [...item.element, ...arri2];
+      obj[item.id].element = arrii;
+    } else {
+      obj[item.id] = item;
+    }
+  }
+
+  return Object.values(obj);
+}
+
+console.log(removeDuplicateAndMerge(originalArr7));
 
 ```
