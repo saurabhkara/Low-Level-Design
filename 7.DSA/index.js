@@ -245,3 +245,42 @@ function shiftZeroToEnd(arr) {
 }
 
 console.log(shiftZeroToEnd(arr8));
+
+// 9. Reverse the given string  inplace(without extra space)
+// T(n)= O(n)
+const str9 = "Manmohan";
+
+function reverseStringRecursively(str) {
+  if (str === "") {
+    return "";
+  }
+  const remainingString = str.substring(1);
+  return reverseStringRecursively(remainingString) + str[0];
+}
+
+console.log(reverseStringRecursively("Saurabh"));
+
+// 10. Print Duplicate characters from string
+
+const str10 = "removeduplicatecharacter";
+
+function removeDuplcateCharacter(str) {
+  if (str === "") return;
+
+  const obj = {};
+
+  for (let char of str) {
+    if (!obj[char]) {
+      obj[char] = char;
+    }
+  }
+
+  let result = "";
+
+  for (let key in obj) {
+    result = result + key;
+  }
+  return result;
+}
+
+console.log(removeDuplcateCharacter(str9));

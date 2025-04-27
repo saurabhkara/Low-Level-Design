@@ -11,10 +11,8 @@
 | 5.  | [Two Sum leet Code question](#two-sum-question)                                                                                                                                                                                                                                                   |
 | 6.  | [Factorial of given number](#factorial-of-number)                                                                                                                                                                                                                                                 |
 | 7.  | [Remove duplicate keys and merge array values of an object in JavaScript](#remove-duplicate-keys-and-merge-array-values)                                                                                                                                                                          |
-
-| 8. | [Shift zero at end of array](#shift-zero-at-the-end-array)
-
-|
+| 8.  | [Shift zero at end of array](#shift-zero-at-the-end-array)                                                                                                                                                                                                                                        |
+| 9.  | [Reverse the given string inplace(without extra space)](#reverse-string-implace)                                                                                                                                                                                                                  |
 
 |
 
@@ -283,4 +281,18 @@ function shiftZeroToEnd(arr) {
 console.log(shiftZeroToEnd(arr8));
 
 
+```
+
+## Reverse string implace
+
+```
+function reverseStringRecursively(str) {
+  if (str === "") {
+    return "";
+  }
+  const remainingString = str.substring(1);
+  return reverseStringRecursively(remainingString) + str[0];
+}
+
+console.log(reverseStringRecursively("Saurabh"));
 ```

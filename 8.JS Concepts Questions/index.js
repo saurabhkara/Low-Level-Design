@@ -404,3 +404,66 @@ function sortOnlyPositive(arr) {
 }
 
 console.log(sortOnlyPositive(arr31));
+
+// 32. Program to fetch student Object whose average marks is grether than other students
+
+const students32 = [
+  { name: "Ram", marks: [70, 80, 65, 90, 65] },
+  { name: "Shyam", marks: [80, 62, 70, 75, 81] },
+  { name: "M Sharan", marks: [74, 67, 72, 69, 84] },
+];
+
+function averrageMarks(students) {
+  if (!Array.isArray(students)) {
+    return;
+  }
+
+  const result = students.reduce((acc, studentItem) => {
+    let totalMarks = 0;
+    studentItem.marks.forEach((singleEntityMarks) => {
+      totalMarks = singleEntityMarks + totalMarks;
+    });
+    const averageMarks = totalMarks / 5;
+
+    if (acc.topperAverageMarks < averageMarks || !acc.topperAverageMarks) {
+      acc.topperAverageMarks = averageMarks;
+      acc.item = studentItem;
+    }
+
+    return acc;
+  }, {});
+
+  return result;
+}
+
+console.log(averrageMarks(students32));
+
+// 33. Program to return odd repeating value of an array with count
+const countOriginalArr = ["a", "a", "b", "d", "e", "d", "a", "b"];
+// output format :['a:3','e:1'];
+
+function calculateOddRepeating(originalArr) {
+  if (!Array.isArray(originalArr)) {
+    return;
+  }
+
+  const obj = {};
+
+  originalArr.forEach((item) => {
+    if (obj[item]) {
+      obj[item] = obj[item] + 1;
+    } else {
+      obj[item] = 1;
+    }
+  });
+
+  const result = [];
+  for (let item in obj) {
+    const stringItem = `${item}:${obj[item]}`;
+    result.push(stringItem);
+  }
+
+  return result;
+}
+
+console.log(calculateOddRepeating(countOriginalArr));
