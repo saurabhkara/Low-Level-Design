@@ -260,27 +260,56 @@ function reverseStringRecursively(str) {
 
 console.log(reverseStringRecursively("Saurabh"));
 
-// 10. Print Duplicate characters from string
+// 10. Print Duplicate characters from string in string
 
-const str10 = "removeduplicatecharacter";
+const str10 = "printduplicatecharacter";
 
-function removeDuplcateCharacter(str) {
+//Brute force => T(n)=O(n2)
+
+function printDuplicateCharacterUsingBrute(str) {
+  if (!str || typeof str !== "string") {
+    return;
+  }
+  let result = "";
+  let count = 0;
+  for (let i = 0; i < str.length - 1; i++) {
+    count = 0;
+    for (let j = 0; j < str.length; j++) {
+      if (str[i] === str[j]) {
+        count++;
+      }
+    }
+
+    if (result.indexOf(str[i]) === -1 && count > 1) {
+      result = result + str[i];
+    }
+  }
+
+  console.log(result);
+}
+
+printDuplicateCharacterUsingBrute(str10);
+// Optimize Way using Object =>  T(n)=O(n)
+
+function duplcateCharacterUsingObj(str) {
   if (str === "") return;
 
   const obj = {};
 
   for (let char of str) {
     if (!obj[char]) {
-      obj[char] = char;
+      obj[char] = 1;
+    } else {
+      obj[char] = obj[char] + 1;
     }
   }
-
   let result = "";
 
   for (let key in obj) {
-    result = result + key;
+    if (obj[key] > 1) result = result + key;
   }
+
   return result;
 }
 
-console.log(removeDuplcateCharacter(str9));
+console.log(duplcateCharacterUsingObj(str10));

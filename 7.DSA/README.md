@@ -13,6 +13,7 @@
 | 7.  | [Remove duplicate keys and merge array values of an object in JavaScript](#remove-duplicate-keys-and-merge-array-values)                                                                                                                                                                          |
 | 8.  | [Shift zero at end of array](#shift-zero-at-the-end-array)                                                                                                                                                                                                                                        |
 | 9.  | [Reverse the given string inplace(without extra space)](#reverse-string-implace)                                                                                                                                                                                                                  |
+| 10. | [Print Duplicate characters from string in string](#duplicate-characters-from-string)                                                                                                                                                                                                             |
 
 |
 
@@ -295,4 +296,61 @@ function reverseStringRecursively(str) {
 }
 
 console.log(reverseStringRecursively("Saurabh"));
+```
+
+## Duplicate characters from string
+
+```
+const str10 = "printduplicatecharacter";
+
+//Brute force => T(n)=O(n2)
+
+function printDuplicateCharacterUsingBrute(str) {
+  if (!str || typeof str !== "string") {
+    return;
+  }
+  let result = "";
+  let count = 0;
+  for (let i = 0; i < str.length - 1; i++) {
+    count = 0;
+    for (let j = 0; j < str.length; j++) {
+      if (str[i] === str[j]) {
+        count++;
+      }
+    }
+
+    if (result.indexOf(str[i]) === -1 && count > 1) {
+      result = result + str[i];
+    }
+  }
+
+  console.log(result);
+}
+
+printDuplicateCharacterUsingBrute(str10);
+// Optimize Way using Object =>  T(n)=O(n)
+
+function duplcateCharacterUsingObj(str) {
+  if (str === "") return;
+
+  const obj = {};
+
+  for (let char of str) {
+    if (!obj[char]) {
+      obj[char] = 1;
+    } else {
+      obj[char] = obj[char] + 1;
+    }
+  }
+  let result = "";
+
+  for (let key in obj) {
+    if (obj[key] > 1) result = result + key;
+  }
+
+  return result;
+}
+
+console.log(duplcateCharacterUsingObj(str10));
+
 ```
