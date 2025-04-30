@@ -289,6 +289,7 @@ function printDuplicateCharacterUsingBrute(str) {
 }
 
 printDuplicateCharacterUsingBrute(str10);
+
 // Optimize Way using Object =>  T(n)=O(n)
 
 function duplcateCharacterUsingObj(str) {
@@ -313,3 +314,40 @@ function duplcateCharacterUsingObj(str) {
 }
 
 console.log(duplcateCharacterUsingObj(str10));
+
+// 11. Check given strings are anagram of each other
+
+const str11A = "Army";
+const str11B = "Mary";
+
+// Brute force method T(n)= O(nlogn)
+
+function isAnagramByBrute(str1, str2) {
+  if (
+    (str1 === "") |
+    (str2 === "") |
+    (typeof str1 !== "string") |
+    (typeof str2 !== "string")
+  ) {
+    return;
+  }
+
+  const len1 = str1.length;
+  const len2 = str2.length;
+
+  if (len1 !== len2) {
+    return false;
+  }
+
+  const sortedStr1 = str1.toLowerCase().split("").sort().join("");
+  const sortedStr2 = str2.toLowerCase().split("").sort().join("");
+
+  if (sortedStr1 === sortedStr2) {
+    return true;
+  }
+  return false;
+}
+
+console.log(isAnagramByBrute(str11A, str11B));
+
+// optimized way
