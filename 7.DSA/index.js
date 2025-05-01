@@ -350,4 +350,59 @@ function isAnagramByBrute(str1, str2) {
 
 console.log(isAnagramByBrute(str11A, str11B));
 
-// optimized way
+// optimized way - T(n)=O(n)
+
+function isAnagramByObject(str1, str2) {
+  if (!str1 | !str2 | (typeof str1 !== "string") | (typeof str2 !== "string")) {
+    return;
+  }
+
+  if (str1.length !== str2.length) {
+    return;
+  }
+
+  let obj = {};
+  const lowrStr1 = str1.toLowerCase();
+  const lowrStr2 = str2.toLowerCase();
+  for (let char of lowrStr1) {
+    if (obj[char]) {
+      obj[char] = obj[char] + 1;
+    } else {
+      obj[char] = 1;
+    }
+  }
+
+  for (let char of lowrStr2) {
+    if (obj[char]) {
+      obj[char] = obj[char] - 1;
+    } else {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+console.log(isAnagramByObject(str11A, str11B));
+
+// Q.12 Print first non-repeating occurance of character in string
+
+const str12 = "counttheoccurance";
+
+function firstNonRepeating(str) {
+  if (!str | (typeof str !== "string")) {
+    return;
+  }
+  let obj = {};
+  for (let char of str) {
+    obj[char] = (obj[char] | 0) + 1;
+  }
+  for (let char of str) {
+    if (obj[char] === 1) {
+      return char;
+    }
+  }
+  return -1;
+}
+
+console.log(firstNonRepeating(str12));
