@@ -479,3 +479,47 @@ function reverseWordsInPlace(sentence) {
 }
 
 console.log(reverseWordsInPlace("Anything can achieved by anyone"));
+
+// Q.15 Check strings are rotation of each other
+//  Two strings are rotations of each other if they contain the same characters in the same order,
+//just shifted by some number of positions.
+
+const str15A = "saurabh";
+const str15B = "urabhsa";
+
+//Brute force method
+//T(n)=O(n2) ; S(n)=O(n)
+
+function isRotationByBruteForce(str1, str2) {
+  if (!str1 | !str2 | (typeof str1 !== "string") | (typeof str2 !== "string")) {
+    return;
+  }
+  const len1 = str1.length;
+  const len2 = str2.length;
+
+  if (len1 !== len2) {
+    return false;
+  }
+  let temp = str1;
+  for (let i = 0; i < len1; i++) {
+    const firstchar = temp[0];
+    const remainingString = temp.substring(1);
+    const newWord = remainingString + firstchar;
+    if (newWord === str2) {
+      return true;
+    }
+    temp = newWord;
+  }
+  return false;
+}
+
+console.log(isRotationByBruteForce(str15A, str15B));
+
+//KMP algorithm
+//T(n)= O(n), S(n)=O(n)
+function kmpAlgorithm(str1, str2) {
+  const doubleStr = str1 + str1;
+  return doubleStr.includes(str2);
+}
+
+console.log(kmpAlgorithm(str15A, str15B));

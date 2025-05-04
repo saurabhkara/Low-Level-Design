@@ -16,6 +16,9 @@
 | 10. | [Print Duplicate characters from string in string](#duplicate-characters-from-string)                                                                                                                                                                                                             |
 | 11. | [Check both strings are anagram of each other](#strings-anagram-of-each-other)                                                                                                                                                                                                                    |
 | 12. | [Print first non-repeating occurance of character in string](#first-non-repeating-character-in-string)                                                                                                                                                                                            |
+| 13. | [Reverse words in given Sentence](#reverse-words-of-given-sentence)                                                                                                                                                                                                                               |
+| 14. | [Reverse the character of words in the sentence but words will be at same position](#reverse-the-character-of-words-in-the-sentence-but-words-will-be-at-same-position)                                                                                                                           |
+| 15. | [Check strings are rotation of each other](#check-strings-are-rotation-of-each-other)                                                                                                                                                                                                             |
 
 |
 
@@ -452,5 +455,85 @@ function firstNonRepeating(str) {
 }
 
 console.log(firstNonRepeating(str12));
+
+```
+
+## Reverse words of given sentence
+
+```
+let sentence13 = "anyone can achieve anything";
+
+//T(n)=O(n)
+function reverseWordSentence(sentence) {
+  if (!sentence | (typeof sentence !== "string")) {
+    return;
+  }
+
+  return sentence.split(" ").reverse().join(" ");
+}
+
+console.log(reverseWordSentence(sentence13));
+
+```
+
+## Reverse the character of words in the sentence but words will be at same position
+
+```
+let sentence14 = "anyone can achieve anything, try ";
+
+//T(n) = O(n) &  S(n)=O(n)
+function revCharacterOfWords(sentence) {
+  if (!sentence | (typeof sentence !== "string")) {
+    return;
+  }
+
+  const reverseSen = sentence.split("").reverse().join("");
+  const result = reverseSen.split(" ").reverse().join(" ");
+  return result;
+}
+
+console.log(revCharacterOfWords(sentence14));
+
+//T(n)= O(n) & S(n)=O(n). Better than above one
+function revCharacterOfWordsSecond(sentence) {
+  if (!sentence | (typeof sentence !== "string")) {
+    return;
+  }
+
+  const seprateWord = sentence.split(" ").reverse().join(" ");
+  let result = "";
+  for (let word of seprateWord) {
+    const reverseWord = word.split("").reverse().join("");
+    result = result + reverseWord + " ";
+  }
+  return result;
+}
+
+console.log(revCharacterOfWords(sentence14));
+
+//T(n)=O(n) S(n)=O(1)
+function reverseWordsInPlace(sentence) {
+  if (!sentence || typeof sentence !== "string") return;
+
+  let chars = sentence.split("");
+  let start = 0;
+
+  for (let i = 0; i <= chars.length; i++) {
+    if (i === chars.length || chars[i] === " ") {
+      let left = start,
+        right = i - 1;
+      while (left < right) {
+        [chars[left], chars[right]] = [chars[right], chars[left]];
+        left++;
+        right--;
+      }
+      start = i + 1;
+    }
+  }
+
+  return chars.join("");
+}
+
+console.log(reverseWordsInPlace("Anything can achieved by anyone"));
 
 ```
