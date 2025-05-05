@@ -19,6 +19,7 @@
 | 13. | [Reverse words in given Sentence](#reverse-words-of-given-sentence)                                                                                                                                                                                                                               |
 | 14. | [Reverse the character of words in the sentence but words will be at same position](#reverse-the-character-of-words-in-the-sentence-but-words-will-be-at-same-position)                                                                                                                           |
 | 15. | [Check strings are rotation of each other](#check-strings-are-rotation-of-each-other)                                                                                                                                                                                                             |
+| 16. | [Maximum occuring character in given string](#maximum-occuring-character-in-given-string)                                                                                                                                                                                                         |
 
 |
 
@@ -535,5 +536,112 @@ function reverseWordsInPlace(sentence) {
 }
 
 console.log(reverseWordsInPlace("Anything can achieved by anyone"));
+
+```
+
+## Check strings are rotation of each other
+
+```
+const str15A = "saurabh";
+const str15B = "urabhsa";
+
+//Brute force method
+//T(n)=O(n2) ; S(n)=O(n)
+
+function isRotationByBruteForce(str1, str2) {
+  if (!str1 | !str2 | (typeof str1 !== "string") | (typeof str2 !== "string")) {
+    return;
+  }
+  const len1 = str1.length;
+  const len2 = str2.length;
+
+  if (len1 !== len2) {
+    return false;
+  }
+  let temp = str1;
+  for (let i = 0; i < len1; i++) {
+    const firstchar = temp[0];
+    const remainingString = temp.substring(1);
+    const newWord = remainingString + firstchar;
+    if (newWord === str2) {
+      return true;
+    }
+    temp = newWord;
+  }
+  return false;
+}
+
+console.log(isRotationByBruteForce(str15A, str15B));
+
+//KMP algorithm
+//T(n)= O(n), S(n)=O(n)
+function kmpAlgorithm(str1, str2) {
+  const doubleStr = str1 + str1;
+  return doubleStr.includes(str2);
+}
+
+console.log(kmpAlgorithm(str15A, str15B));
+
+```
+
+## Maximum occuring character in given string
+
+```
+function maxOcuringCharacterBruteForce(str) {
+  if (!str | (typeof str !== "string")) {
+    return;
+  }
+
+  let maxOccurNum = 0;
+  let maxOccurChar = "";
+
+  for (let i = 0; i < str.length; i++) {
+    let count = 0;
+    for (let j = 0; j < str.length; j++) {
+      if (str[i] === str[j]) {
+        count++;
+      }
+    }
+
+    if (maxOccurNum < count) {
+      maxOccurChar = str[i];
+      maxOccurNum = count;
+    }
+  }
+  return {
+    maxOccurChar,
+    maxOccurNum,
+  };
+}
+
+console.log(maxOcuringCharacterBruteForce("saurabh"));
+
+// Optimize way using object
+// T(n)= O(n)
+
+function maxOccuringUsingObject(str) {
+  if (!str | (typeof str !== "string")) {
+    return;
+  }
+
+  const obj = {};
+
+  for (let char of str) {
+    obj[char] = (obj[char] | 0) + 1;
+  }
+  let count = 0;
+  let maxOccurChar = "";
+  for (let key in obj) {
+    if (obj[key] > count) {
+      count = obj[key];
+      maxOccurChar = key;
+    }
+  }
+  return {
+    maxOccurChar,
+    count,
+  };
+}
+console.log(maxOccuringUsingObject("saurabh"));
 
 ```

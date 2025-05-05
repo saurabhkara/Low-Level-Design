@@ -523,3 +523,63 @@ function kmpAlgorithm(str1, str2) {
 }
 
 console.log(kmpAlgorithm(str15A, str15B));
+
+// Q. 16 Maximum occuring character in given string
+// Brute force method - T(n)=O(n2)
+
+function maxOcuringCharacterBruteForce(str) {
+  if (!str | (typeof str !== "string")) {
+    return;
+  }
+
+  let maxOccurNum = 0;
+  let maxOccurChar = "";
+
+  for (let i = 0; i < str.length; i++) {
+    let count = 0;
+    for (let j = 0; j < str.length; j++) {
+      if (str[i] === str[j]) {
+        count++;
+      }
+    }
+
+    if (maxOccurNum < count) {
+      maxOccurChar = str[i];
+      maxOccurNum = count;
+    }
+  }
+  return {
+    maxOccurChar,
+    maxOccurNum,
+  };
+}
+
+console.log(maxOcuringCharacterBruteForce("saurabh"));
+
+// Optimize way using object
+// T(n)= O(n)
+
+function maxOccuringUsingObject(str) {
+  if (!str | (typeof str !== "string")) {
+    return;
+  }
+
+  const obj = {};
+
+  for (let char of str) {
+    obj[char] = (obj[char] | 0) + 1;
+  }
+  let count = 0;
+  let maxOccurChar = "";
+  for (let key in obj) {
+    if (obj[key] > count) {
+      count = obj[key];
+      maxOccurChar = key;
+    }
+  }
+  return {
+    maxOccurChar,
+    count,
+  };
+}
+console.log(maxOccuringUsingObject("saurabh"));
