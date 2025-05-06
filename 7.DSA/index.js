@@ -583,3 +583,54 @@ function maxOccuringUsingObject(str) {
   };
 }
 console.log(maxOccuringUsingObject("saurabh"));
+
+// Q. 17 Max and min element of array
+
+function maxMinElement(arr) {
+  if (!arr | !Array.isArray(arr)) {
+    return;
+  }
+
+  let max = -Infinity;
+  let min = Infinity;
+
+  for (let item of arr) {
+    if (item > max) {
+      max = item;
+    }
+
+    if (item < min) {
+      min = item;
+    }
+  }
+  return { max, min };
+}
+console.log(maxMinElement([5, 8, 7, 9, 3, 7, -5, 3, 2, -2, 86]));
+
+// Q.18 Peak element in array
+// A peak element in an array is an element that is greater than both of its adjacent elements.
+
+const arr18 = [2, 4, 6, 75, 5, 96, 5];
+
+function peakElement(arr) {
+  if (!arr | !Array.isArray(arr)) {
+    return;
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+    if (i == 0 && arr[i] > arr[i + 1]) {
+      return i;
+    }
+
+    if (arr[i] > arr[i - 1] && arr[i] > arr[i + 1]) {
+      return i;
+    }
+
+    if (i === arr.length - 1 && arr[i] > arr[i - 1]) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+console.log(peakElement(arr18));

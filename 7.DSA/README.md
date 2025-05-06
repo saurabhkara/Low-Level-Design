@@ -20,6 +20,8 @@
 | 14. | [Reverse the character of words in the sentence but words will be at same position](#reverse-the-character-of-words-in-the-sentence-but-words-will-be-at-same-position)                                                                                                                           |
 | 15. | [Check strings are rotation of each other](#check-strings-are-rotation-of-each-other)                                                                                                                                                                                                             |
 | 16. | [Maximum occuring character in given string](#maximum-occuring-character-in-given-string)                                                                                                                                                                                                         |
+| 17. | [Max and min element of array](#max-and-min-element-of-array)                                                                                                                                                                                                                                     |
+| 18. | [Peak element in array](#peak-element-in-array)                                                                                                                                                                                                                                                   |
 
 |
 
@@ -643,5 +645,60 @@ function maxOccuringUsingObject(str) {
   };
 }
 console.log(maxOccuringUsingObject("saurabh"));
+
+```
+
+## Max and min element of array
+
+```
+function maxMinElement(arr) {
+  if (!arr | !Array.isArray(arr)) {
+    return;
+  }
+
+  let max = -Infinity;
+  let min = Infinity;
+
+  for (let item of arr) {
+    if (item > max) {
+      max = item;
+    }
+
+    if (item < min) {
+      min = item;
+    }
+  }
+  return { max, min };
+}
+console.log(maxMinElement([5, 8, 7, 9, 3, 7, -5, 3, 2, -2, 86]));
+```
+
+## Peak element in array
+
+```
+const arr18 = [2, 4, 6, 75, 5, 96, 5];
+
+function peakElement(arr) {
+  if (!arr | !Array.isArray(arr)) {
+    return;
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+    if (i == 0 && arr[i] > arr[i + 1]) {
+      return i;
+    }
+
+    if (arr[i] > arr[i - 1] && arr[i] > arr[i + 1]) {
+      return i;
+    }
+
+    if (i === arr.length - 1 && arr[i] > arr[i - 1]) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+console.log(peakElement(arr18));
 
 ```
