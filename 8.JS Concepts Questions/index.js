@@ -468,6 +468,23 @@ function calculateOddRepeating(originalArr) {
 
 console.log(calculateOddRepeating(countOriginalArr));
 
+// 34. Write the function that takes an array of objects and keys.
+// And returns a new array sorted based on the name
 
-//34. Write the function that takes an array of objects and keys.
-// And returns a new array sorted based on the value of that key in non-decending order
+const arr34 = [
+  { id: 4, name: "Saurabh" },
+  { id: 3, name: "Ram" },
+  { id: 1, name: "Shyam" },
+  { id: 2, name: "Radha" },
+  { id: 5, name: "Aarti" },
+];
+
+function sortArrofObj(arr) {
+  if (!arr | !Array.isArray(arr)) {
+    return;
+  }
+
+  return arr.sort((a, b) => a.name.localeCompare(b.name));
+}
+
+console.log(sortArrofObj(arr34));

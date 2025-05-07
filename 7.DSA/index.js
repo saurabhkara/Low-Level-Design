@@ -683,3 +683,37 @@ function getMaxElementFromNestArr(arr) {
 }
 
 console.log(getMaxElementFromNestArr(arr20));
+
+// Q.21 Implement a function that takes two sorted arrays and merges them into single sorted array without using
+// inbuilt methods
+
+const sortedArr21A = [2, 5, 8, 16, 96];
+const sortedArr21B = [8, 62, 72, 75];
+
+function mergeSortedArr(arr1, arr2) {
+  if (!arr1 | !arr2 | !Array.isArray(arr1) | !Array.isArray(arr2)) {
+    return;
+  }
+
+  let final = [];
+  let i1 = 0;
+  let j1 = 0;
+  let f1 = 0;
+
+  while (i1 < arr1.length && j1 < arr2.length) {
+    if (arr1[i1] <= arr2[j1]) {
+      final[f1++] = arr1[i1++];
+    } else {
+      final[f1++] = arr2[j1++];
+    }
+  }
+
+  while (i1 < arr1.length) {
+    final[f1++] = arr1[i1++];
+  }
+  while (j1 < arr2.length) {
+    final[f1++] = arr1[j1++];
+  }
+  return final;
+}
+console.log(mergeSortedArr(sortedArr21A, sortedArr21B));
