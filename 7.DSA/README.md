@@ -22,6 +22,8 @@
 | 16. | [Maximum occuring character in given string](#maximum-occuring-character-in-given-string)                                                                                                                                                                                                         |
 | 17. | [Max and min element of array](#max-and-min-element-of-array)                                                                                                                                                                                                                                     |
 | 18. | [Peak element in array](#peak-element-in-array)                                                                                                                                                                                                                                                   |
+| 19. | [Second largest element in array](#second-largest-element-in-array)                                                                                                                                                                                                                               |
+| 20. | [Find max element from nested array](#find-max-element-from-nested-array)                                                                                                                                                                                                                         |
 
 |
 
@@ -651,6 +653,7 @@ console.log(maxOccuringUsingObject("saurabh"));
 ## Max and min element of array
 
 ```
+//T(n)=O(n)
 function maxMinElement(arr) {
   if (!arr | !Array.isArray(arr)) {
     return;
@@ -677,7 +680,7 @@ console.log(maxMinElement([5, 8, 7, 9, 3, 7, -5, 3, 2, -2, 86]));
 
 ```
 const arr18 = [2, 4, 6, 75, 5, 96, 5];
-
+//T(n)=O(n)
 function peakElement(arr) {
   if (!arr | !Array.isArray(arr)) {
     return;
@@ -701,4 +704,57 @@ function peakElement(arr) {
 
 console.log(peakElement(arr18));
 
+```
+
+## Second largest element in array
+
+```
+const arr19 = [8, 9, 6, 7, 5, 2, 3, 4, 1];
+
+function secondLargestElement(arr) {
+  if (!arr | !Array.isArray(arr)) {
+    return;
+  }
+
+  let max = -Infinity;
+  let secondLargest = -Infinity;
+
+  for (let item of arr) {
+    if (item > max) {
+      secondLargest = max;
+      max = item;
+    } else if (item > secondLargest && item < secondLargest) {
+      secondLargest = item;
+    }
+  }
+  return secondLargest;
+}
+
+console.log(secondLargestElement(arr19));
+```
+
+## Find max element from nested array
+
+```
+const arr20 = [7, [8, 5], [89, 65, [36]], 9, 5];
+
+function getMaxElementFromNestArr(arr) {
+  if (!arr) {
+    return;
+  }
+  let max = -Infinity;
+  for (let item of arr) {
+    if (Array.isArray(item)) {
+      const tempMax = getMaxElementFromNestArr(item, max);
+      if (tempMax > max) {
+        max = tempMax;
+      }
+    } else if (item > max) {
+      max = item;
+    }
+  }
+  return max;
+}
+
+console.log(getMaxElementFromNestArr(arr20));
 ```

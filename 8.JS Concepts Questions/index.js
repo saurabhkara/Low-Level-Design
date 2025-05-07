@@ -467,3 +467,7 @@ function calculateOddRepeating(originalArr) {
 }
 
 console.log(calculateOddRepeating(countOriginalArr));
+
+
+//34. Write the function that takes an array of objects and keys.
+// And returns a new array sorted based on the value of that key in non-decending order
