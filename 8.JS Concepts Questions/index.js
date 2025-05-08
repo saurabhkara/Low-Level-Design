@@ -488,3 +488,48 @@ function sortArrofObj(arr) {
 }
 
 console.log(sortArrofObj(arr34));
+
+// 35. Toggle function arguments
+
+function toggleArgument(...args) {
+  let index = 0;
+  return function () {
+    if (index <= args.length) {
+      index = index % args.length;
+    }
+    return args[index++];
+  };
+}
+
+const tfunct = toggleArgument(5, 8, 9, 7, 6);
+console.log(tfunct());
+console.log(tfunct());
+console.log(tfunct());
+console.log(tfunct());
+console.log(tfunct());
+console.log(tfunct());
+console.log(tfunct());
+
+// Q. 36 Longest word ot given sentence
+
+const exampleSentence36 = "Hello my name is saurabh kumar";
+
+function maxLengthWord(sentence) {
+  if (!sentence) {
+    return;
+  }
+
+  let maxWord = "";
+  let temp = "";
+  for (let char of sentence) {
+    if (char === " ") {
+      maxWord = maxWord.length < temp.length ? temp : maxWord;
+      temp = "";
+    } else {
+      temp = temp + char;
+    }
+  }
+  return maxWord;
+}
+
+console.log(maxLengthWord(exampleSentence36));

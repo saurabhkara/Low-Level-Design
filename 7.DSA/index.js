@@ -717,3 +717,27 @@ function mergeSortedArr(arr1, arr2) {
   return final;
 }
 console.log(mergeSortedArr(sortedArr21A, sortedArr21B));
+
+// Q.22 Find count of maximum consecutive 1's in array
+
+let arr22 = [
+  1, 1, 1, 1, 5, 6, 8, 9, 6, 3, 2, 1, 1, 1, 1, 8, 9, 7, 3, 2, 1, 1, 1, 1, 1,
+];
+
+function maximumConsecutiveOne(arr) {
+  if (!arr | !Array.isArray(arr)) {
+    return;
+  }
+  let count = 0;
+  let max = 0;
+  for (let item of arr) {
+    if (item !== 1) {
+      max = count > max ? count : max;
+      count = 0;
+    }
+    count++;
+  }
+  return max;
+}
+
+console.log(maximumConsecutiveOne(arr22));
