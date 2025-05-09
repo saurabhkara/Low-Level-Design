@@ -533,3 +533,117 @@ function maxLengthWord(sentence) {
 }
 
 console.log(maxLengthWord(exampleSentence36));
+
+// Q.37  Print the character to number of times
+
+const charString37 = "abc";
+const countCharacter37 = "123";
+
+// Output should be like abbccc
+
+function printCharacterTimes(str, strCount) {
+  if (!str | !strCount) {
+    return;
+  }
+  let result = "";
+  for (let i = 0; i < str.length; i++) {
+    const count = parseInt(strCount[i]);
+    for (let j = 0; j < count; j++) {
+      result = result + str[i];
+    }
+  }
+  return result;
+}
+
+console.log(printCharacterTimes(charString37, countCharacter37));
+
+// this keyword in JS Questions
+// this keyword is used to refers currently executing object
+
+// Q .38
+
+this.a38 = 15;
+console.log(this);
+
+// Here, this keyword is refering to window object
+
+// Q.39
+// In Example1 function this refers to its immediate parent object
+
+function example1() {
+  console.log(this.a38);
+}
+example1();
+
+//Arrow function does not have their own this, it takes this from outer normal function
+const example1A = () => {
+  console.log(this.a38);
+};
+
+example1A();
+
+// Q.40 this keyword inside object
+
+this.name40 = "testing";
+const user1 = {
+  name40: "Saurabh1",
+  getDetail() {
+    console.log(this.name40);
+  },
+  getDetailArrow: () => {
+    console.log(this.name40);
+  },
+};
+
+user1.getDetail();
+user1.getDetailArrow();
+
+const user2 = {
+  name40: "Saurabh2",
+  childObj: {
+    newName40: "Saurabh K2",
+    getDetail() {
+      console.log("Name :", this.name40, "New Name :", this.newName40);
+    },
+  },
+};
+user2.childObj.getDetail();
+
+// Q .41  Guess the output
+const object = {
+  message: "Hello, World!",
+  getMessage() {
+    const message = "Hello, Earth!";
+    return [this.message, message];
+  },
+};
+
+console.log(object.getMessage());
+
+// Q.42 Guess the output
+
+function example42() {
+  return {
+    name: "Saurabh",
+    ref: this,
+  };
+}
+
+const user42 = example42();
+console.log(user42.ref.name);
+
+// In above question this keyword refers to window object
+
+// Change something in Q.42 to get name as Saurabh
+
+function solution43() {
+  return {
+    name: "Saurabh 43",
+    ref: function () {
+      return this;
+    },
+  };
+}
+
+const sol43 = solution43();
+console.log(sol43.ref().name);
