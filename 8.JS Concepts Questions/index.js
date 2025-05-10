@@ -647,3 +647,81 @@ function solution43() {
 
 const sol43 = solution43();
 console.log(sol43.ref().name);
+
+// Q.43  what will be Output
+
+var length = 4;
+function callback() {
+  console.log(this.length); // What is logged?
+}
+
+const object7 = {
+  length: 5,
+  method() {
+    console.log(arguments);
+    arguments[0]();
+  },
+};
+
+object7.method(callback, 1, 2);
+// Answer : 3
+
+// Q.44 What will be output ??
+const object8 = {
+  name: "Saurabh8",
+  getName() {
+    console.log(this.name);
+  },
+};
+
+setTimeout(object8.getName, 1000);
+
+// undefined,
+// object.getName reference is passed inside setTimeout independently, so name property will no longer accessiable
+
+// Q.45 Change something in above question Q.44 to get printed Saurabh8
+
+setTimeout(function () {
+  object8.getName();
+}, 1000);
+
+//Or bind the function
+
+// Q.45 Create a Object calculator
+
+const calculator = {
+  read() {
+    this.a = +prompt("a=", 0);
+    this.b = +prompt("b=", 0);
+  },
+  multi() {
+    return this.a * this.b;
+  },
+  add() {
+    return this.a + this.b;
+  },
+};
+
+// calculator.read();
+// console.log(calculator.multi());
+// console.log(calculator.multi());
+
+// Q. 46 Implement Calc ==> Calc.add(5).mul(10).sub(5)
+
+const Calc = {
+  a: 0,
+  add(num) {
+    this.a = this.a + num;
+    return this;
+  },
+  print() {
+    console.log(this.a);
+    return this;
+  },
+  mul(num) {
+    this.a = this.a * num;
+    return this;
+  },
+};
+
+Calc.add(5).mul(11).print();
