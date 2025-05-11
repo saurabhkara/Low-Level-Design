@@ -725,3 +725,98 @@ const Calc = {
 };
 
 Calc.add(5).mul(11).print();
+
+//=====================================
+// Hoisting Questions
+
+// Q.47 Guess the Output
+// console.log(y);
+// let y = 10;
+
+// Answer: Reference error
+// Trying to access  let or const variable, will get reference error.
+
+// Q.48 Guess the Output
+
+console.log(y2);
+var y2 = 10;
+
+// Answer :Undefined, var intialized vairable
+
+// Q.49 Guess the Output
+
+y3 = 12;
+console.log(y3);
+var y3;
+
+// Output 12, because before accessing value is assigned to variable.
+
+// Q.50 Guess the Output
+
+// var y5 = 10;
+// let y5 = 10;
+// console.log(y5);
+
+// Uncaught syntax error - variable already declared
+
+// Q.51 Guess the output
+
+function hoistingExample6() {
+  console.log("Value of y6 variable", y6);
+}
+
+console.log("Value of y6 variable", y6);
+var y6 = 52;
+hoistingExample6();
+
+// Q.52 Guess the Output
+
+function hoistingExample7() {
+  y7 = 2;
+}
+hoistingExample7();
+console.log(y7);
+
+//Output : 2, without var keyword it becames global variable
+
+// Q.53 Guess the Output
+
+function hoistingExample8() {
+  var y8 = 8;
+}
+
+hoistingExample8();
+console.log(y8);
+
+// Output: reference error
+// Var is functional scope variable so it cannot be accesed outside of function
+
+// Q.54 Guess the output
+
+function hoistingExample9() {
+  console.log("9A");
+}
+
+hoistingExample9();
+
+function hoistingExample9() {
+  console.log("9B");
+}
+
+hoistingExample9();
+
+//Output : 9B
+// Last function will override
+
+// Q.55 Guess the Output
+
+function hoistingExample10() {
+  y10 = 12;
+  return;
+  function y10() {}
+}
+
+hoistingExample10();
+console.log(y10);
+
+// Ans : 10
