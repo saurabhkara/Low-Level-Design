@@ -26,6 +26,7 @@
 | 20. | [Find max element from nested array](#find-max-element-from-nested-array)                                                                                                                                                                                                                         |
 | 21. | [Implement a function that takes two sorted arrays and merges them into single sorted array without using inbuilt methods](#merge-sorted-arrays)                                                                                                                                                  |
 | 22. | [Find count of maximum consecutive 1's in array](#count-maximum-consecutive-one-in-array)                                                                                                                                                                                                         |
+| 23. | [Write a program to print Hallow Rectangle in JS](#hallow-rectangle)                                                                                                                                                                                                                              |
 
 |
 
@@ -816,5 +817,30 @@ function maximumConsecutiveOne(arr) {
 }
 
 console.log(maximumConsecutiveOne(arr22));
+
+```
+
+## Hallow Rectangle
+
+```
+function hallowRectangle(height, width) {
+  if (!height | !width) {
+    return;
+  }
+  let str = "";
+  for (let j = 0; j < height; j++) {
+    for (let i = 0; i < width; i++) {
+      if ((i === 0) | (j === 0) | (j === height - 1) | (i === width - 1)) {
+        str = str + "* ";
+      } else {
+        str = str + "  ";
+      }
+    }
+    str = str + "\n";
+  }
+  console.log(str);
+}
+
+hallowRectangle(5, 4);
 
 ```

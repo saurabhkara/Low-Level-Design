@@ -741,3 +741,25 @@ function maximumConsecutiveOne(arr) {
 }
 
 console.log(maximumConsecutiveOne(arr22));
+
+// Q.23 Write a program to print Hallow Rectangle in JS
+
+function hallowRectangle(height, width) {
+  if (!height | !width) {
+    return;
+  }
+  let str = "";
+  for (let j = 0; j < height; j++) {
+    for (let i = 0; i < width; i++) {
+      if ((i === 0) | (j === 0) | (j === height - 1) | (i === width - 1)) {
+        str = str + "* ";
+      } else {
+        str = str + "  ";
+      }
+    }
+    str = str + "\n";
+  }
+  console.log(str);
+}
+
+hallowRectangle(5, 4);

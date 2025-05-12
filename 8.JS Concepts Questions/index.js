@@ -924,4 +924,15 @@ let count8 = 0;
 
 // Output: 1 and 0
 
-// Q.64
+// Q.64 Guess the Output
+
+(function immediateA(a) {
+  return (function (b) {
+    console.log(a);
+  })(1);
+})(0);
+
+//==============================================
+//Promises
+
+// Q.65
