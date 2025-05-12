@@ -786,7 +786,7 @@ function hoistingExample8() {
 }
 
 hoistingExample8();
-console.log(y8);
+// console.log(y8);
 
 // Output: reference error
 // Var is functional scope variable so it cannot be accesed outside of function
@@ -816,7 +816,112 @@ function hoistingExample10() {
   function y10() {}
 }
 
-hoistingExample10();
-console.log(y10);
+// hoistingExample10();
+// console.log(y10);
 
 // Ans : 10
+
+// Closure
+
+//Q.56 Guess the output
+
+function outer1() {
+  var a = 10;
+  function inner() {
+    console.log(a);
+  }
+  return inner;
+}
+outer1()();
+
+// Output: 10
+
+// Q.57 Guess the output
+
+function outer2() {
+  var a = 101;
+  function inner() {
+    console.log(a);
+  }
+  return inner;
+}
+
+var close2 = outer2();
+close2();
+
+// Output : 101
+
+// Q.58 Guess the output
+
+function outer3() {
+  function inner() {
+    console.log(a);
+  }
+  var a = 1022;
+  return inner;
+}
+
+var close3 = outer3();
+close3();
+
+// Q.59 Guess the Output
+
+function outest4() {
+  var c = 12;
+  function outer(b) {
+    function inner() {
+      console.log(a, b, c);
+    }
+    let a = 1089;
+    return inner;
+  }
+  return outer;
+}
+
+var close4 = outest4()("Hello Outer");
+close4();
+
+// Q.60  Guess the Output
+function example5() {
+  for (var i = 0; i < 3; i++) {
+    setTimeout(function log() {
+      console.log("#5", i); // What is logged?
+    }, 1000);
+  }
+}
+
+example5();
+
+// Q.61 Guess the output
+var num6 = 10;
+(function () {
+  console.log(num6);
+  var num6 = 202;
+  console.log(num6);
+})();
+
+// Q.62 Create a function that multiply that multiples
+// the arguments passed in this manner multiply(5)(6)(7)
+
+function multiply(a) {
+  return function (b) {
+    return b ? multiply(a * b) : a;
+  };
+}
+
+console.log(multiply(5)(8)());
+
+// Q.63 Guess the output
+
+let count8 = 0;
+(function () {
+  if (count8 === 0) {
+    let count8 = 1;
+    console.log(count8);
+  }
+  console.log(count8);
+})();
+
+// Output: 1 and 0
+
+// Q.64
