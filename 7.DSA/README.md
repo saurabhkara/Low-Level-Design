@@ -27,6 +27,7 @@
 | 21. | [Implement a function that takes two sorted arrays and merges them into single sorted array without using inbuilt methods](#merge-sorted-arrays)                                                                                                                                                  |
 | 22. | [Find count of maximum consecutive 1's in array](#count-maximum-consecutive-one-in-array)                                                                                                                                                                                                         |
 | 23. | [Write a program to print Hallow Rectangle in JS](#hallow-rectangle)                                                                                                                                                                                                                              |
+| 24. | [Inverted Half Pyramid for N=5](#inverted-pyramid)                                                                                                                                                                                                                                                |
 
 |
 
@@ -842,5 +843,24 @@ function hallowRectangle(height, width) {
 }
 
 hallowRectangle(5, 4);
+
+```
+
+## Inverted pyramid
+
+```
+function halfInvertedPyramid() {
+  let str = "";
+
+  for (let i = 0; i < 5; i++) {
+    for (let j = 0; j < 5 - i; j++) {
+      str = str + "* ";
+    }
+    str += "\n";
+  }
+  console.log(str);
+}
+
+halfInvertedPyramid(5);
 
 ```

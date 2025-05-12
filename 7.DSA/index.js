@@ -763,3 +763,21 @@ function hallowRectangle(height, width) {
 }
 
 hallowRectangle(5, 4);
+
+// Q.24 Inverted Half Pyramid for N=5
+
+function halfInvertedPyramid() {
+  let str = "";
+
+  for (let i = 0; i < 5; i++) {
+    for (let j = 0; j < 5 - i; j++) {
+      str = str + "* ";
+    }
+    str += "\n";
+  }
+  console.log(str);
+}
+
+halfInvertedPyramid(5);
+
+// Q.25 Half Pyramid for N=5
