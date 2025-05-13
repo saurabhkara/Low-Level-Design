@@ -28,6 +28,8 @@
 | 22. | [Find count of maximum consecutive 1's in array](#count-maximum-consecutive-one-in-array)                                                                                                                                                                                                         |
 | 23. | [Write a program to print Hallow Rectangle in JS](#hallow-rectangle)                                                                                                                                                                                                                              |
 | 24. | [Inverted Half Pyramid for N=5](#inverted-pyramid)                                                                                                                                                                                                                                                |
+| 25. | [Half Pyramid for N=5](#half-pyramid)                                                                                                                                                                                                                                                             |
+| 26. | [Half Pyramid using Numbers](#half-pyramid-using-number)                                                                                                                                                                                                                                          |
 
 |
 
@@ -862,5 +864,49 @@ function halfInvertedPyramid() {
 }
 
 halfInvertedPyramid(5);
+
+```
+
+## Half Pyramid
+
+```
+function halfPyramidUsingNumber(num) {
+  let result = "";
+  for (let i = 1; i <= num; i++) {
+    for (let j = 1; j <= i; j++) {
+      result += i + " ";
+    }
+    result += "\n";
+  }
+  return result;
+}
+console.log(halfPyramidUsingNumber(5));
+
+```
+
+## Half pyramid using number
+
+```
+
+1
+22
+333
+4444
+55555
+
+
+
+function halfPyramidUsingNumber() {
+  let result = "";
+  for (let i = 1; i <= 5; i++) {
+    for (let j = 1; j <= i; j++) {
+      result = result + i + " ";
+    }
+    result += "\n";
+  }
+  return result;
+}
+
+console.log(halfPyramidUsingNumber());
 
 ```

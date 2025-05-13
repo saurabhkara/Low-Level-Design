@@ -781,3 +781,41 @@ function halfInvertedPyramid() {
 halfInvertedPyramid(5);
 
 // Q.25 Half Pyramid for N=5
+
+function halfPyramid() {
+  let result = "";
+
+  for (let i = 1; i <= 5; i++) {
+    for (let j = 5; j > 0; j--) {
+      if (j <= i) {
+        result = result + "* ";
+      } else {
+        result = result + "  ";
+      }
+    }
+    result = result + "\n";
+  }
+  return result;
+}
+
+console.log(halfPyramid());
+
+// Q.26 Half Pyramid using Numbers
+// 1
+// 22
+// 333
+// 4444
+// 55555
+
+function halfPyramidUsingNumber() {
+  let result = "";
+  for (let i = 1; i <= 5; i++) {
+    for (let j = 1; j <= i; j++) {
+      result = result + i + " ";
+    }
+    result += "\n";
+  }
+  return result;
+}
+
+console.log(halfPyramidUsingNumber());
