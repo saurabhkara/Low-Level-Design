@@ -1048,3 +1048,156 @@ Promise.allSettled([p1, p2, p3])
   });
 
 // Promise.allSettled([]) never goes in catch block either all promise instance resolved or rejected
+
+// Q.65 Guess the output
+
+console.log("Start65");
+function importantAction65(username) {
+  console.log("ImportantMessage65");
+  setTimeout(() => {
+    return `Send message to ${username}`;
+  });
+}
+
+const message65 = importantAction65("Saurabh65");
+console.log(message65);
+console.log("Stop65");
+
+//Output : Start65, ImportantMessage65, undefined and Stop65
+
+// Q.66 Guess the Output
+console.log("Start66");
+
+function importAction2(username, cb) {
+  console.log("Important Message66");
+  setTimeout(() => {
+    cb(`Sent message66 to ${username}`);
+  }, 0);
+  return "ss66";
+}
+
+const message2 = importAction2("Saurabh66", function (msg) {
+  console.log(msg);
+});
+console.log(message2);
+console.log("Stop66");
+
+//Output : Start66, Important Message66, ss66,Stop66 and Sent message66 to Saurabh66
+
+// Q.67 Guess the Output
+
+console.log("Start67");
+const sub = new Promise((resolve, reject) => {
+  console.log("Intermediate 67");
+  setTimeout(() => {
+    const result = true;
+    if (result) resolve("Resolved67");
+    else reject(new Error("Rejected67"));
+  }, 200);
+});
+
+sub
+  .then((res) => {
+    console.log("67 then=>", res);
+  })
+  .catch((err) => {
+    console.log("67 catch=>", err);
+  });
+console.log("Stop67");
+
+//Output : Start67, Intermediate 67, Resolved67 and 67 then =>Resolved67
+
+// Q.68 Guess the output
+
+console.log("Start68");
+Promise.resolve("Resolved68").then((res) => {
+  console.log("Resolved68 then=>", res);
+});
+console.log("Stop68");
+
+//Output: Start68, Stop68 and Resolved68 then=> Resolved68
+
+//Q.69 Guess the output
+
+console.log("Start69");
+const pi69 = new Promise((resolve, reject) => {
+  console.log("p69 inside");
+  resolve("P69 resolved");
+});
+pi69
+  .then((res) => {
+    console.log("69 then=>", res);
+  })
+  .catch((err) => {
+    console.log("69 catch=>", err);
+  });
+console.log("Stop69");
+
+//Output: Start69, p69 inside, Stop69 and 69 then=>P69 resolved
+
+// Q.70 Guess the output
+
+console.log("Start70");
+const pi6 = new Promise((resolve, reject) => {
+  console.log("P70 inside 1");
+  resolve("70 resolved");
+  console.log("P70 inside 2");
+});
+
+pi6
+  .then((res) => {
+    console.log("P70 then", res);
+  })
+  .catch((err) => {
+    console.log("P70atch=>", err);
+  });
+
+console.log("Stop 70");
+
+//Output: Start70, P70 inside1, P70 inside2, Stop70 and P70 then 70 resolved
+
+// Q.71 Guess the output
+
+console.log("Start71");
+const fun = () =>
+  new Promise((resolve, reject) => {
+    console.log("P71 inside");
+    resolve("Success71");
+  });
+
+console.log("P71 Middle");
+fun().then((res) => {
+  console.log("P71 then=>", res);
+});
+
+console.log("End71");
+
+//Output: Start71, P71 Middle, P71 inside,  End71 and P71 then Success71
+
+// Q.72 Guess the Output
+
+function job72() {
+  return new Promise((resolve, reject) => {
+    reject();
+  });
+}
+
+const pi72 = job72();
+pi72
+  .then(() => {
+    console.log("P72 Success 1");
+  })
+  .then(() => {
+    console.log("P72 Success 2");
+  })
+  .then(() => {
+    console.log(" P72 Sucess 3 ");
+  })
+  .catch(() => {
+    console.log("P72 Error 1");
+  })
+  .then(() => {
+    console.log("P72 Success 4");
+  });
+
+//Output: P72 Error 1 and P72 Success 4
