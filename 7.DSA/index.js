@@ -819,3 +819,63 @@ function halfPyramidUsingNumber() {
 }
 
 console.log(halfPyramidUsingNumber());
+
+// Q.27 Flyod's triangle
+// 1
+// 2 3
+// 4 5 6
+// 7 8 9 10
+// 11 12 13 14 15
+
+function flyodsTriangle(row) {
+  if (!row) {
+    return;
+  }
+
+  let count = 1;
+  let result = "";
+  for (let i = 1; i <= row; i++) {
+    for (let j = 1; j <= i; j++) {
+      result = result + count + " ";
+
+      count++;
+    }
+    result += "\n";
+  }
+  console.log(result);
+}
+
+flyodsTriangle(5);
+
+// Q.28 Butterfly Pattern
+
+function butterFlyPattern(num) {
+  let result = "";
+  for (let i = 1; i <= num; i++) {
+    for (let j = 1; j <= i; j++) {
+      result = result + "*" + " ";
+    }
+    for (let j = 1; j <= 2 * (num - i); j++) {
+      result = result + "  ";
+    }
+    for (let j = 1; j <= i; j++) {
+      result = result + "*" + " ";
+    }
+    result = result + "\n";
+  }
+  for (let i = num; i >= 1; i--) {
+    for (let j = 1; j <= i; j++) {
+      result = result + "*" + " ";
+    }
+    for (let j = 1; j <= 2 * (num - i); j++) {
+      result = result + "  ";
+    }
+    for (let j = 1; j <= i; j++) {
+      result = result + "*" + " ";
+    }
+    result = result + "\n";
+  }
+  console.log(result);
+}
+
+butterFlyPattern(5);
