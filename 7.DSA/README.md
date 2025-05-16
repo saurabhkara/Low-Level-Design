@@ -32,6 +32,9 @@
 | 26. | [Half Pyramid using Numbers](#half-pyramid-using-number)                                                                                                                                                                                                                                          |
 | 27. | [Flyod's Triangle](#flyods-triangle)                                                                                                                                                                                                                                                              |
 | 28. | [Butterfly pattern](#butterfly-pattern)                                                                                                                                                                                                                                                           |
+| 29. | [Print Inverted Pattern](#print-inverted-pattern)                                                                                                                                                                                                                                                 |
+| 30. | [Print 0-1 Pattern for N=5](#print-0-1-pattern)                                                                                                                                                                                                                                                   |
+| 31. | [Print Rhombus](#print-rhombus)                                                                                                                                                                                                                                                                   |
 
 |
 
@@ -971,5 +974,95 @@ function butterFlyPattern(num) {
 }
 
 butterFlyPattern(5);
+
+```
+
+## Print Inverted Pattern
+
+```
+
+1 2 3 4 5
+1 2 3 4
+1 2 3
+1 2
+1
+
+
+function invertedPattern(num) {
+  if (!num) {
+    return;
+  }
+
+  let result = "";
+
+  for (let i = num; i >= 1; i--) {
+    for (let j = 1; j <= i; j++) {
+      result += j + " ";
+    }
+    result = result + "\n";
+  }
+  return result;
+}
+
+console.log(invertedPattern(5));
+
+```
+
+## Print 0-1 Pattern
+
+```
+1
+0 1
+1 0 1
+0 1 0 1
+1 0 1 0 1
+
+
+function zeroOnePaterrn(num) {
+  let result = "";
+
+  for (let i = 1; i <= num; i++) {
+    for (let j = 1; j <= i; j++) {
+      if ((i + j) % 2 == 0) {
+        result += 0 + " ";
+      } else {
+        result = result + 1 + " ";
+      }
+    }
+    result = result + "\n";
+  }
+
+  return result;
+}
+
+console.log(zeroOnePaterrn(5));
+
+```
+
+## Print Rhombus
+
+```
+          * * * * *
+        * * * * *
+      * * * * *
+    * * * * *
+  * * * * *
+
+
+  function printRhombus(num) {
+  let result = "";
+
+  for (let i = num; i >= 1; i--) {
+    for (let j = 1; j <= i; j++) {
+      result += "  ";
+    }
+    for (let j = 1; j <= num; j++) {
+      result += "* ";
+    }
+
+    result += "\n";
+  }
+  return result;
+}
 
 ```
