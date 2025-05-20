@@ -957,3 +957,61 @@ function printRhombus(num) {
 }
 
 console.log(printRhombus(5));
+
+// Q.32 Print this number pattern
+//    1
+//   1 2
+//  1 2 3
+// 1 2 3 4
+//1 2 3 4 5
+
+function printPyramid(num) {
+  if (!num) {
+    return;
+  }
+
+  let result = "";
+
+  for (let i = 1; i <= num; i++) {
+    for (let j = num; j >= i; j--) {
+      result = result + " ";
+    }
+    for (let j = 1; j <= i; j++) {
+      result = result + j + " ";
+    }
+    result = result + "\n";
+  }
+  return result;
+}
+
+console.log(printPyramid(5));
+
+// Q.33 Print Palindromic Pattern
+
+//   1
+//  212
+// 32123
+//4321234
+
+function palindromicPattern(num) {
+  if (!num) {
+    return;
+  }
+
+  let result = "";
+  for (let i = 1; i <= num; i++) {
+    for (let j = i; j <= num; j++) {
+      result = result + " ";
+    }
+    for (let j = i; j > 1; j--) {
+      result = result + j;
+    }
+    for (j = 1; j <= i; j++) {
+      result = result + j;
+    }
+    result = result + "\n";
+  }
+  return result;
+}
+
+console.log(palindromicPattern(5));
