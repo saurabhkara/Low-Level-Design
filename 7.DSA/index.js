@@ -1015,3 +1015,30 @@ function palindromicPattern(num) {
 }
 
 console.log(palindromicPattern(5));
+
+// Q.34 Print star pattern
+
+function starPattern(num) {
+  let result = "";
+  for (let i = 0; i < num; i++) {
+    for (let j = 0; j < num - i; j++) {
+      result = result + " ";
+    }
+    for (let j = 0; j <= i; j++) {
+      result = result + "* ";
+    }
+    result = result + "\n";
+  }
+  for (let i = num; i >= 0; i--) {
+    for (let j = 0; j < num - i; j++) {
+      result = result + " ";
+    }
+    for (let j = 0; j <= i; j++) {
+      result = result + "* ";
+    }
+    result = result + "\n";
+  }
+  console.log(result);
+}
+
+starPattern(5);
