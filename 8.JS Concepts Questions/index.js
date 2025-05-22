@@ -1201,3 +1201,199 @@ pi72
   });
 
 //Output: P72 Error 1 and P72 Success 4
+
+// Q.73 Write Polyfll for map method
+
+Array.prototype.myMap = function (cb) {
+  if (Array.isArray(!this)) {
+    return;
+  }
+  let result = [];
+  for (let i = 0; i < this.length; i++) {
+    const item = cb(this[i], i, this);
+    result[i] = item;
+  }
+
+  return result;
+};
+
+const arr73 = [5, 7, 9, 6];
+
+const res73 = arr73.myMap((item) => item + 10);
+console.log(res73);
+
+// Q.74 Polyfill for Filter method
+
+Array.prototype.myFilter = function (cb) {
+  if (!Array.isArray(this)) {
+    return;
+  }
+  let result = [];
+  for (let i = 0; i < this.length; i++) {
+    const flag = cb(this[i], i, this);
+    if (flag) {
+      const len = result.length;
+      result[len] = this[i];
+    }
+  }
+  return result;
+};
+
+const arr74 = [8, 4, 5, 3, 1];
+
+const res74 = arr74.myFilter((item, index) => item > 5);
+console.log("res74", res74);
+
+// Q.75 Polyfill for reduce method
+
+Array.prototype.myReduce = function (cb, acc) {
+  if (!Array.isArray(this)) {
+    return;
+  }
+
+  for (let i = 0; i < this.length; i++) {
+    const accV = acc === "undefined" ? this[i] : acc;
+    const currentReturnVal = cb(accV, this[i], i, this);
+    acc = currentReturnVal;
+  }
+
+  return acc;
+};
+
+const arr75 = [5, 7, 6, 8];
+const res75 = arr75.myReduce((acc, item, index) => acc + item, 0);
+console.log("res75", res75);
+
+// Q.76 Polyfill for Once
+
+function myOnce(cb) {
+  let calledFlag = false;
+  return function (...args) {
+    if (calledFlag) {
+      return;
+    } else {
+      cb(...args);
+      calledFlag = true;
+    }
+  };
+}
+
+function example76() {
+  console.log("Method called");
+}
+const once = myOnce(example76);
+once();
+once();
+once();
+
+// Q.77 Polyfill for call method
+
+Function.prototype.myCall = function (context, ...args) {
+  if (typeof this !== "function") {
+    return;
+  }
+
+  if (context) {
+    context.cb = this;
+    context.cb(...args);
+  } else {
+    let obj = {};
+    obj.cb = this;
+    obj.cb(...args);
+  }
+};
+
+function printName77(marks) {
+  console.log("Name77", this.name, marks);
+}
+
+const obj77 = {
+  name: "Saurabh77",
+};
+
+printName77.myCall(obj77, 80);
+printName77.myCall(null, 77);
+
+// Q.78  Polyfill for Apply method
+
+Function.prototype.myApply = function (context, args = []) {
+  if (context) {
+    context.cb = this;
+    context.cb(...args);
+  } else {
+    const obj = {};
+    obj.cb = this;
+    obj.cb(...args);
+  }
+};
+
+const obj78 = {
+  name: "Saurabh78",
+};
+
+printName77.myApply(obj78, [96]);
+printName77.myApply(obj78);
+
+// Q.79 Polyfill for Bind method
+
+Function.prototype.myBind = function (context, ...args1) {
+  const obj = {};
+  const localThis = this;
+  return function (...args2) {
+    if (context) {
+      context.cb = localThis;
+      context.cb(...args1, ...args2);
+    } else {
+      obj.cb = localThis;
+      obj.cb(...args1, ...args2);
+    }
+  };
+};
+
+const obj79 = {
+  name: "Saurabh",
+};
+
+function callFunc79(marks, add) {
+  console.log("call79", this.name, marks, add);
+}
+
+const resBind = callFunc79.myBind(obj79, 80);
+resBind("Arrah");
+
+// Q.80 Polyfill for find method
+
+Array.prototype.myFind = function (cb) {
+  if (!Array.isArray(this)) {
+    return;
+  }
+
+  for (let i = 0; i < this.length; i++) {
+    const res = cb(this[i], i, this);
+    if (res) {
+      return this[i];
+    }
+  }
+};
+
+const arr80 = [8, 8, 9, 5, 2];
+const res80 = arr80.find((item) => item === 9);
+console.log("res80", res80);
+
+// Q.81 Polyfill for some method
+
+Array.prototype.mySome = function (cb) {
+  if (!Array.isArray(this)) {
+    return;
+  }
+
+  for (let i = 0; i < this.length; i++) {
+    const returnV = cb(this[i], i, this);
+    if (returnV) return returnV;
+  }
+  return false;
+};
+
+const arr81 = [8, 9, 7, 5, 40];
+const res81 = arr81.some((item) => item > 30);
+console.log(res81);
