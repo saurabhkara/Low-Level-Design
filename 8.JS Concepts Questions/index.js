@@ -1397,3 +1397,27 @@ Array.prototype.mySome = function (cb) {
 const arr81 = [8, 9, 7, 5, 40];
 const res81 = arr81.some((item) => item > 30);
 console.log(res81);
+
+// Q.82 Polyfill for every method
+
+Array.prototype.myEvery = function (cb) {
+  if (!Array.isArray(this)) {
+    return;
+  }
+
+  for (let i = 0; i < this.length; i++) {
+    if (!cb(this[i], i, this)) {
+      return false;
+    }
+  }
+  return true;
+};
+
+// Q.83 What is generator function ??
+
+//A generator function in JavaScript is a special type of function that allows you to pause and resume its execution.
+//This means it can produce a sequence of values over time, instead of computing them all at once and returning them in a single value like a regular function.
+
+// Advantange of using generator function
+// Lazy Loading(Run only when you needed)
+// Memory efficient
