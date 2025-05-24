@@ -38,6 +38,10 @@
 | 32. | [Print Number Pyramid](#print-pyramid)                                                                                                                                                                                                                                                            |
 | 33. | [Print Palindromic Pattern](#print-palindromic-pattern)                                                                                                                                                                                                                                           |
 | 34. | [Print star pattern](#print-star-pattern)                                                                                                                                                                                                                                                         |
+| 35. | [How do you check if an element exist in array?](#how-do-you-check-if-an-element-exist-in-array)                                                                                                                                                                                                  |
+| 36. | [Check element exist and return array index?](#check-element-exist-and-return-array-index)                                                                                                                                                                                                        |
+| 37. | [Shallow copy and Deep Copy of array](#shallow-copy-and-deep-copy-of-array)                                                                                                                                                                                                                       |
+| 38. | [Find pivot element in array](#find-pivot-element-in-array)                                                                                                                                                                                                                                       |
 
 |
 
@@ -1175,3 +1179,87 @@ function starPattern(num) {
 starPattern(5);
 
 ```
+
+## How do you check if an element exist in array?
+
+```
+const arr35 = [8, 5, 6, 7, 6, 4, 3, 12];
+function checkElementExist(arr, element) {
+  if (!Array.isArray(arr) | !element) {
+    return;
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === element) {
+      return true;
+    }
+  }
+  return false;
+}
+
+console.log(checkElementExist(arr35, 8));
+
+T(n)=O(n)
+Javascript includes() inbuilt method can be used to find element exist in array
+inclusdes() returns true if element is present in array else false, it works for string too.
+
+```
+
+## Check element exist and return array index?
+
+```
+const arr36 = [8, 86, 63, 88, 56, 35, 85];
+function returnIndex(arr, element) {
+  if (!Array.isArray(arr) | (typeof element !== "number")) {
+    return;
+  }
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === element) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+console.log(returnIndex(arr36, 85));
+```
+
+## Shallow copy and Deep Copy of array
+
+```
+
+const arr37 = [87, 65, 25, 20, 21, 10, 32];
+const shallowCopyArr = arr37;
+const deepCopyArr = [...arr37];
+Shallow Copy stores the references of objects to the original memory address.
+Deep copy stores the copy of the original object to the new memory address.
+
+```
+
+## Find pivot element in array
+
+```
+const arr38 = [1, 7, 3, 6, 5, 6];
+
+function pivotElement(arr) {
+  if (!Array.isArray(arr)) {
+    return;
+  }
+  const arrLen = arr.length;
+  for (i = 0; i < arr.length; i++) {
+    if (arr[0] > arr[i] && i == 0) {
+      return i;
+    } else if (arr[arrLen - 1] > arr[arrLen - 2] && i === arrLen - 1) {
+      return i;
+    } else if (arr[i] > arr[i - 1] && arr[i] > arr[i + 1]) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+console.log(pivotElement(arr38));
+
+```
+
+//https://docs.google.com/document/d/1hI4D_1CaxDWgf_mNHH0-5A7FBwFaFimJITEK-ggFimo/mobilebasic
