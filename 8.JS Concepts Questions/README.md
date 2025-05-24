@@ -25,6 +25,10 @@
 | 23. | [How to check if a string contains a substring?](#23-how-do-you-check-whether-a-string-contains-a-substring)                            |
 | 24. | [Nested conditional (ternary) operator](#24-nested-conditional-operator)                                                                |
 | 25. | [Iterable in Objects using Symbol.iterator](#25-iterable-in-objects)                                                                    |
+| 26. | [Deboucing](#26-deboucing)                                                                                                              |
+| 27. | [Throatling](#27-throatling)                                                                                                            |
+| 28. | [Flattern Array](#28-flattern-array)                                                                                                    |
+| 29. | [Flattern object](#28.flattern-object)                                                                                                  |
 
 ### 1. Prototype Chaining
 
@@ -351,4 +355,117 @@ const objIterator = obj25[Symbol.iterator]();
 console.log(objIterator.next());
 console.log(objIterator.next());
 console.log(objIterator.next());
+```
+
+### 26. Deboucing
+
+```js
+function ConsoleName(name) {
+  console.log(name, " is called method");
+}
+
+function debounceMethod(func) {
+  let setTimeoutId;
+  return function (name) {
+    if (setTimeoutId) {
+      clearTimeout(setTimeoutId);
+    }
+    setTimeoutId = setTimeout(() => {
+      func(name);
+    }, 2000);
+  };
+}
+
+const debouncef = debounceMethod(ConsoleName);
+debouncef("Saurabh");
+debouncef("Ashwini");
+debouncef("kumar");
+```
+
+### 27. Throatling
+
+```js
+function throatling(func, delay) {
+  let timeId = null;
+  return function (...args) {
+    if (timeId !== null) {
+      return;
+    }
+    timeId = setTimeout(() => {
+      func(...args);
+      timeId = null;
+    }, delay);
+  };
+}
+
+const throatFunc = throatling(ConsoleName, 500);
+
+console.log(throatFunc("Saurabh is calling throttling"));
+console.log(throatFunc("Saurabh is calling throattling"));
+console.log(throatFunc("Saurabh is calling"));
+```
+
+### 28. Flattern Array
+
+```js
+const arr28 = [5, [6, 8, 7], [3, 1, 6, [0, 1]]];
+
+function flatternArray(arr) {
+  if (!Array.isArray(arr)) {
+    return;
+  }
+  const result = [];
+
+  for (let item of arr) {
+    if (!Array.isArray(item)) {
+      let length = result.length;
+      result[length] = item;
+    } else {
+      const subResult = flatternArray(item);
+      for (let inItem of subResult) {
+        let length = result.length;
+        result[length] = inItem;
+      }
+    }
+  }
+
+  return result;
+}
+
+console.log(flatternArray(arr28));
+```
+
+### 28. flattern object
+
+```js
+const obj28 = {
+  name: "Saurabh",
+  address: {
+    street: 456,
+    City: "Ara",
+    State: "Bihar",
+  },
+};
+
+function flatternObj(obj, name) {
+  if (!obj || typeof obj !== "object" || Array.isArray(obj)) {
+    return "invalid";
+  }
+
+  const result = {};
+
+  for (let key in obj) {
+    if (typeof obj[key] !== "object") {
+      result[`${name}${key}`] = obj[key];
+    } else {
+      const subObj = flatternObj(obj[key], `${key}_`);
+      for (let prop in subObj) {
+        result[`${name}${prop}`] = subObj[prop];
+      }
+    }
+  }
+  return result;
+}
+
+console.log(flatternObj(obj28, ""));
 ```
