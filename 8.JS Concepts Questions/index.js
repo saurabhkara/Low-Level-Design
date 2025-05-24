@@ -1421,3 +1421,12 @@ Array.prototype.myEvery = function (cb) {
 // Advantange of using generator function
 // Lazy Loading(Run only when you needed)
 // Memory efficient
+
+function* generatorFun() {
+  yield 10;
+  yield 15;
+}
+
+const iterator = generatorFun();
+console.log(iterator.next());
+console.log(iterator.next());
