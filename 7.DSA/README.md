@@ -42,6 +42,7 @@
 | 36. | [Check element exist and return array index?](#check-element-exist-and-return-array-index)                                                                                                                                                                                                        |
 | 37. | [Shallow copy and Deep Copy of array](#shallow-copy-and-deep-copy-of-array)                                                                                                                                                                                                                       |
 | 38. | [Find pivot element in array](#find-pivot-element-in-array)                                                                                                                                                                                                                                       |
+| 39. | [Find the index of first occurance in string](#find-the-index-of-first-occurrence-in-a-string)                                                                                                                                                                                                    |
 
 |
 
@@ -1260,6 +1261,32 @@ function pivotElement(arr) {
 
 console.log(pivotElement(arr38));
 
+```
+
+## Find the index of first occurrence in a string
+
+```
+const str39 = "saurabhkumar";
+```
+
+```
+function firstOccurance(str, char) {
+  if (!str | !char | (typeof str !== "string") | (typeof char !== "string")) {
+    return;
+  }
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === char) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+console.log(firstOccurance(str39, "a"));
+```
+
+```
+console.log(str39.indexOf("a"));
 ```
 
 //https://docs.google.com/document/d/1hI4D_1CaxDWgf_mNHH0-5A7FBwFaFimJITEK-ggFimo/mobilebasic

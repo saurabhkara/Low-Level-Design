@@ -1115,3 +1115,23 @@ function pivotElement(arr) {
 }
 
 console.log(pivotElement(arr38));
+
+// Q.39 Find the index of first occurance in string
+
+const str39 = "saurabhkumar";
+
+function firstOccurance(str, char) {
+  if (!str | !char | (typeof str !== "string") | (typeof char !== "string")) {
+    return;
+  }
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === char) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+console.log(firstOccurance(str39, "a"));
+
+console.log(str39.indexOf("a"));
