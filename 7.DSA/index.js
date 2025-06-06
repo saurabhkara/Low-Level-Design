@@ -1135,3 +1135,71 @@ function firstOccurance(str, char) {
 console.log(firstOccurance(str39, "a"));
 
 console.log(str39.indexOf("a"));
+
+// Q.40 Find the index of first occurance of given word in a string
+
+const str40 = "Yes you can do it. saurabh you are best saurabh";
+function firstOccuranceOfWord(str, word) {
+  const len1 = str1.length;
+  const len2 = word.length;
+
+  for (let i = 0; i < len1 - len2 + 1; i++) {
+    const subStr = str.substring(i, i + len2);
+    if (subStr === word) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+console.log(firstOccuranceOfWord(str40, "saurabh"));
+
+// Q.41 Reverse the string without using inbuilt method
+
+const str41 = "saurabh";
+
+function reverseStringWithoutInbuild(str) {
+  if (!str | (typeof str !== "string")) {
+    return -1;
+  }
+
+  let result = "";
+  for (let i = str.length - 1; i >= 0; i--) {
+    result = result + str[i];
+  }
+  return result;
+}
+
+console.log(reverseStringWithoutInbuild(str41));
+
+// Q.42 Longest common prefix in array of string
+
+const arr42 = ["RamaRama", "Rama", "Ram"];
+
+function longestCommonPrefix(arr) {
+  if (!Array.isArray(arr)) {
+    return;
+  }
+
+  let result = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    result = findCommonPrefix(arr[i], result);
+  }
+
+  return result;
+}
+
+function findCommonPrefix(str1, str2) {
+  let commonSubSring = "";
+  const length1 = str1.length;
+  const length2 = str2.length;
+
+  for (let i = 0; i < length1; i++) {
+    if (str1[i] !== str2[i]) {
+      break;
+    }
+    commonSubSring += str1[i];
+  }
+  return commonSubSring;
+}
+console.log(longestCommonPrefix(arr42));

@@ -42,7 +42,9 @@
 | 36. | [Check element exist and return array index?](#check-element-exist-and-return-array-index)                                                                                                                                                                                                        |
 | 37. | [Shallow copy and Deep Copy of array](#shallow-copy-and-deep-copy-of-array)                                                                                                                                                                                                                       |
 | 38. | [Find pivot element in array](#find-pivot-element-in-array)                                                                                                                                                                                                                                       |
-| 39. | [Find the index of first occurance in string](#find-the-index-of-first-occurrence-in-a-string)                                                                                                                                                                                                    |
+| 39. | [Find the index of first occurrence of given character in a string](#find-the-index-of-first-occurrence-of-given-character-in-a-string)                                                                                                                                                           |
+| 40. | [Find the index of first occurrence of a given word in a sentence](#find-the-index-of-first-occurrence-of-a-given-word-in-a-sentence)                                                                                                                                                             |
+| 41. | [Longest common prefix in array of string](#longest-common-prefix-in-array-of-string)                                                                                                                                                                                                             |
 
 |
 
@@ -1263,7 +1265,7 @@ console.log(pivotElement(arr38));
 
 ```
 
-## Find the index of first occurrence in a string
+## Find the index of first occurrence of given character in a string
 
 ```
 const str39 = "saurabhkumar";
@@ -1287,6 +1289,62 @@ console.log(firstOccurance(str39, "a"));
 
 ```
 console.log(str39.indexOf("a"));
+```
+
+## Find the index of first occurrence of a given word in a sentence
+
+```
+const str40 = "Yes you can do it. saurabh you are best saurabh";
+function firstOccuranceOfWord(str, word) {
+  const len1 = str1.length;
+  const len2 = word.length;
+
+  for (let i = 0; i < len1 - len2 + 1; i++) {
+    const subStr = str.substring(i, i + len2);
+    if (subStr === word) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+console.log(firstOccuranceOfWord(str40, "saurabh"));
+
+```
+
+## Longest common prefix in array of string
+
+```
+const arr42 = ["RamaRama", "Rama", "Ram"];
+
+function longestCommonPrefix(arr) {
+  if (!Array.isArray(arr)) {
+    return;
+  }
+
+  let result = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    result = findCommonPrefix(arr[i], result);
+  }
+
+  return result;
+}
+
+function findCommonPrefix(str1, str2) {
+  let commonSubSring = "";
+  const length1 = str1.length;
+  const length2 = str2.length;
+
+  for (let i = 0; i < length1; i++) {
+    if (str1[i] !== str2[i]) {
+      break;
+    }
+    commonSubSring += str1[i];
+  }
+  return commonSubSring;
+}
+console.log(longestCommonPrefix(arr42));
+
 ```
 
 //https://docs.google.com/document/d/1hI4D_1CaxDWgf_mNHH0-5A7FBwFaFimJITEK-ggFimo/mobilebasic
