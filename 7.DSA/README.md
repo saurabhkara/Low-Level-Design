@@ -45,8 +45,7 @@
 | 39. | [Find the index of first occurrence of given character in a string](#find-the-index-of-first-occurrence-of-given-character-in-a-string)                                                                                                                                                           |
 | 40. | [Find the index of first occurrence of a given word in a sentence](#find-the-index-of-first-occurrence-of-a-given-word-in-a-sentence)                                                                                                                                                             |
 | 41. | [Longest common prefix in array of string](#longest-common-prefix-in-array-of-string)                                                                                                                                                                                                             |
-
-|
+| 42. | [Length of last word in string](#length-of-last-word-in-string)                                                                                                                                                                                                                                   |
 
 ## A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters
 
@@ -1344,6 +1343,49 @@ function findCommonPrefix(str1, str2) {
   return commonSubSring;
 }
 console.log(longestCommonPrefix(arr42));
+
+```
+
+## Length of last word in string
+
+```
+const str43 =
+  "Saurabh is best javascript developer, i can do hell alot of things";
+
+function lastWordLength(str) {
+  if (!str | (typeof str !== "string")) {
+    return;
+  }
+  const arrStr = str.split(" ");
+  const lastPosition = arrStr.length;
+  const lastWordLength = arrStr[lastPosition - 1];
+  return lastWordLength.length;
+}
+
+console.log(lastWordLength(str43));
+
+```
+
+```
+// without using inbuilt method
+
+function lastWordLengthWithoutInBuiltMethod(str) {
+  if (!str | (typeof str !== "string")) {
+    return -1;
+  }
+
+  let lastSpaceIndex = 0;
+
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === " ") {
+      lastSpaceIndex = i;
+    }
+  }
+  const lastWord = str.substring(lastSpaceIndex + 1);
+  return lastWord.length;
+}
+
+console.log(lastWordLengthWithoutInBuiltMethod(str43));
 
 ```
 
