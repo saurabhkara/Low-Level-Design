@@ -1,34 +1,44 @@
-| No. | Question                                                                                                                                |
-| --- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| 1.  | [Prototype chaining](#1-prototype-chaining)                                                                                             |
-| 2.  | [Call, apply and bind](#2-call-apply-and-bind)                                                                                          |
-| 3.  | [Slice and Splice method in JavaScript](#3-slice-and-splice-method)                                                                     |
-| 4.  | [Currying function](#4-currying-function)                                                                                               |
-| 5.  | [What is Pure function ? ](#5-pure-function-in-javascript)                                                                              |
-| 6.  | [Temporal Dead Zone](#6-temporal-dead-zone)                                                                                             |
-| 7.  | [IIFE - Immediately Invoked Function Expression](#7-iife-immediately-invoked-function-expression)                                       |
-| 8.  | [Memoization in JavaScript](#8-memoization)                                                                                             |
-| 9.  | [Hoisting in JavaScript](#9-hoisting)                                                                                                   |
-| 10. | [Closure](#10-closure)                                                                                                                  |
-| 11. | [Classes in JavaScript](#11-classes-in-javascript)                                                                                      |
-| 12. | [Promise in JavaScript](#12-promise-in-javascript)                                                                                      |
-| 13. | [Why do we need Promise?](#13-why-do-we-need-promise)                                                                                   |
-| 14. | [Callback functions in JavaScript](#14-what-is-callback-functions)                                                                      |
-| 15. | [Callback hell](#15-callback-hell)                                                                                                      |
-| 16. | [What is Promise chaining ? ](#16-promise-chaining)                                                                                     |
-| 17. | [Promise combinators - all(), race(), any(), allSettled()](#17-promise-combinators)                                                     |
-| 18. | [Pros and Cons of Promises over callbacks](#18-what-are-pros-and-cons-of-promise-over-callbacks)                                        |
-| 19. | [What is PWA (Progressive Web App)?](#19-what-is-pwa)                                                                                   |
-| 20. | [How to get number of arguments passed to a function?](#20-how-to-get-the-number-of-arguments-passed-to-function)                       |
-| 21. | [How to find number of parameters expected by a function?](#21-what-is-the-way-to-find-the-number-of-parameters-expected-by-a-function) |
-| 22. | [What is a polyfill in JavaScript?](#22-what-is-a-polyfill)                                                                             |
-| 23. | [How to check if a string contains a substring?](#23-how-do-you-check-whether-a-string-contains-a-substring)                            |
-| 24. | [Nested conditional (ternary) operator](#24-nested-conditional-operator)                                                                |
-| 25. | [Iterable in Objects using Symbol.iterator](#25-iterable-in-objects)                                                                    |
-| 26. | [Deboucing](#26-deboucing)                                                                                                              |
-| 27. | [Throatling](#27-throatling)                                                                                                            |
-| 28. | [Flattern Array](#28-flattern-array)                                                                                                    |
-| 29. | [Flattern object](#28.flattern-object)                                                                                                  |
+| No. | Question                                                                                                                                                                     |
+| --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1.  | [Prototype chaining](#1-prototype-chaining)                                                                                                                                  |
+| 2.  | [Call, apply and bind](#2-call-apply-and-bind)                                                                                                                               |
+| 3.  | [Slice and Splice method in JavaScript](#3-slice-and-splice-method)                                                                                                          |
+| 4.  | [Currying function](#4-currying-function)                                                                                                                                    |
+| 5.  | [What is Pure function ? ](#5-pure-function-in-javascript)                                                                                                                   |
+| 6.  | [Temporal Dead Zone](#6-temporal-dead-zone)                                                                                                                                  |
+| 7.  | [IIFE - Immediately Invoked Function Expression](#7-iife-immediately-invoked-function-expression)                                                                            |
+| 8.  | [Memoization in JavaScript](#8-memoization)                                                                                                                                  |
+| 9.  | [Hoisting in JavaScript](#9-hoisting)                                                                                                                                        |
+| 10. | [Closure](#10-closure)                                                                                                                                                       |
+| 11. | [Classes in JavaScript](#11-classes-in-javascript)                                                                                                                           |
+| 12. | [Promise in JavaScript](#12-promise-in-javascript)                                                                                                                           |
+| 13. | [Why do we need Promise?](#13-why-do-we-need-promise)                                                                                                                        |
+| 14. | [Callback functions in JavaScript](#14-what-is-callback-functions)                                                                                                           |
+| 15. | [Callback hell](#15-callback-hell)                                                                                                                                           |
+| 16. | [What is Promise chaining ? ](#16-promise-chaining)                                                                                                                          |
+| 17. | [Promise combinators - all(), race(), any(), allSettled()](#17-promise-combinators)                                                                                          |
+| 18. | [Pros and Cons of Promises over callbacks](#18-what-are-pros-and-cons-of-promise-over-callbacks)                                                                             |
+| 19. | [What is PWA (Progressive Web App)?](#19-what-is-pwa)                                                                                                                        |
+| 20. | [How to get number of arguments passed to a function?](#20-how-to-get-the-number-of-arguments-passed-to-function)                                                            |
+| 21. | [How to find number of parameters expected by a function?](#21-what-is-the-way-to-find-the-number-of-parameters-expected-by-a-function)                                      |
+| 22. | [What is a polyfill in JavaScript?](#22-what-is-a-polyfill)                                                                                                                  |
+| 23. | [How to check if a string contains a substring?](#23-how-do-you-check-whether-a-string-contains-a-substring)                                                                 |
+| 24. | [Nested conditional (ternary) operator](#24-nested-conditional-operator)                                                                                                     |
+| 25. | [Iterable in Objects using Symbol.iterator](#25-iterable-in-objects)                                                                                                         |
+| 26. | [Deboucing](#26-deboucing)                                                                                                                                                   |
+| 27. | [Throatling](#27-throatling)                                                                                                                                                 |
+| 28. | [Flattern Array](#28-flattern-array)                                                                                                                                         |
+| 29. | [Flattern object](#29-flattern-object)                                                                                                                                       |
+| 30. | [2:0 => 2 is element of arr30B and 0 is how many times 2 is repeating in arr30A](#30-20-means-2-is-an-element-of-arr30b-and-0-is-how-many-times-2-is-repeating-in-arr30a)    |
+| 31. | [Program to sort only positive numbers in an array](#31-program-to-sort-only-positive-numbers-in-an-array)                                                                   |
+| 32. | [Program to fetch student object whose average marks is greater than other students](#32-program-to-fetch-student-object-whose-average-marks-is-greater-than-other-students) |
+| 33. | [Program to return odd repeating values of an array with their count](#33-program-to-return-odd-repeating-values-of-an-array-with-their-count)                               |
+| 34. | [Function to sort an array of objects by a specific key](#34-function-to-sort-an-array-of-objects-by-a-specific-key)                                                         |
+| 35. | [Toggle function arguments](#35-toggle-function-arguments)                                                                                                                   |
+| 36. | [Longest word of given sentence](#36-longest-word-of-given-sentence)                                                                                                         |
+| 37. | [Print the character to number of times](#37-print-the-character-to-number-of-times)                                                                                         |
+
+|
 
 ### 1. Prototype Chaining
 
@@ -435,7 +445,7 @@ function flatternArray(arr) {
 console.log(flatternArray(arr28));
 ```
 
-### 28. flattern object
+### 29. flattern object
 
 ```js
 const obj28 = {
@@ -468,4 +478,218 @@ function flatternObj(obj, name) {
 }
 
 console.log(flatternObj(obj28, ""));
+```
+
+### 30. 2:0 means 2 is an element of arr30B and 0 is how many times 2 is repeating in arr30A
+
+```JS
+T(n)=O(n2)
+
+let arr30A = [3, 4, 5, 6, 5, 4, 5];
+let arr30B = [2, 3, 4, 5, 6];
+
+function repeatingElements(arr1, arr2) {
+  const result = arr1.map((item1) => {
+    const count = arr2.reduce((acc, item2) => {
+      if (item1 === item2) {
+        acc = acc + 1;
+      }
+
+      return acc;
+    }, 0);
+
+    return `${item1}: ${count}`;
+  });
+
+  return result;
+}
+
+console.log(repeatingElements(arr30B, arr30A));
+```
+
+### 31. Program to sort only positive numbers in an array
+
+```js
+const arr31 = [-1, 40, 20, -4, 10, 2, 70, -2, 6, 9];
+
+function sortOnlyPositive(arr) {
+  if (!Array.isArray(arr)) {
+    return;
+  }
+
+  const sortedArr = arr.filter((item) => item > 0).sort((a, b) => a - b);
+  let index = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > 0) {
+      arr[i] = sortedArr[index++];
+    }
+  }
+  return arr;
+}
+
+console.log(sortOnlyPositive(arr31));
+```
+
+### 32. Program to fetch student object whose average marks is greater than other students
+
+```js
+const students32 = [
+  { name: "Ram", marks: [70, 80, 65, 90, 65] },
+  { name: "Shyam", marks: [80, 62, 70, 75, 81] },
+  { name: "M Sharan", marks: [74, 67, 72, 69, 84] },
+];
+
+function averrageMarks(students) {
+  if (!Array.isArray(students)) {
+    return;
+  }
+
+  const result = students.reduce((acc, studentItem) => {
+    let totalMarks = 0;
+    studentItem.marks.forEach((singleEntityMarks) => {
+      totalMarks = singleEntityMarks + totalMarks;
+    });
+    const averageMarks = totalMarks / 5;
+
+    if (acc.topperAverageMarks < averageMarks || !acc.topperAverageMarks) {
+      acc.topperAverageMarks = averageMarks;
+      acc.item = studentItem;
+    }
+
+    return acc;
+  }, {});
+
+  return result;
+}
+
+console.log(averrageMarks(students32));
+```
+
+### 33. Program to return odd repeating values of an array with their count
+
+```js
+const countOriginalArr = ["a", "a", "b", "d", "e", "d", "a", "b"];
+// output format :['a:3','e:1'];
+
+function calculateOddRepeating(originalArr) {
+  if (!Array.isArray(originalArr)) {
+    return;
+  }
+
+  const obj = {};
+
+  originalArr.forEach((item) => {
+    if (obj[item]) {
+      obj[item] = obj[item] + 1;
+    } else {
+      obj[item] = 1;
+    }
+  });
+
+  const result = [];
+  for (let item in obj) {
+    const stringItem = `${item}:${obj[item]}`;
+    result.push(stringItem);
+  }
+
+  return result;
+}
+
+console.log(calculateOddRepeating(countOriginalArr));
+```
+
+### 34. Function to sort an array of objects by a specific key
+
+```js
+const arr34 = [
+  { id: 4, name: "Saurabh" },
+  { id: 3, name: "Ram" },
+  { id: 1, name: "Shyam" },
+  { id: 2, name: "Radha" },
+  { id: 5, name: "Aarti" },
+];
+
+function sortArrofObj(arr) {
+  if (!arr | !Array.isArray(arr)) {
+    return;
+  }
+
+  return arr.sort((a, b) => a.name.localeCompare(b.name));
+}
+
+console.log(sortArrofObj(arr34));
+```
+
+### 35. Toggle function arguments
+
+```js
+function toggleArgument(...args) {
+  let index = 0;
+  return function () {
+    if (index <= args.length) {
+      index = index % args.length;
+    }
+    return args[index++];
+  };
+}
+
+const tfunct = toggleArgument(5, 8, 9, 7, 6);
+console.log(tfunct());
+console.log(tfunct());
+console.log(tfunct());
+console.log(tfunct());
+console.log(tfunct());
+console.log(tfunct());
+console.log(tfunct());
+```
+
+### 36. Longest word of given sentence
+
+```js
+const exampleSentence36 = "Hello my name is saurabh kumar";
+
+function maxLengthWord(sentence) {
+  if (!sentence) {
+    return;
+  }
+
+  let maxWord = "";
+  let temp = "";
+  for (let char of sentence) {
+    if (char === " ") {
+      maxWord = maxWord.length < temp.length ? temp : maxWord;
+      temp = "";
+    } else {
+      temp = temp + char;
+    }
+  }
+  return maxWord;
+}
+
+console.log(maxLengthWord(exampleSentence36));
+```
+
+### 37. Print the character to number of times
+
+```js
+const charString37 = "abc";
+const countCharacter37 = "123";
+
+// Output should be like abbccc
+
+function printCharacterTimes(str, strCount) {
+  if (!str | !strCount) {
+    return;
+  }
+  let result = "";
+  for (let i = 0; i < str.length; i++) {
+    const count = parseInt(strCount[i]);
+    for (let j = 0; j < count; j++) {
+      result = result + str[i];
+    }
+  }
+  return result;
+}
+
+console.log(printCharacterTimes(charString37, countCharacter37));
 ```

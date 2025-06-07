@@ -510,7 +510,7 @@ console.log(tfunct());
 console.log(tfunct());
 console.log(tfunct());
 
-// Q. 36 Longest word ot given sentence
+// Q. 36 Longest word of given sentence
 
 const exampleSentence36 = "Hello my name is saurabh kumar";
 
