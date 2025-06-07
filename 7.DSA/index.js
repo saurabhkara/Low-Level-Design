@@ -1240,3 +1240,34 @@ function lastWordLengthWithoutInBuiltMethod(str) {
 }
 
 console.log(lastWordLengthWithoutInBuiltMethod(str43));
+
+//  Q.44 Valid Palindrome, After converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters.
+
+let str44 = "ramram2marmar2*7";
+
+function checkValidPalindrome(str) {
+  if (!str | (typeof str !== "string")) {
+    return;
+  }
+
+  let validStr = "";
+  for (let char of str) {
+    if (
+      char.charCodeAt() >= "a".charCodeAt() &&
+      char.charCodeAt() <= char.charCodeAt()
+    ) {
+      validStr = validStr + char;
+    }
+  }
+
+  const validStrLen = validStr.length - 1;
+
+  for (let i = 0; i <= parseInt(validStrLen / 2); i++) {
+    if (validStr[i] !== validStr[validStrLen - i]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(checkValidPalindrome(str44));

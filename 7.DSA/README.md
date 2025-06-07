@@ -46,6 +46,8 @@
 | 40. | [Find the index of first occurrence of a given word in a sentence](#find-the-index-of-first-occurrence-of-a-given-word-in-a-sentence)                                                                                                                                                             |
 | 41. | [Longest common prefix in array of string](#longest-common-prefix-in-array-of-string)                                                                                                                                                                                                             |
 | 42. | [Length of last word in string](#length-of-last-word-in-string)                                                                                                                                                                                                                                   |
+| 43. | [Reverse the string without using inbuilt method](#reverse-the-string-without-using-inbuilt-method)                                                                                                                                                                                               |
+| 44. | [Valid Palindrome, After converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters](#valid-palindrome-after-converting-all-uppercase-letters-into-lowercase-letters-and-removing-all-non-alphanumeric-characters)                                      |
 
 ## A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters
 
@@ -1386,6 +1388,61 @@ function lastWordLengthWithoutInBuiltMethod(str) {
 }
 
 console.log(lastWordLengthWithoutInBuiltMethod(str43));
+
+```
+
+## Reverse the string without using inbuilt method
+
+```
+const str43 = "saurabh";
+
+function reverseStringWithoutInbuild(str) {
+  if (!str | (typeof str !== "string")) {
+    return -1;
+  }
+
+  let result = "";
+  for (let i = str.length - 1; i >= 0; i--) {
+    result = result + str[i];
+  }
+  return result;
+}
+
+console.log(reverseStringWithoutInbuild(str43));
+
+```
+
+## Valid Palindrome, After converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters
+
+```
+let str44 = "ramram2marmar2*7";
+
+function checkValidPalindrome(str) {
+  if (!str | (typeof str !== "string")) {
+    return;
+  }
+
+  let validStr = "";
+  for (let char of str) {
+    if (
+      char.charCodeAt() >= "a".charCodeAt() &&
+      char.charCodeAt() <= char.charCodeAt()
+    ) {
+      validStr = validStr + char;
+    }
+  }
+
+  const validStrLen = validStr.length - 1;
+
+  for (let i = 0; i <= parseInt(validStrLen / 2); i++) {
+    if (validStr[i] !== validStr[validStrLen - i]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(checkValidPalindrome(str44));
 
 ```
 
