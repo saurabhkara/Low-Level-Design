@@ -37,6 +37,12 @@
 | 35. | [Toggle function arguments](#35-toggle-function-arguments)                                                                                                                   |
 | 36. | [Longest word of given sentence](#36-longest-word-of-given-sentence)                                                                                                         |
 | 37. | [Print the character to number of times](#37-print-the-character-to-number-of-times)                                                                                         |
+| 38. | [What is this keyword in JavaScript?](#38-what-is-this-keyword-in-js)                                                                                                        |
+| 39. | [Guess the output](#39-guess-the-output)                                                                                                                                     |
+| 40. | [Guess the output](#40-guess-the-output)                                                                                                                                     |
+| 41. | [this keyword inside object](#41-this-keyword-inside-object)                                                                                                                 |
+| 42. | [Guess the output](#42-guess-the-output)                                                                                                                                     |
+| 43. | [Guess the output](#43-guess-the-output)                                                                                                                                     |
 
 |
 
@@ -692,4 +698,116 @@ function printCharacterTimes(str, strCount) {
 }
 
 console.log(printCharacterTimes(charString37, countCharacter37));
+```
+
+### 38. What is this keyword in JS?
+
+```js
+// The this keyword in JavaScript refers to the object that is currently executing the code.
+//- The value of this is dynamic and depends on how a function is called.
+```
+
+### 39. Guess the output
+
+```js
+this.a38 = 15;
+console.log(this);
+
+//Here this keyword refering to window object
+```
+
+### 40. Guess the output
+
+```js
+// In Example39 function this refers to its immediate parent object
+
+function example39() {
+  console.log(this.a38);
+}
+example39();
+
+//Arrow function does not have their own this, it takes this from outer normal function
+const example39A = () => {
+  console.log(this.a38);
+};
+
+example39A();
+```
+
+### 41. this keyword inside object
+
+```js
+this.name40 = "testing";
+const user1 = {
+  name40: "Saurabh1",
+  getDetail() {
+    console.log(this.name40);
+  },
+  getDetailArrow: () => {
+    console.log(this.name40);
+  },
+};
+
+user1.getDetail();
+user1.getDetailArrow();
+
+//output: Saurabh1 , testing
+
+const user2 = {
+  name40: "Saurabh2",
+  childObj: {
+    newName40: "Saurabh K2",
+    getDetail() {
+      console.log("Name :", this.name40, "New Name :", this.newName40);
+    },
+  },
+};
+user2.childObj.getDetail();
+// Output: Name : undefine New Name : Saurabh K2
+```
+
+### 42. Guess the output
+
+```js
+const object = {
+  message: "Hello, World!",
+  getMessage() {
+    const message = "Hello, Earth!";
+    return [this.message, message];
+  },
+};
+
+console.log(object.getMessage());
+
+//Output: ["Hello, World!", "Hello, Earth!"]
+```
+
+### 43. Guess the Output
+
+```js
+function example42() {
+  return {
+    name: "Saurabh",
+    ref: this,
+  };
+}
+
+const user42 = example42();
+console.log(user42.ref.name);
+
+// In above question this keyword refers to window object
+
+// Change something in Q.42 to get name as Saurabh
+
+function solution43() {
+  return {
+    name: "Saurabh 43",
+    ref: function () {
+      return this;
+    },
+  };
+}
+
+const sol43 = solution43();
+console.log(sol43.ref().name);
 ```

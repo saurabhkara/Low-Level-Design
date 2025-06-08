@@ -568,19 +568,19 @@ console.log(this);
 // Here, this keyword is refering to window object
 
 // Q.39
-// In Example1 function this refers to its immediate parent object
+// In Example39 function this refers to its immediate parent object
 
-function example1() {
+function example39() {
   console.log(this.a38);
 }
-example1();
+example39();
 
 //Arrow function does not have their own this, it takes this from outer normal function
-const example1A = () => {
+const example39A = () => {
   console.log(this.a38);
 };
 
-example1A();
+example39A();
 
 // Q.40 this keyword inside object
 
