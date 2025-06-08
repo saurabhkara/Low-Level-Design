@@ -48,6 +48,9 @@
 | 42. | [Length of last word in string](#length-of-last-word-in-string)                                                                                                                                                                                                                                   |
 | 43. | [Reverse the string without using inbuilt method](#reverse-the-string-without-using-inbuilt-method)                                                                                                                                                                                               |
 | 44. | [Valid Palindrome, After converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters](#valid-palindrome-after-converting-all-uppercase-letters-into-lowercase-letters-and-removing-all-non-alphanumeric-characters)                                      |
+| 45. | [Reverse the words of string](#reverse-the-words-of-string)                                                                                                                                                                                                                                       |
+| 46. | [Reverse the vowel of string](#reverse-the-vowel-of-string)                                                                                                                                                                                                                                       |
+| 47. | [Check both strings are rotation each other](#check-both-strings-are-rotation-each-other)                                                                                                                                                                                                         |
 
 ## A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters
 
@@ -1443,6 +1446,125 @@ function checkValidPalindrome(str) {
 }
 
 console.log(checkValidPalindrome(str44));
+
+```
+
+## Reverse the words of string
+
+```
+function revereeWords(str) {
+  if (!str | (typeof str !== "string")) {
+    return;
+  }
+
+  const arrStr = str.split(" ");
+  let final = "";
+  for (let i = 0; i < arrStr.length; i++) {
+    console.log(arrStr[i]);
+    final = arrStr[i] + " " + final;
+  }
+  return final;
+}
+
+console.log(revereeWords("Saurabh you are doing well"));
+```
+
+## Reverse the vowel of string
+
+```
+const str46 = "SaurabhKumari";
+
+function isVowel(char) {
+  if (!char | (typeof char !== "string")) {
+    returm;
+  }
+
+  if (
+    (char === "a") |
+    (char === "e") |
+    (char === "i") |
+    (char === "o") |
+    (char === "u")
+  ) {
+    return true;
+  }
+  return false;
+}
+
+function reverseVowelOfString(str) {
+  if (!str | (typeof str !== "string")) {
+    return;
+  }
+  let vowelSeq = "";
+  for (let char of str) {
+    if (isVowel(char)) {
+      vowelSeq = vowelSeq + char;
+    }
+  }
+  let final = "";
+  let index = vowelSeq.length - 1;
+  for (let char of str) {
+    if (isVowel(char)) {
+      final = final + vowelSeq[index--];
+    } else {
+      final = final + char;
+    }
+  }
+  console.log(final);
+}
+console.log(reverseVowelOfString(str46));
+
+
+```
+
+## Check both strings are rotation each other
+
+```
+const str47A = "abcde";
+const str47B = "bcdea";
+
+function isRotaionOfEachOther(str1, str2) {
+  if (!str1 | !str2 | (typeof str1 !== "string") | (typeof str2 !== "string")) {
+    return;
+  }
+
+  const leng1 = str1.length;
+  const leng2 = str2.length;
+  if (leng1 !== leng2) {
+    return false;
+  }
+  let temp = str1;
+  for (let i = 0; i < temp.length; i++) {
+    const firstChar = temp[0];
+    const remainingStr = temp.substring(1);
+    temp = remainingStr + firstChar;
+    if (temp === str2) {
+      return true;
+    }
+  }
+  return false;
+}
+
+console.log(isRotaionOfEachOther(str47A, str47B));
+
+// KMP algorithm
+
+function checkStrRotationUsingKMP(str1, str2) {
+  if (!str1 | !str2 | (typeof str1 !== "string") | (typeof str2 !== "string")) {
+    return;
+  }
+
+  const leng1 = str1.length;
+  const leng2 = str2.length;
+  if (leng1 !== leng2) {
+    return false;
+  }
+
+  const concatedStr = str1 + str1;
+  return concatedStr.includes(str2);
+}
+
+console.log(checkStrRotationUsingKMP(str47A, str47B));
 
 ```
 
