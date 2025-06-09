@@ -1364,7 +1364,7 @@ function isRotaionOfEachOther(str1, str2) {
 console.log(isRotaionOfEachOther(str47A, str47B));
 
 // KMP algorithm
-
+//T(n) = O(n)
 function checkStrRotationUsingKMP(str1, str2) {
   if (!str1 | !str2 | (typeof str1 !== "string") | (typeof str2 !== "string")) {
     return;
@@ -1381,3 +1381,43 @@ function checkStrRotationUsingKMP(str1, str2) {
 }
 
 console.log(checkStrRotationUsingKMP(str47A, str47B));
+
+// Array Questions
+
+// Q.48 Check two arrays are equal
+
+let arr48A = [5, 8, 9, 7, 3, 5];
+let arr48B = [5, 8, 9, 7, 3, 5];
+
+function isBothArraysEqual(arr1, arr2) {
+  if (!Array.isArray(arr1) || !Array.isArray(arr2)) {
+    return;
+  }
+  const arrLen1 = arr1.length;
+  const arrLen2 = arr2.length;
+  if (arrLen1 !== arrLen2) {
+    return false;
+  }
+
+  for (let i = 0; i < arrLen1; i++) {
+    if (arr1[i] !== arr2[i]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(isBothArraysEqual(arr48A, arr48B));
+
+//T(n)=O(n)
+
+// Q.49 Sort array in Ascending and Descending order using sort method
+
+const arr49 = [5, 8, 9, 4, 6, 7];
+
+//Ascending order
+arr49.sort((a, b) => a - b);
+console.log(arr49);
+// Descending Order
+arr49.sort((a, b) => b - a);
+console.log(arr49);
