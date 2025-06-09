@@ -43,8 +43,11 @@
 | 41. | [this keyword inside object](#41-this-keyword-inside-object)                                                                                                                 |
 | 42. | [Guess the output](#42-guess-the-output)                                                                                                                                     |
 | 43. | [Guess the output](#43-guess-the-output)                                                                                                                                     |
-
-|
+| 44. | [What will be output](#44-what-will-be-output)                                                                                                                               |
+| 45. | [What will be output](#45-what-will-be-output)                                                                                                                               |
+| 46. | [Change something in above question Q.45 to get printed Saurabh8](#46-change-something-in-above-question-q45-to-get-printed-saurabh8)                                        |
+| 47. | [Create a Object calculator](#45-create-a-object-calculator)                                                                                                                 |
+| 48. | [Implement `Calc` ==> `Calc.add(5).mul(10).sub(5)`](#48-implement-calc--calcadd5mul10sub5)                                                                                   |
 
 ### 1. Prototype Chaining
 
@@ -811,3 +814,94 @@ function solution43() {
 const sol43 = solution43();
 console.log(sol43.ref().name);
 ```
+
+### 44. What will be Output ?
+
+```js
+var length = 4;
+function callback() {
+  console.log(this.length); // What is logged?
+}
+
+const object7 = {
+  length: 5,
+  method() {
+    console.log(arguments);
+    arguments[0]();
+  },
+};
+
+object7.method(callback, 1, 2);
+// Answer : 3
+```
+
+### 45. What will be output ?
+
+```js
+const object8 = {
+  name: "Saurabh8",
+  getName() {
+    console.log(this.name);
+  },
+};
+
+setTimeout(object8.getName, 1000);
+
+// undefined,
+// object.getName reference is passed inside setTimeout independently, so name property will no longer accessiable
+```
+
+### 46. Change something in above question Q.45 to get printed Saurabh8
+
+```js
+setTimeout(function () {
+  object8.getName();
+}, 1000);
+
+//Or bind the function
+```
+
+### 47. Create a Object calculator
+
+```js
+const calculator = {
+  read() {
+    this.a = +prompt("a=", 0);
+    this.b = +prompt("b=", 0);
+  },
+  multi() {
+    return this.a * this.b;
+  },
+  add() {
+    return this.a + this.b;
+  },
+};
+
+calculator.read();
+console.log(calculator.multi());
+console.log(calculator.multi());
+```
+
+### 48. Implement Calc ==> Calc.add(5).mul(10).sub(5)
+
+```js
+const Calc = {
+  a: 0,
+  add(num) {
+    this.a = this.a + num;
+    return this;
+  },
+  print() {
+    console.log(this.a);
+    return this;
+  },
+  mul(num) {
+    this.a = this.a * num;
+    return this;
+  },
+};
+
+Calc.add(5).mul(11).print();
+```
+
+### 49.
