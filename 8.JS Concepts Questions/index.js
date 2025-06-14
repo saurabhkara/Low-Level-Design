@@ -812,14 +812,15 @@ hoistingExample9();
 
 function hoistingExample10() {
   y10 = 12;
+  console.log(y10);
   return;
   function y10() {}
 }
 
-// hoistingExample10();
-// console.log(y10);
+hoistingExample10();
+console.log(y10);
 
-// Ans : 10
+// Ans : 10 , reference error
 
 // Closure
 

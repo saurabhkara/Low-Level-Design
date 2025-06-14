@@ -48,6 +48,15 @@
 | 46. | [Change something in above question Q.45 to get printed Saurabh8](#46-change-something-in-above-question-q45-to-get-printed-saurabh8)                                        |
 | 47. | [Create a Object calculator](#45-create-a-object-calculator)                                                                                                                 |
 | 48. | [Implement `Calc` ==> `Calc.add(5).mul(10).sub(5)`](#48-implement-calc--calcadd5mul10sub5)                                                                                   |
+| 49. | [Guess the output](#49-guess-the-output)                                                                                                                                     |
+| 50. | [Guess the output](#50-guess-the-output)                                                                                                                                     |
+| 51. | [Guess the output](#51-guess-the-output)                                                                                                                                     |
+| 52. | [Guess the output](#52-guess-the-output)                                                                                                                                     |
+| 53. | [Guess the output](#52-guess-the-output)                                                                                                                                     |
+| 54. | [Guess the output of given code snippet](#54-guess-the-output-of-given-code-snnipet)                                                                                         |
+| 55. | [Guess the Output](#55-guess-the-output)                                                                                                                                     |
+| 56. | [Guess the Output for given code](#56-guess-the-output)                                                                                                                      |
+| 57. | [Guess the Output for given code](#57-guess-the-output)                                                                                                                      |
 
 ### 1. Prototype Chaining
 
@@ -904,4 +913,122 @@ const Calc = {
 Calc.add(5).mul(11).print();
 ```
 
-### 49.
+## Hoisting
+
+### 49. Guess the output
+
+```
+console.log(y);
+let y = 10;
+// Answer: Reference error
+// Trying to access  let or const variable, will get reference error.
+
+```
+
+### 50. Guess the Output
+
+```
+console.log(y2);
+var y2 = 10;
+
+// Answer :Undefined, var intialized with undefined
+```
+
+### 51. Guess the Output
+
+```
+y3 = 12;
+console.log(y3);
+var y3;
+
+// Output 12, because before accessing value is assigned to variable.
+
+```
+
+### 52. Guess the Output
+
+```
+var y5 = 10;
+let y5 = 10;
+console.log(y5);
+
+// Uncaught syntax error - variable already declared
+```
+
+### 53. Guess the Output
+
+```
+function hoistingExample6() {
+  console.log("Value of y6 variable", y6);
+}
+
+console.log("Value of y6 variable", y6);
+var y6 = 52;
+hoistingExample6();
+
+//Output
+Value of y6 variable undefined
+Value of y6 variable 52
+```
+
+### 54. Guess the output of given code snippet
+
+```
+function hoistingExample7() {
+  y7 = 2;
+}
+hoistingExample7();
+console.log(y7);
+
+//Output : 2, without var keyword it becames global variable
+```
+
+### 55. Guess the Output
+
+```
+function hoistingExample8() {
+  var y8 = 8;
+}
+
+hoistingExample8();
+console.log(y8);
+
+// Output: reference error
+// Var is functional scope variable so it cannot be accesed outside of function
+
+```
+
+### 56. Guess the Output
+
+```
+function hoistingExample9() {
+  console.log("9A");
+}
+
+hoistingExample9();
+
+function hoistingExample9() {
+  console.log("9B");
+}
+
+hoistingExample9();
+
+//Output : 9B
+// Last function will override
+```
+
+### 57. Guess the output
+
+```
+function hoistingExample10() {
+  y10 = 12;
+  console.log(y10);
+  return;
+  function y10() {}
+}
+
+hoistingExample10();
+console.log(y10);
+
+// Ans : 10 , reference error
+```
