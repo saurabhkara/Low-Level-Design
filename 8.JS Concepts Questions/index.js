@@ -867,7 +867,7 @@ close3();
 
 // Q.59 Guess the Output
 
-function outest4() {
+function mostOuter() {
   var c = 12;
   function outer(b) {
     function inner() {
@@ -879,7 +879,7 @@ function outest4() {
   return outer;
 }
 
-var close4 = outest4()("Hello Outer");
+var close4 = mostOuter()("Hello Outer");
 close4();
 
 // Q.60  Guess the Output

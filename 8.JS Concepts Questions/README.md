@@ -1,62 +1,71 @@
-| No. | Question                                                                                                                                                                     |
-| --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1.  | [Prototype chaining](#1-prototype-chaining)                                                                                                                                  |
-| 2.  | [Call, apply and bind](#2-call-apply-and-bind)                                                                                                                               |
-| 3.  | [Slice and Splice method in JavaScript](#3-slice-and-splice-method)                                                                                                          |
-| 4.  | [Currying function](#4-currying-function)                                                                                                                                    |
-| 5.  | [What is Pure function ? ](#5-pure-function-in-javascript)                                                                                                                   |
-| 6.  | [Temporal Dead Zone](#6-temporal-dead-zone)                                                                                                                                  |
-| 7.  | [IIFE - Immediately Invoked Function Expression](#7-iife-immediately-invoked-function-expression)                                                                            |
-| 8.  | [Memoization in JavaScript](#8-memoization)                                                                                                                                  |
-| 9.  | [Hoisting in JavaScript](#9-hoisting)                                                                                                                                        |
-| 10. | [Closure](#10-closure)                                                                                                                                                       |
-| 11. | [Classes in JavaScript](#11-classes-in-javascript)                                                                                                                           |
-| 12. | [Promise in JavaScript](#12-promise-in-javascript)                                                                                                                           |
-| 13. | [Why do we need Promise?](#13-why-do-we-need-promise)                                                                                                                        |
-| 14. | [Callback functions in JavaScript](#14-what-is-callback-functions)                                                                                                           |
-| 15. | [Callback hell](#15-callback-hell)                                                                                                                                           |
-| 16. | [What is Promise chaining ? ](#16-promise-chaining)                                                                                                                          |
-| 17. | [Promise combinators - all(), race(), any(), allSettled()](#17-promise-combinators)                                                                                          |
-| 18. | [Pros and Cons of Promises over callbacks](#18-what-are-pros-and-cons-of-promise-over-callbacks)                                                                             |
-| 19. | [What is PWA (Progressive Web App)?](#19-what-is-pwa)                                                                                                                        |
-| 20. | [How to get number of arguments passed to a function?](#20-how-to-get-the-number-of-arguments-passed-to-function)                                                            |
-| 21. | [How to find number of parameters expected by a function?](#21-what-is-the-way-to-find-the-number-of-parameters-expected-by-a-function)                                      |
-| 22. | [What is a polyfill in JavaScript?](#22-what-is-a-polyfill)                                                                                                                  |
-| 23. | [How to check if a string contains a substring?](#23-how-do-you-check-whether-a-string-contains-a-substring)                                                                 |
-| 24. | [Nested conditional (ternary) operator](#24-nested-conditional-operator)                                                                                                     |
-| 25. | [Iterable in Objects using Symbol.iterator](#25-iterable-in-objects)                                                                                                         |
-| 26. | [Deboucing](#26-deboucing)                                                                                                                                                   |
-| 27. | [Throatling](#27-throatling)                                                                                                                                                 |
-| 28. | [Flattern Array](#28-flattern-array)                                                                                                                                         |
-| 29. | [Flattern object](#29-flattern-object)                                                                                                                                       |
-| 30. | [2:0 => 2 is element of arr30B and 0 is how many times 2 is repeating in arr30A](#30-20-means-2-is-an-element-of-arr30b-and-0-is-how-many-times-2-is-repeating-in-arr30a)    |
-| 31. | [Program to sort only positive numbers in an array](#31-program-to-sort-only-positive-numbers-in-an-array)                                                                   |
-| 32. | [Program to fetch student object whose average marks is greater than other students](#32-program-to-fetch-student-object-whose-average-marks-is-greater-than-other-students) |
-| 33. | [Program to return odd repeating values of an array with their count](#33-program-to-return-odd-repeating-values-of-an-array-with-their-count)                               |
-| 34. | [Function to sort an array of objects by a specific key](#34-function-to-sort-an-array-of-objects-by-a-specific-key)                                                         |
-| 35. | [Toggle function arguments](#35-toggle-function-arguments)                                                                                                                   |
-| 36. | [Longest word of given sentence](#36-longest-word-of-given-sentence)                                                                                                         |
-| 37. | [Print the character to number of times](#37-print-the-character-to-number-of-times)                                                                                         |
-| 38. | [What is this keyword in JavaScript?](#38-what-is-this-keyword-in-js)                                                                                                        |
-| 39. | [Guess the output](#39-guess-the-output)                                                                                                                                     |
-| 40. | [Guess the output](#40-guess-the-output)                                                                                                                                     |
-| 41. | [this keyword inside object](#41-this-keyword-inside-object)                                                                                                                 |
-| 42. | [Guess the output](#42-guess-the-output)                                                                                                                                     |
-| 43. | [Guess the output](#43-guess-the-output)                                                                                                                                     |
-| 44. | [What will be output](#44-what-will-be-output)                                                                                                                               |
-| 45. | [What will be output](#45-what-will-be-output)                                                                                                                               |
-| 46. | [Change something in above question Q.45 to get printed Saurabh8](#46-change-something-in-above-question-q45-to-get-printed-saurabh8)                                        |
-| 47. | [Create a Object calculator](#45-create-a-object-calculator)                                                                                                                 |
-| 48. | [Implement `Calc` ==> `Calc.add(5).mul(10).sub(5)`](#48-implement-calc--calcadd5mul10sub5)                                                                                   |
-| 49. | [Guess the output](#49-guess-the-output)                                                                                                                                     |
-| 50. | [Guess the output](#50-guess-the-output)                                                                                                                                     |
-| 51. | [Guess the output](#51-guess-the-output)                                                                                                                                     |
-| 52. | [Guess the output](#52-guess-the-output)                                                                                                                                     |
-| 53. | [Guess the output](#52-guess-the-output)                                                                                                                                     |
-| 54. | [Guess the output of given code snippet](#54-guess-the-output-of-given-code-snnipet)                                                                                         |
-| 55. | [Guess the Output](#55-guess-the-output)                                                                                                                                     |
-| 56. | [Guess the Output for given code](#56-guess-the-output)                                                                                                                      |
-| 57. | [Guess the Output for given code](#57-guess-the-output)                                                                                                                      |
+| No. | Question                                                                                                                                                                                    |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1.  | [Prototype chaining](#1-prototype-chaining)                                                                                                                                                 |
+| 2.  | [Call, apply and bind](#2-call-apply-and-bind)                                                                                                                                              |
+| 3.  | [Slice and Splice method in JavaScript](#3-slice-and-splice-method)                                                                                                                         |
+| 4.  | [Currying function](#4-currying-function)                                                                                                                                                   |
+| 5.  | [What is Pure function ? ](#5-pure-function-in-javascript)                                                                                                                                  |
+| 6.  | [Temporal Dead Zone](#6-temporal-dead-zone)                                                                                                                                                 |
+| 7.  | [IIFE - Immediately Invoked Function Expression](#7-iife-immediately-invoked-function-expression)                                                                                           |
+| 8.  | [Memoization in JavaScript](#8-memoization)                                                                                                                                                 |
+| 9.  | [Hoisting in JavaScript](#9-hoisting)                                                                                                                                                       |
+| 10. | [Closure](#10-closure)                                                                                                                                                                      |
+| 11. | [Classes in JavaScript](#11-classes-in-javascript)                                                                                                                                          |
+| 12. | [Promise in JavaScript](#12-promise-in-javascript)                                                                                                                                          |
+| 13. | [Why do we need Promise?](#13-why-do-we-need-promise)                                                                                                                                       |
+| 14. | [Callback functions in JavaScript](#14-what-is-callback-functions)                                                                                                                          |
+| 15. | [Callback hell](#15-callback-hell)                                                                                                                                                          |
+| 16. | [What is Promise chaining ? ](#16-promise-chaining)                                                                                                                                         |
+| 17. | [Promise combinators - all(), race(), any(), allSettled()](#17-promise-combinators)                                                                                                         |
+| 18. | [Pros and Cons of Promises over callbacks](#18-what-are-pros-and-cons-of-promise-over-callbacks)                                                                                            |
+| 19. | [What is PWA (Progressive Web App)?](#19-what-is-pwa)                                                                                                                                       |
+| 20. | [How to get number of arguments passed to a function?](#20-how-to-get-the-number-of-arguments-passed-to-function)                                                                           |
+| 21. | [How to find number of parameters expected by a function?](#21-what-is-the-way-to-find-the-number-of-parameters-expected-by-a-function)                                                     |
+| 22. | [What is a polyfill in JavaScript?](#22-what-is-a-polyfill)                                                                                                                                 |
+| 23. | [How to check if a string contains a substring?](#23-how-do-you-check-whether-a-string-contains-a-substring)                                                                                |
+| 24. | [Nested conditional (ternary) operator](#24-nested-conditional-operator)                                                                                                                    |
+| 25. | [Iterable in Objects using Symbol.iterator](#25-iterable-in-objects)                                                                                                                        |
+| 26. | [Deboucing](#26-deboucing)                                                                                                                                                                  |
+| 27. | [Throatling](#27-throatling)                                                                                                                                                                |
+| 28. | [Flattern Array](#28-flattern-array)                                                                                                                                                        |
+| 29. | [Flattern object](#29-flattern-object)                                                                                                                                                      |
+| 30. | [2:0 => 2 is element of arr30B and 0 is how many times 2 is repeating in arr30A](#30-20-means-2-is-an-element-of-arr30b-and-0-is-how-many-times-2-is-repeating-in-arr30a)                   |
+| 31. | [Program to sort only positive numbers in an array](#31-program-to-sort-only-positive-numbers-in-an-array)                                                                                  |
+| 32. | [Program to fetch student object whose average marks is greater than other students](#32-program-to-fetch-student-object-whose-average-marks-is-greater-than-other-students)                |
+| 33. | [Program to return odd repeating values of an array with their count](#33-program-to-return-odd-repeating-values-of-an-array-with-their-count)                                              |
+| 34. | [Function to sort an array of objects by a specific key](#34-function-to-sort-an-array-of-objects-by-a-specific-key)                                                                        |
+| 35. | [Toggle function arguments](#35-toggle-function-arguments)                                                                                                                                  |
+| 36. | [Longest word of given sentence](#36-longest-word-of-given-sentence)                                                                                                                        |
+| 37. | [Print the character to number of times](#37-print-the-character-to-number-of-times)                                                                                                        |
+| 38. | [What is this keyword in JavaScript?](#38-what-is-this-keyword-in-js)                                                                                                                       |
+| 39. | [Guess the output](#39-guess-the-output)                                                                                                                                                    |
+| 40. | [Guess the output](#40-guess-the-output)                                                                                                                                                    |
+| 41. | [this keyword inside object](#41-this-keyword-inside-object)                                                                                                                                |
+| 42. | [Guess the output](#42-guess-the-output)                                                                                                                                                    |
+| 43. | [Guess the output](#43-guess-the-output)                                                                                                                                                    |
+| 44. | [What will be output](#44-what-will-be-output)                                                                                                                                              |
+| 45. | [What will be output](#45-what-will-be-output)                                                                                                                                              |
+| 46. | [Change something in above question Q.45 to get printed Saurabh8](#46-change-something-in-above-question-q45-to-get-printed-saurabh8)                                                       |
+| 47. | [Create a Object calculator](#45-create-a-object-calculator)                                                                                                                                |
+| 48. | [Implement `Calc` ==> `Calc.add(5).mul(10).sub(5)`](#48-implement-calc--calcadd5mul10sub5)                                                                                                  |
+| 49. | [Guess the output](#49-guess-the-output)                                                                                                                                                    |
+| 50. | [Guess the output](#50-guess-the-output)                                                                                                                                                    |
+| 51. | [Guess the output](#51-guess-the-output)                                                                                                                                                    |
+| 52. | [Guess the output](#52-guess-the-output)                                                                                                                                                    |
+| 53. | [Guess the output](#52-guess-the-output)                                                                                                                                                    |
+| 54. | [Guess the output of given code snippet](#54-guess-the-output-of-given-code-snnipet)                                                                                                        |
+| 55. | [Guess the Output](#55-guess-the-output)                                                                                                                                                    |
+| 56. | [Guess the Output for given code](#56-guess-the-output)                                                                                                                                     |
+| 57. | [Guess the Output for given code](#57-guess-the-output)                                                                                                                                     |
+| 58. | [Guess the output](#58-guess-the-output)                                                                                                                                                    |
+| 59. | [Guess the output](#59-guess-the-output)                                                                                                                                                    |
+| 60. | [Guess the output given code snippet](#60-guess-the-output)                                                                                                                                 |
+| 61. | [Guess the output of given snippet](#61-guess-the-output)                                                                                                                                   |
+| 62. | [Guess the output of given snippet](#62-guess-the-output)                                                                                                                                   |
+| 63. | [Guess the output of given code](#63-guess-the-output)                                                                                                                                      |
+| 64. | [Create a function that multiply that multiples the arguments passed in this manner multiply(5)(6)(7)](#64-create-a-function-that-multiply-the-arguments-passed-in-this-manner-multiply567) |
+| 65. | [Guess the output of given code](#65-guess-the-output)                                                                                                                                      |
+| 66. | [Guess the output](#66-guess-the-output)                                                                                                                                                    |
 
 ### 1. Prototype Chaining
 
@@ -1031,4 +1040,148 @@ hoistingExample10();
 console.log(y10);
 
 // Ans : 10 , reference error
+```
+
+## Closure
+
+### 58. Guess the output
+
+```
+function outer1() {
+  var a = 10;
+  function inner() {
+    console.log(a);
+  }
+  return inner;
+}
+outer1()();
+
+//Output: 10
+
+```
+
+### 59. Guess the output
+
+```
+function outer2() {
+  var a = 101;
+  function inner() {
+    console.log(a);
+  }
+  return inner;
+}
+
+var close2 = outer2();
+close2();
+
+// Output : 101
+
+```
+
+### 60. Guess the output
+
+```
+function outer3() {
+  function inner() {
+    console.log(a);
+  }
+  var a = 1022;
+  return inner;
+}
+
+var close3 = outer3();
+close3();
+
+//output : 1022
+
+```
+
+### 61. Guess the output
+
+```
+function mostOuter() {
+  var c = 12;
+  function outer(b) {
+    function inner() {
+      console.log(a, b, c);
+    }
+    let a = 1089;
+    return inner;
+  }
+  return outer;
+}
+
+var close4 = mostOuter()("Hello Outer");
+close4();
+
+//Output: 1089 Hello Outer 12
+
+```
+
+### 62. Guess the output
+
+```
+function example5() {
+  for (var i = 0; i < 3; i++) {
+    setTimeout(function log() {
+      console.log("#5", i); // What is logged?
+    }, 1000);
+  }
+}
+
+example5();
+//Output: 3 3 3
+var is functional scope variable so var keyword i will be increment to 3
+```
+
+### 63. Guess the output
+
+```
+var num6 = 10;
+(function () {
+  console.log(num6);
+  var num6 = 202;
+  console.log(num6);
+})();
+
+// Output : undefined 202
+```
+
+### 64. Create a function that multiply the arguments passed in this manner multiply(5)(6)(7)
+
+```
+function multiply(a) {
+  return function (b) {
+    return b ? multiply(a * b) : a;
+  };
+}
+
+console.log(multiply(5)(8)());
+```
+
+### 65. Guess the output
+
+```
+let count8 = 0;
+(function () {
+  if (count8 === 0) {
+    let count8 = 1;
+    console.log(count8);
+  }
+  console.log(count8);
+})();
+
+// Output: 1 and 0
+```
+
+### 66. Guess the output
+
+```
+(function immediateA(a) {
+  return (function (b) {
+    console.log(a);
+  })(1);
+})(0);
+
+// Output: 0
 ```
