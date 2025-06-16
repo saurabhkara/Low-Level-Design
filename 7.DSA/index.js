@@ -1421,3 +1421,5 @@ console.log(arr49);
 // Descending Order
 arr49.sort((a, b) => b - a);
 console.log(arr49);
+
+// Q.50

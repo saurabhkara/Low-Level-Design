@@ -66,6 +66,13 @@
 | 64. | [Create a function that multiply that multiples the arguments passed in this manner multiply(5)(6)(7)](#64-create-a-function-that-multiply-the-arguments-passed-in-this-manner-multiply567) |
 | 65. | [Guess the output of given code](#65-guess-the-output)                                                                                                                                      |
 | 66. | [Guess the output](#66-guess-the-output)                                                                                                                                                    |
+| 67. | [What will be output?](#67-what-will-be-output)                                                                                                                                             |
+| 68. | [Promise.resolve()](#68-promiseresolve)                                                                                                                                                     |
+| 69. | [Promise.reject()](#69-promisereject)                                                                                                                                                       |
+| 70. | [Promise Combinator - Promise.all()](#70-promiseall)                                                                                                                                        |
+| 71. | [Promise Combinator - Promise.race()](#71-promiserace)                                                                                                                                      |
+| 72. | [Promise Combinator - Promise.any()](#72-promiseany)                                                                                                                                        |
+| 73. | [Promise Combinator- Promise.allSettled()](#73-promiseallsettled)                                                                                                                           |
 
 ### 1. Prototype Chaining
 
@@ -1184,4 +1191,157 @@ let count8 = 0;
 })(0);
 
 // Output: 0
+```
+
+## Promises
+
+Promises are the javascript object that will going to return some value in future either a resolve value or a reason that is not resolved.
+States => Pending, Fulfilled and Rejected
+
+### 67. What will be output?
+
+```
+const promiseInstance = new Promise((resolve, reject) => {
+  //   resolve("First instance");
+  reject(" First reject");
+});
+
+promiseInstance
+  .then((res) => {
+    console.log(res);
+  })
+  .then((res) => {
+    console.log("Second then", res);
+  })
+  .catch((err) => {
+    console.log(err);
+  })
+  .then(() => {
+    console.log(" Then after catch");
+  });
+
+//Output : First reject & The after catch
+
+// "then block" will always called after promise resolved
+// then block returns resolve promise by default
+// catch block also returns resolve promise by default
+
+```
+
+### 68. Promise.resolve()
+
+```
+Promise.resolve("Resolve block").then((res) => {
+  console.log("then block", res);
+});
+
+Output: Resolve Block and then block
+```
+
+### 69. Promise.reject()
+
+```
+Promise.reject("Reject method")
+  .then((res) => {
+    console.log("then block", res);
+  })
+  .catch((err) => {
+    console.log("catch block", err);
+  });
+
+Output: catch block reject method
+```
+
+### 70. Promise.all()
+
+Promise combinator => Promise.all([])
+
+```
+const p1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    // resolve("P1");
+    reject("P1");
+  }, 100);
+});
+
+const p2 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    setTimeout(() => {
+      //   resolve("P2");
+      reject("P2");
+    }, 2000);
+  });
+});
+
+const p3 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    reject("P3");
+    // resolve("P3");
+  });
+});
+
+
+Promise.all([p1, p2, p3])
+  .then((res) => {
+    console.log("Promise all then=>", res);
+  })
+  .catch((err) => {
+    console.log("Promise all catch=>", err);
+  });
+
+The returned promise resolves when all of the input promises have resolved. The resolved value is an array containing the resolved values of the input promises, in the same order as they appear in the input iterable.
+The returned promise rejects immediately if any of the input promises reject. The rejection reason is the same as the reason of the first rejected promise.
+
+```
+
+### 71. Promise.race()
+
+Promise Combinator -Promise.race()
+
+```
+// Promise p1, p2 and p3 defined in Q.70
+
+Promise.race([p1, p2, p3])
+  .then((res) => {
+    console.log("Promise Race then", res);
+  })
+  .catch((err) => {
+    console.log("promise catch=>", err);
+  });
+
+Promise.race() is a JavaScript promise combinator that takes an iterable (like an array) of promises as input and returns a new promise. This new promise settles as soon as the first promise in the input iterable settles, meaning it either resolves or rejects. The value or reason of the first settled promise is then used to fulfill or reject the returned promise.
+```
+
+### 72. Promise.any()
+
+Promise Combinator -Promise.any()
+
+```
+Promise.any([p1, p2, p3])
+  .then((res) => {
+    console.log("Promise any then=>", res);
+  })
+  .catch((err) => {
+    console.log("Promise Any=>", err);
+  });
+
+Promise.any() is a promise combinator that accepts an iterable of promises and returns a new promise. This new promise resolves as soon as any of the input promises fulfill, with the value of the first fulfilled promise. If all input promises are rejected, then the returned promise is rejected with an AggregateError containing all the rejection reasons.
+
+```
+
+### 73. Promise.allSettled()
+
+Promise Combinators=> Promise.allSettled()
+
+```
+Promise.allSettled([p1, p2, p3])
+  .then((res) => {
+    console.log("Promise AllSettled  then=>", res);
+  })
+  .catch((err) => {
+    console.log("Promise all Settled  catch=>", err);
+  });
+
+
+Promise.allSettled() is a method in JavaScript that takes an iterable of promises and returns a single promise that resolves after all the input promises have settled, regardless of whether they have fulfilled or rejected.
 ```

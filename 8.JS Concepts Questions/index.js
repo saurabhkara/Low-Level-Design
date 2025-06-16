@@ -961,7 +961,7 @@ promiseInstance
 
 //Output : First reject & The after catch
 
-// all then block will always called after promise resolved
+// all "then block" will always called after promise resolved
 // then block returns resolve promise by default
 // catch block also returns resolve promise by default
 
