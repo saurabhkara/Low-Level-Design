@@ -1422,4 +1422,59 @@ console.log(arr49);
 arr49.sort((a, b) => b - a);
 console.log(arr49);
 
-// Q.50
+// Q.50 Find pivot element
+//Pivot element is the element which divides the array into two equal parts. The sum of elements on the left side should be equal to the sum of elements on the right side.
+
+const arr50 = [1, 7, 3, 6, 5, 6];
+
+function findPivotElementBruteForce(arr) {
+  if (!Array.isArray(arr)) {
+    return;
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+    let leftSum = 0;
+    let rightSum = 0;
+    for (let k = 0; k < i; k++) {
+      leftSum = leftSum + arr[k];
+    }
+
+    for (let j = i + 1; j < arr.length; j++) {
+      rightSum = rightSum + arr[j];
+    }
+
+    if (leftSum === rightSum) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+console.log(findPivotElementBruteForce(arr50));
+//T(n)= O(n2)
+
+function findPivotElememtOptimalWay(arr) {
+  if (!Array.isArray(arr)) {
+    return;
+  }
+  let totalSum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    totalSum = totalSum + arr[i];
+  }
+
+  let leftSum = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    let rightSum = totalSum - leftSum - arr[i];
+    console.log(rightSum, leftSum);
+    if (leftSum === rightSum) {
+      return i;
+    }
+    leftSum = leftSum + arr[i];
+  }
+  return -1;
+}
+
+console.log(findPivotElememtOptimalWay(arr50));
+
+// T(n) = O(n)

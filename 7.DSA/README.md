@@ -53,6 +53,9 @@
 | 47. | [Check both strings are rotation each other](#check-both-strings-are-rotation-each-other)                                                                                                                                                                                                         |
 | 48. | [Check two arrays are equal](#check-two-arrays-are-equal)                                                                                                                                                                                                                                         |
 | 49. | [Sort array in Ascending and Descending order using sort method](#sort-array-in-ascending-and-descending-order-using-sort-method)                                                                                                                                                                 |
+| 50. | [Find pivot index of given array](#find-pivot-index-of-array)                                                                                                                                                                                                                                     |
+
+|
 
 ## A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters
 
@@ -1599,7 +1602,7 @@ console.log(isBothArraysEqual(arr48A, arr48B));
 //T(n)=O(n)
 ```
 
-## 49. Sort array in Ascending and Descending order using sort method
+## Sort array in Ascending and Descending order using sort method
 
 ```
 const arr49 = [5, 8, 9, 4, 6, 7];
@@ -1609,6 +1612,66 @@ console.log(arr49);
 // Descending Order
 arr49.sort((a, b) => b - a);
 console.log(arr49);
+
+```
+
+## Find pivot index of array
+
+```
+const arr50 = [1, 7, 3, 6, 5, 6];
+
+function findPivotElementBruteForce(arr) {
+  if (!Array.isArray(arr)) {
+    return;
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+    let leftSum = 0;
+    let rightSum = 0;
+    for (let k = 0; k < i; k++) {
+      leftSum = leftSum + arr[k];
+    }
+
+    for (let j = i + 1; j < arr.length; j++) {
+      rightSum = rightSum + arr[j];
+    }
+
+    if (leftSum === rightSum) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+console.log(findPivotElementBruteForce(arr50));
+//T(n)= O(n2)
+
+function findPivotElememtOptimalWay(arr) {
+  if (!Array.isArray(arr)) {
+    return;
+  }
+  let totalSum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    totalSum = totalSum + arr[i];
+  }
+
+  let leftSum = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    let rightSum = totalSum - leftSum - arr[i];
+    console.log(rightSum, leftSum);
+    if (leftSum === rightSum) {
+      return i;
+    }
+    leftSum = leftSum + arr[i];
+  }
+  return -1;
+}
+
+console.log(findPivotElememtOptimalWay(arr50));
+
+// T(n) = O(n)
+
 
 ```
 
