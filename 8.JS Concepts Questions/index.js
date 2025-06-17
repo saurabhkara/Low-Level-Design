@@ -1431,3 +1431,32 @@ function* generatorFun() {
 const iterator = generatorFun();
 console.log(iterator.next());
 console.log(iterator.next());
+
+// --
+
+// Q.51 Shallow copy and deep copy of object
+
+//Shallow Copy
+//Only the first level is copied.
+//If the object has nested objects/arrays, only the reference to those nested objects is copied, not the actual nested object.
+
+const original = {
+  name: "Saurabh",
+  address: {
+    city: "Delhi",
+  },
+};
+
+const shallowCopy = Object.assign({}, original);
+
+// OR using spread operator
+const shallowCopy2 = { ...original };
+
+//Deep Copy
+// All levels are copied recursively.
+// The copy is completely independent of the original.
+
+const deepCopy = structuredClone(original);
+
+//Note if nested object containing function strinfying and parsing object will not work
+const deepCopy2 = JSON.parse(JSON.stringify(original));

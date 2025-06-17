@@ -1478,3 +1478,54 @@ function findPivotElememtOptimalWay(arr) {
 console.log(findPivotElememtOptimalWay(arr50));
 
 // T(n) = O(n)
+
+// Q.51  Count the number of unique players and all the players in the given data
+
+const obj51 = {
+  id: 1,
+  name: ["P1", "P4"],
+  next: {
+    id: 2,
+    name: ["P3"],
+    next: {
+      id: 3,
+      name: ["P3", "P4", "P5"],
+      next: {
+        id: 4,
+        name: ["P1", "P2", "P4"],
+        next: {
+          id: 5,
+          name: ["P2", "P3", "P5"],
+          next: null,
+        },
+      },
+    },
+  },
+};
+
+function countUniquePlayer(data) {
+  if (
+    data === null ||
+    Array.isArray(data) ||
+    typeof data !== "object" ||
+    data instanceof Date
+  ) {
+    console.log("data is not object");
+    return;
+  }
+
+  const countData = {};
+
+  for (let player of data.name) {
+    countData[player] = (countData[player] || 0) + 1;
+  }
+
+  const returnedData = countUniquePlayer(data.next);
+
+  for (let key in returnedData) {
+    countData[key] = (countData[key] || 0) + returnedData[key];
+  }
+  return countData;
+}
+
+console.log(countUniquePlayer(obj51));
