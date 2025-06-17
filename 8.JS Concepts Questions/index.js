@@ -1106,7 +1106,7 @@ sub
   });
 console.log("Stop67");
 
-//Output : Start67, Intermediate 67, Resolved67 and 67 then =>Resolved67
+//Output : Start67, Intermediate 67, Stop67, Resolved67 and 67 then =>Resolved67
 
 // Q.68 Guess the output
 

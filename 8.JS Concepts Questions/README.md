@@ -73,6 +73,10 @@
 | 71. | [Promise Combinator - Promise.race()](#71-promiserace)                                                                                                                                      |
 | 72. | [Promise Combinator - Promise.any()](#72-promiseany)                                                                                                                                        |
 | 73. | [Promise Combinator- Promise.allSettled()](#73-promiseallsettled)                                                                                                                           |
+| 74. | [Guess the output](#74-guess-the-output)                                                                                                                                                    |
+| 75. | [Guess the output of given code snippet](#75-guess-the-output-of-given-code-snippet)                                                                                                        |
+| 76. | [Output of given code snippet](#76-output-of-given-code-snippet)                                                                                                                            |
+| 77. | [Guess the output](#77-guess-the-output)                                                                                                                                                    |
 
 ### 1. Prototype Chaining
 
@@ -933,17 +937,16 @@ Calc.add(5).mul(11).print();
 
 ### 49. Guess the output
 
-```
+```js
 console.log(y);
 let y = 10;
 // Answer: Reference error
 // Trying to access  let or const variable, will get reference error.
-
 ```
 
 ### 50. Guess the Output
 
-```
+```js
 console.log(y2);
 var y2 = 10;
 
@@ -963,7 +966,7 @@ var y3;
 
 ### 52. Guess the Output
 
-```
+```js
 var y5 = 10;
 let y5 = 10;
 console.log(y5);
@@ -973,7 +976,7 @@ console.log(y5);
 
 ### 53. Guess the Output
 
-```
+```js
 function hoistingExample6() {
   console.log("Value of y6 variable", y6);
 }
@@ -989,7 +992,7 @@ Value of y6 variable 52
 
 ### 54. Guess the output of given code snippet
 
-```
+```js
 function hoistingExample7() {
   y7 = 2;
 }
@@ -1001,7 +1004,7 @@ console.log(y7);
 
 ### 55. Guess the Output
 
-```
+```js
 function hoistingExample8() {
   var y8 = 8;
 }
@@ -1011,12 +1014,11 @@ console.log(y8);
 
 // Output: reference error
 // Var is functional scope variable so it cannot be accesed outside of function
-
 ```
 
 ### 56. Guess the Output
 
-```
+```js
 function hoistingExample9() {
   console.log("9A");
 }
@@ -1035,7 +1037,7 @@ hoistingExample9();
 
 ### 57. Guess the output
 
-```
+```js
 function hoistingExample10() {
   y10 = 12;
   console.log(y10);
@@ -1053,7 +1055,7 @@ console.log(y10);
 
 ### 58. Guess the output
 
-```
+```js
 function outer1() {
   var a = 10;
   function inner() {
@@ -1064,12 +1066,11 @@ function outer1() {
 outer1()();
 
 //Output: 10
-
 ```
 
 ### 59. Guess the output
 
-```
+```js
 function outer2() {
   var a = 101;
   function inner() {
@@ -1082,12 +1083,11 @@ var close2 = outer2();
 close2();
 
 // Output : 101
-
 ```
 
 ### 60. Guess the output
 
-```
+```js
 function outer3() {
   function inner() {
     console.log(a);
@@ -1100,12 +1100,11 @@ var close3 = outer3();
 close3();
 
 //output : 1022
-
 ```
 
 ### 61. Guess the output
 
-```
+```js
 function mostOuter() {
   var c = 12;
   function outer(b) {
@@ -1122,12 +1121,11 @@ var close4 = mostOuter()("Hello Outer");
 close4();
 
 //Output: 1089 Hello Outer 12
-
 ```
 
 ### 62. Guess the output
 
-```
+```js
 function example5() {
   for (var i = 0; i < 3; i++) {
     setTimeout(function log() {
@@ -1143,7 +1141,7 @@ var is functional scope variable so var keyword i will be increment to 3
 
 ### 63. Guess the output
 
-```
+```js
 var num6 = 10;
 (function () {
   console.log(num6);
@@ -1156,7 +1154,7 @@ var num6 = 10;
 
 ### 64. Create a function that multiply the arguments passed in this manner multiply(5)(6)(7)
 
-```
+```js
 function multiply(a) {
   return function (b) {
     return b ? multiply(a * b) : a;
@@ -1168,7 +1166,7 @@ console.log(multiply(5)(8)());
 
 ### 65. Guess the output
 
-```
+```js
 let count8 = 0;
 (function () {
   if (count8 === 0) {
@@ -1183,7 +1181,7 @@ let count8 = 0;
 
 ### 66. Guess the output
 
-```
+```js
 (function immediateA(a) {
   return (function (b) {
     console.log(a);
@@ -1200,7 +1198,7 @@ States => Pending, Fulfilled and Rejected
 
 ### 67. What will be output?
 
-```
+```js
 const promiseInstance = new Promise((resolve, reject) => {
   //   resolve("First instance");
   reject(" First reject");
@@ -1225,12 +1223,11 @@ promiseInstance
 // "then block" will always called after promise resolved
 // then block returns resolve promise by default
 // catch block also returns resolve promise by default
-
 ```
 
 ### 68. Promise.resolve()
 
-```
+```js
 Promise.resolve("Resolve block").then((res) => {
   console.log("then block", res);
 });
@@ -1240,7 +1237,7 @@ Output: Resolve Block and then block
 
 ### 69. Promise.reject()
 
-```
+```js
 Promise.reject("Reject method")
   .then((res) => {
     console.log("then block", res);
@@ -1256,7 +1253,7 @@ Output: catch block reject method
 
 Promise combinator => Promise.all([])
 
-```
+```js
 const p1 = new Promise((resolve, reject) => {
   setTimeout(() => {
     // resolve("P1");
@@ -1298,7 +1295,7 @@ The returned promise rejects immediately if any of the input promises reject. Th
 
 Promise Combinator -Promise.race()
 
-```
+```js
 // Promise p1, p2 and p3 defined in Q.70
 
 Promise.race([p1, p2, p3])
@@ -1316,7 +1313,7 @@ Promise.race() is a JavaScript promise combinator that takes an iterable (like a
 
 Promise Combinator -Promise.any()
 
-```
+```js
 Promise.any([p1, p2, p3])
   .then((res) => {
     console.log("Promise any then=>", res);
@@ -1333,7 +1330,7 @@ Promise.any() is a promise combinator that accepts an iterable of promises and r
 
 Promise Combinators=> Promise.allSettled()
 
-```
+```js
 Promise.allSettled([p1, p2, p3])
   .then((res) => {
     console.log("Promise AllSettled  then=>", res);
@@ -1344,4 +1341,81 @@ Promise.allSettled([p1, p2, p3])
 
 
 Promise.allSettled() is a method in JavaScript that takes an iterable of promises and returns a single promise that resolves after all the input promises have settled, regardless of whether they have fulfilled or rejected.
+```
+
+### 74. Guess the output
+
+```js
+console.log("Start74");
+function importantAction65(username) {
+  console.log("ImportantMessage74");
+  setTimeout(() => {
+    return `Send message to ${username}`;
+  });
+}
+
+const message74 = importantAction65("Saurabh74");
+console.log(message74);
+console.log("Stop74");
+
+// Start74 ImportantMessage74 undefined  and Stop74
+```
+
+### 75. Guess the output of given code snippet
+
+```js
+console.log("Start75");
+
+function importAction2(username, cb) {
+  console.log("Important Message75");
+  setTimeout(() => {
+    cb(`Sent message75 to ${username}`);
+  }, 0);
+  return "ss75";
+}
+
+const message2 = importAction2("Saurabh75", function (msg) {
+  console.log(msg);
+});
+console.log(message2);
+console.log("Stop75");
+
+//Output: Start75 Important Message75 ss75 Stop75 and Sent message75 to Saurabh75
+```
+
+### 76. Output of the given code snippet
+
+```js
+console.log("Start67");
+const sub = new Promise((resolve, reject) => {
+  console.log("Intermediate 67");
+  setTimeout(() => {
+    const result = true;
+    if (result) resolve("Resolved67");
+    else reject(new Error("Rejected67"));
+  }, 200);
+});
+
+sub
+  .then((res) => {
+    console.log("67 then=>", res);
+  })
+  .catch((err) => {
+    console.log("67 catch=>", err);
+  });
+console.log("Stop67");
+
+// Output: Start67, Intermediate 67 , Stop67 67 & then=> Resolved67
+```
+
+### 77. Guess the output
+
+```js
+console.log("Start68");
+Promise.resolve("Resolved68").then((res) => {
+  console.log("Resolved68 then=>", res);
+});
+console.log("Stop68");
+
+//Output: Start68, Stop68 and Resolved68 then=> Resolved68
 ```
