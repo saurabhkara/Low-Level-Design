@@ -1529,3 +1529,29 @@ function countUniquePlayer(data) {
 }
 
 console.log(countUniquePlayer(obj51));
+
+// Q.52 Number of good pairs
+//Given an array of integers nums, return the number of good pairs.
+// A pair (i, j) is called good if nums[i] == nums[j] and i < j.
+
+const arr51A = [1, 2, 3, 1, 1, 3];
+
+function countGoodPairs(arr) {
+  if (!Array.isArray(arr)) {
+    return;
+  }
+
+  const obj = {};
+
+  for (let i = 0; i < arr.length - 1; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] === arr[j]) {
+        let key = i + "" + j;
+        obj[key] = [i, j];
+      }
+    }
+  }
+  return Object.values(obj).length;
+}
+
+console.log(countGoodPairs(arr51A));
