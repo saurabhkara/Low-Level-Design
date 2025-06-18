@@ -77,6 +77,16 @@
 | 75. | [Guess the output of given code snippet](#75-guess-the-output-of-given-code-snippet)                                                                                                        |
 | 76. | [Output of given code snippet](#76-output-of-given-code-snippet)                                                                                                                            |
 | 77. | [Guess the output](#77-guess-the-output)                                                                                                                                                    |
+| 78. | [Guess the output of given snippet](#78-guess-the-output-of-below-snippet)                                                                                                                  |
+| 79. | [Guess the output](#79-guess-the-output)                                                                                                                                                    |
+| 80. | [Guess the output of given output](#80-guess-the-output)                                                                                                                                    |
+| 81. | [Guess the output of given output](#81-guess-the-output)                                                                                                                                    |
+| 82. | [Polyfill for map method](#82-polyfill-for-map-method)                                                                                                                                      |
+| 83. | [Polyfill for filter method](#83-polyfill-for-filter-method)                                                                                                                                |
+| 84. | [Polyfill for reduce method](#84-polyfill-for-reduce-method)                                                                                                                                |
+| 85. | [Polyfill for once method](#85-polyfill-for-once-method)                                                                                                                                    |
+| 86. | [Polyfill for call method](#86-polyfill-for-call-method)                                                                                                                                    |
+| 87. | [Polyfill for Apply method](#87-polyfill-for-apply-method)                                                                                                                                  |
 
 ### 1. Prototype Chaining
 
@@ -1418,4 +1428,244 @@ Promise.resolve("Resolved68").then((res) => {
 console.log("Stop68");
 
 //Output: Start68, Stop68 and Resolved68 then=> Resolved68
+```
+
+### 78. Guess the output of below snippet
+
+```js
+console.log("Start79");
+const pi79 = new Promise((resolve, reject) => {
+  console.log("p79 inside");
+  resolve("P79 resolved");
+});
+pi79
+  .then((res) => {
+    console.log("79 then=>", res);
+  })
+  .catch((err) => {
+    console.log("79 catch=>", err);
+  });
+console.log("Stop79");
+
+//Output: Start79, p79 inside, Stop79, 79 then=> P79 resolved
+```
+
+### 79. Guess the output
+
+```js
+console.log("Start79");
+const pi6 = new Promise((resolve, reject) => {
+  console.log("P79 inside 1");
+  resolve("79 resolved");
+  console.log("P79 inside 2");
+});
+
+pi6
+  .then((res) => {
+    console.log("P79 then", res);
+  })
+  .catch((err) => {
+    console.log("P79Catch=>", err);
+  });
+
+console.log("Stop 79");
+
+//Output: Start79, P79 inside 1, P79 inside 2, Stop 79, P79 then 79 resolved
+```
+
+### 80. Guess the output
+
+```js
+console.log("Start80");
+const fun = () =>
+  new Promise((resolve, reject) => {
+    console.log("P80 inside");
+    resolve("Success80");
+  });
+
+console.log("P80 Middle");
+fun().then((res) => {
+  console.log("P80 then=>", res);
+});
+
+console.log("End80");
+
+//Output: Start80, P80 Middle, P80 inside, End80, P80 then=> Success80
+```
+
+### 81. Guess the output
+
+```js
+function job81() {
+  return new Promise((resolve, reject) => {
+    reject();
+  });
+}
+
+const pi81 = job81();
+pi81
+  .then(() => {
+    console.log("P81 Success 1");
+  })
+  .then(() => {
+    console.log("P81 Success 2");
+  })
+  .then(() => {
+    console.log(" P81 Sucess 3 ");
+  })
+  .catch(() => {
+    console.log("P81 Error 1");
+  })
+  .then(() => {
+    console.log("P81 Success 4");
+  });
+
+//Output: P81 Error 1 , P81 Success 4
+//Catch block returns resolve promise by default
+```
+
+## Polyfill
+
+### 82. Polyfill for map method
+
+```js
+Array.prototype.myMap = function (cb) {
+  if (Array.isArray(!this)) {
+    return;
+  }
+  let result = [];
+  for (let i = 0; i < this.length; i++) {
+    const item = cb(this[i], i, this);
+    result[i] = item;
+  }
+
+  return result;
+};
+
+const arr82 = [5, 7, 9, 6];
+
+const res82 = arr82.myMap((item) => item + 10);
+console.log(res82);
+```
+
+### 83. Polyfill for filter method
+
+```js
+Array.prototype.myFilter = function (cb) {
+  if (!Array.isArray(this)) {
+    return;
+  }
+  let result = [];
+  for (let i = 0; i < this.length; i++) {
+    const flag = cb(this[i], i, this);
+    if (flag) {
+      const len = result.length;
+      result[len] = this[i];
+    }
+  }
+  return result;
+};
+
+const arr83 = [8, 4, 5, 3, 1];
+
+const res83 = arr83.myFilter((item, index) => item > 5);
+console.log("res74", res83);
+```
+
+### 84. Polyfill for reduce method
+
+```js
+Array.prototype.myReduce = function (cb, acc) {
+  if (!Array.isArray(this)) {
+    return;
+  }
+
+  for (let i = 0; i < this.length; i++) {
+    const accV = acc === "undefined" ? this[i] : acc;
+    const currentReturnVal = cb(accV, this[i], i, this);
+    acc = currentReturnVal;
+  }
+
+  return acc;
+};
+
+const arr84 = [5, 7, 6, 8];
+const res84 = arr75.myReduce((acc, item, index) => acc + item, 0);
+console.log(res84);
+```
+
+### 85. Polyfill for Once method
+
+```js
+function myOnce(cb) {
+  let calledFlag = false;
+  return function (...args) {
+    if (calledFlag) {
+      return;
+    } else {
+      cb(...args);
+      calledFlag = true;
+    }
+  };
+}
+
+function example76() {
+  console.log("Method called");
+}
+const once = myOnce(example76);
+once();
+once();
+once();
+```
+
+### 86. Polyfill for call method
+
+```js
+Function.prototype.myCall = function (context, ...args) {
+  if (typeof this !== "function") {
+    return;
+  }
+
+  if (context) {
+    context.cb = this;
+    context.cb(...args);
+  } else {
+    let obj = {};
+    obj.cb = this;
+    obj.cb(...args);
+  }
+};
+
+function printName77(marks) {
+  console.log("Name77", this.name, marks);
+}
+
+const obj77 = {
+  name: "Saurabh77",
+};
+
+printName77.myCall(obj77, 80);
+printName77.myCall(null, 77);
+```
+
+### 87. Polyfill for Apply method
+
+```js
+Function.prototype.myApply = function (context, args = []) {
+  if (context) {
+    context.cb = this;
+    context.cb(...args);
+  } else {
+    const obj = {};
+    obj.cb = this;
+    obj.cb(...args);
+  }
+};
+
+const obj78 = {
+  name: "Saurabh78",
+};
+
+printName77.myApply(obj78, [96]);
+printName77.myApply(obj78);
 ```
