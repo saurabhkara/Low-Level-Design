@@ -1432,7 +1432,7 @@ const iterator = generatorFun();
 console.log(iterator.next());
 console.log(iterator.next());
 
-// --
+// ======================================
 
 // Q.51 Shallow copy and deep copy of object
 
