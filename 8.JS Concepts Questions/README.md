@@ -87,6 +87,11 @@
 | 85. | [Polyfill for once method](#85-polyfill-for-once-method)                                                                                                                                    |
 | 86. | [Polyfill for call method](#86-polyfill-for-call-method)                                                                                                                                    |
 | 87. | [Polyfill for Apply method](#87-polyfill-for-apply-method)                                                                                                                                  |
+| 88. | [Polyfill for Bind method](#88-polyfill-for-bind-method)                                                                                                                                    |
+| 89. | [Polyfill for Find method](#89-polyfill-for-find-method)                                                                                                                                    |
+| 90. | [Polyfill for some method](#90-polyfill-for-some-method)                                                                                                                                    |
+| 91. | [Polyfill for every method](#91-polyfill-for-every-method)                                                                                                                                  |
+| 92. | [What is generator function ?](#92-what-is-generator-function)                                                                                                                              |
 
 ### 1. Prototype Chaining
 
@@ -1668,4 +1673,113 @@ const obj78 = {
 
 printName77.myApply(obj78, [96]);
 printName77.myApply(obj78);
+```
+
+### 88. Polyfill for Bind method
+
+```js
+Function.prototype.myBind = function (context, ...args1) {
+  const obj = {};
+  const localThis = this;
+  return function (...args2) {
+    if (context) {
+      context.cb = localThis;
+      context.cb(...args1, ...args2);
+    } else {
+      obj.cb = localThis;
+      obj.cb(...args1, ...args2);
+    }
+  };
+};
+
+const obj79 = {
+  name: "Saurabh",
+};
+
+function callFunc79(marks, add) {
+  console.log("call79", this.name, marks, add);
+}
+
+const resBind = callFunc79.myBind(obj79, 80);
+resBind("Arrah");
+```
+
+### 89. Polyfill for find method
+
+```js
+Array.prototype.myFind = function (cb) {
+  if (!Array.isArray(this)) {
+    return;
+  }
+
+  for (let i = 0; i < this.length; i++) {
+    const res = cb(this[i], i, this);
+    if (res) {
+      return this[i];
+    }
+  }
+};
+
+const arr80 = [8, 8, 9, 5, 2];
+const res80 = arr80.find((item) => item === 9);
+console.log("res80", res80);
+```
+
+### 90. Polyfill for some method
+
+```js
+Array.prototype.mySome = function (cb) {
+  if (!Array.isArray(this)) {
+    return;
+  }
+
+  for (let i = 0; i < this.length; i++) {
+    const returnV = cb(this[i], i, this);
+    if (returnV) return returnV;
+  }
+  return false;
+};
+
+const arr81 = [8, 9, 7, 5, 40];
+const res81 = arr81.some((item) => item > 30);
+console.log(res81);
+```
+
+### 91. Polyfill for every method
+
+```js
+Array.prototype.myEvery = function (cb) {
+  if (!Array.isArray(this)) {
+    return;
+  }
+
+  for (let i = 0; i < this.length; i++) {
+    if (!cb(this[i], i, this)) {
+      return false;
+    }
+  }
+  return true;
+};
+```
+
+### 92. What is generator function ?
+
+A generator function in JavaScript is a special type of function that allows you to pause and resume its execution.
+//This means it can produce a sequence of values over time, instead of computing them all at once and returning them in a single value like a regular function.
+
+Advantange of using generator function
+
+- Lazy Loading(Run only when you needed)
+- Memory efficient
+
+```
+function* generatorFun() {
+  yield 10;
+  yield 15;
+}
+
+const iterator = generatorFun();
+console.log(iterator.next());
+console.log(iterator.next());
+
 ```
