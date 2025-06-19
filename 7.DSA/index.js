@@ -1555,3 +1555,86 @@ function countGoodPairs(arr) {
 }
 
 console.log(countGoodPairs(arr51A));
+
+// Q.53 Count the Number of Consistent Strings
+// You are given a string allowed consisting of distinct characters and an array of strings words. A string is consistent if all characters in the string appear in the string allowed.
+
+const allowed = "ab";
+const wordsArr = ["ad", "bd", "aaab", "baa", "badab"];
+
+function countConsistentWord(arr, allowedChar) {
+  if (!Array.isArray(arr) || typeof allowedChar !== "string") {
+    return;
+  }
+
+  let count = 0;
+  for (let word of arr) {
+    let isConsistent = true;
+    for (let char of word) {
+      if (!allowedChar.includes(char)) {
+        isConsistent = false;
+        break;
+      }
+    }
+    if (isConsistent) {
+      count += 1;
+    }
+  }
+  return count;
+}
+
+console.log(countConsistentWord(wordsArr, allowed));
+
+// Q.54 Two Sum
+//Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+
+const nums = [2, 7, 11, 15];
+const target = 9;
+
+//Brute force method
+
+function twoSumBruteForce(arr, target) {
+  if (!Array.isArray(arr) && !target) {
+    return;
+  }
+
+  for (let i = 0; i < arr.length - 1; i++) {
+    for (let j = 1; j < arr.length; j++) {
+      if (arr[i] + arr[j] === target) {
+        return [i, j];
+      }
+    }
+  }
+  return -1;
+}
+
+console.log(twoSumBruteForce(nums, target));
+
+//T(n) = O(n2)
+
+// Optimal way using Object
+
+function twoSumUsingObject(arr, target) {
+  if (!Array.isArray(arr) && !target) {
+    return;
+  }
+
+  const obj = {};
+  for (let i = 0; i < arr.length; i++) {
+    obj[arr[i]] = i;
+  }
+  console.log(obj);
+
+  for (let key in obj) {
+    const secondElem = target - key;
+    if (obj.hasOwnProperty(secondElem)) {
+      console.log("hasownproperty");
+      return [obj[key], obj[secondElem]];
+    }
+  }
+  return -1;
+}
+
+console.log(twoSumUsingObject(nums, target));
+
+//T(n) = O(n)

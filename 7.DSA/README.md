@@ -56,6 +56,8 @@
 | 50. | [Find pivot index of given array](#find-pivot-index-of-array)                                                                                                                                                                                                                                     |
 | 51. | [Count the number of unique players and all the players in the given data](#count-the-number-of-unique-players-and-all-the-players-in-the-given-data)                                                                                                                                             |
 | 52. | [Number of good pairs](#number-of-good-pairs)                                                                                                                                                                                                                                                     |
+| 53. | [Count the Number of Consistent Strings](#count-the-number-of-consistent-strings)                                                                                                                                                                                                                 |
+| 54. | [Two Sum](#two-sum)                                                                                                                                                                                                                                                                               |
 
 ## A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters
 
@@ -1675,7 +1677,7 @@ console.log(findPivotElememtOptimalWay(arr50));
 
 ```
 
-### Count the number of unique players and all the players in the given data
+## Count the number of unique players and all the players in the given data
 
 ```
 const obj51 = {
@@ -1729,7 +1731,7 @@ console.log(countUniquePlayer(obj51));
 
 ```
 
-### Number of good pairs
+## Number of good pairs
 
 //Given an array of integers nums, return the number of good pairs.
 // A pair (i, j) is called good if nums[i] == nums[j] and i < j.
@@ -1756,6 +1758,99 @@ function countGoodPairs(arr) {
 }
 
 console.log(countGoodPairs(arr51A));
+
+T(n) = O(n2)
+
+```
+
+## Count the Number of Consistent Strings
+
+You are given a string allowed consisting of distinct characters and an array of strings words. A string is consistent if all characters in the string appear in the string allowed.
+
+```
+const allowed = "ab";
+const wordsArr = ["ad", "bd", "aaab", "baa", "badab"];
+
+function countConsistentWord(arr, allowedChar) {
+  if (!Array.isArray(arr) || typeof allowedChar !== "string") {
+    return;
+  }
+
+  let count = 0;
+  for (let word of arr) {
+    let isConsistent = true;
+    for (let char of word) {
+      if (!allowedChar.includes(char)) {
+        isConsistent = false;
+        break;
+      }
+    }
+    if (isConsistent) {
+      count += 1;
+    }
+  }
+  return count;
+}
+
+console.log(countConsistentWord(wordsArr, allowed));
+
+```
+
+## Two Sum
+
+Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+
+```
+const nums = [2, 7, 11, 15];
+const target = 9;
+
+//Brute force method
+
+function twoSumBruteForce(arr, target) {
+  if (!Array.isArray(arr) && !target) {
+    return;
+  }
+
+  for (let i = 0; i < arr.length - 1; i++) {
+    for (let j = 1; j < arr.length; j++) {
+      if (arr[i] + arr[j] === target) {
+        return [i, j];
+      }
+    }
+  }
+  return -1;
+}
+
+console.log(twoSumBruteForce(nums, target));
+
+//T(n) = O(n2)
+
+// Optimal way using Object
+
+function twoSumUsingObject(arr, target) {
+  if (!Array.isArray(arr) && !target) {
+    return;
+  }
+
+  const obj = {};
+  for (let i = 0; i < arr.length; i++) {
+    obj[arr[i]] = i;
+  }
+  console.log(obj);
+
+  for (let key in obj) {
+    const secondElem = target - key;
+    if (obj.hasOwnProperty(secondElem)) {
+      console.log("hasownproperty");
+      return [obj[key], obj[secondElem]];
+    }
+  }
+  return -1;
+}
+
+console.log(twoSumUsingObject(nums, target));
+
+//T(n) = O(n)
 
 ```
 
