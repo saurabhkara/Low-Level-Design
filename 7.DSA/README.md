@@ -58,6 +58,8 @@
 | 52. | [Number of good pairs](#number-of-good-pairs)                                                                                                                                                                                                                                                     |
 | 53. | [Count the Number of Consistent Strings](#count-the-number-of-consistent-strings)                                                                                                                                                                                                                 |
 | 54. | [Two Sum](#two-sum)                                                                                                                                                                                                                                                                               |
+| 55. | [Sum of Unique Elements](#sum-of-unique-elements)                                                                                                                                                                                                                                                 |
+| 56. | [Unique Number of Occurrences](#unique-number-of-occurrences)                                                                                                                                                                                                                                     |
 
 ## A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters
 
@@ -1852,6 +1854,86 @@ console.log(twoSumUsingObject(nums, target));
 
 //T(n) = O(n)
 
+```
+
+## Sum of Unique Elements
+
+```
+const arr55 = [1, 2, 3, 2];
+
+function sumUniqueElement(arr) {
+  if (!Array.isArray(arr)) {
+    return;
+  }
+
+  const obj = {};
+  let sum = 0;
+
+  for (let item of arr) {
+    if (!obj[item]) {
+      obj[item] = 1;
+      sum = sum + item;
+    } else {
+      obj[item] = obj[item] + 1;
+    }
+  }
+  return sum;
+}
+
+console.log(sumUniqueElement(arr55));
+
+```
+
+Another way to calculate sum of unique elements using set
+
+```
+const arr55 = [1, 2, 3, 2];
+function sumOfUniqueElementUsingSet(arr) {
+  if (!Array.isArray(arr)) {
+    return;
+  }
+  const set = new Set(arr);
+  const uniqueElemArr = [...set];
+
+  let sum = 0;
+  for (let item of uniqueElemArr) {
+    sum = sum + item;
+  }
+  return sum;
+}
+
+console.log(sumOfUniqueElementUsingSet(arr55));
+// O(n)(Spreading set into array ) + O(n)iteration of array  = O(n)
+//T(n) = O(n)
+
+```
+
+## Unique Number of Occurrences
+
+Given an array of integers arr, return true if the number of occurrences of each value in the array is unique or false otherwise.
+
+```
+const arr56 = [1, 2, 2, 1, 1, 3];
+function uniqueNumberOfOccurance(arr) {
+  if (!Array.isArray(arr)) {
+    return;
+  }
+
+  const obj = {};
+  for (let item of arr) {
+    obj[item] = (obj[item] || 0) + 1;
+  }
+
+  for (let key in obj) {
+    if (obj[key] > 1) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(uniqueNumberOfOccurance(arr56));
+console.log(uniqueNumberOfOccurance([1, 2, 3]));
 ```
 
 //https://docs.google.com/document/d/1hI4D_1CaxDWgf_mNHH0-5A7FBwFaFimJITEK-ggFimo/mobilebasic
