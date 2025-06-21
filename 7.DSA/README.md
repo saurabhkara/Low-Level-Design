@@ -60,6 +60,7 @@
 | 54. | [Two Sum](#two-sum)                                                                                                                                                                                                                                                                               |
 | 55. | [Sum of Unique Elements](#sum-of-unique-elements)                                                                                                                                                                                                                                                 |
 | 56. | [Unique Number of Occurrences](#unique-number-of-occurrences)                                                                                                                                                                                                                                     |
+| 57. | [Longest Substring Without Repeating Characters](#longest-substring-without-repeating-characters)                                                                                                                                                                                                 |
 
 ## A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters
 
@@ -1934,6 +1935,59 @@ function uniqueNumberOfOccurance(arr) {
 
 console.log(uniqueNumberOfOccurance(arr56));
 console.log(uniqueNumberOfOccurance([1, 2, 3]));
+```
+
+### Longest Substring Without Repeating Characters
+
+```
+const str57 = "Saurabhkumar";
+```
+
+Brute Force method
+
+```
+function longestSubStringBruteForce(str) {
+  if (!str) {
+    return;
+  }
+  let maxLength = 0;
+  let longestStr = "";
+
+  for (let i = 0; i < str.length; i++) {
+    for (let j = 1; j < str.length; j++) {
+      const subStr = str.substring(i, j + 1);
+      if (isStrContainingUniqueChar(subStr)) {
+        const subStrLen = subStr.length;
+        if (subStrLen > maxLength) {
+          maxLength = subStrLen;
+          longestStr = subStr;
+        }
+      }
+    }
+  }
+  return longestStr;
+}
+
+function isStrContainingUniqueChar(str) {
+  if (!str) {
+    return "";
+  }
+
+  let obj = {};
+
+  for (let char of str) {
+    if (obj[char]) {
+      return false;
+    } else {
+      obj[char] = (obj[char] || 0) + 1;
+    }
+  }
+  return true;
+}
+
+console.log(longestSubStringBruteForce(str57));
+
+//T(n)= O(n × n × n) = O(n³)
 ```
 
 //https://docs.google.com/document/d/1hI4D_1CaxDWgf_mNHH0-5A7FBwFaFimJITEK-ggFimo/mobilebasic

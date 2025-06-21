@@ -1710,3 +1710,84 @@ function uniqueNumberOfOccurance(arr) {
 
 console.log(uniqueNumberOfOccurance(arr56));
 console.log(uniqueNumberOfOccurance([1, 2, 3]));
+
+// Q. 57 Longest Substring Without Repeating Characters
+
+const str57 = "Saurabhkumar";
+
+//Brute force
+function longestSubStringBruteForce(str) {
+  if (!str) {
+    return;
+  }
+  let maxLength = 0;
+  let longestStr = "";
+
+  for (let i = 0; i < str.length; i++) {
+    for (let j = 1; j < str.length; j++) {
+      const subStr = str.substring(i, j + 1);
+      if (isStrContainingUniqueChar(subStr)) {
+        const subStrLen = subStr.length;
+        if (subStrLen > maxLength) {
+          maxLength = subStrLen;
+          longestStr = subStr;
+        }
+      }
+    }
+  }
+  return longestStr;
+}
+
+function isStrContainingUniqueChar(str) {
+  if (!str) {
+    return "";
+  }
+
+  let obj = {};
+
+  for (let char of str) {
+    if (obj[char]) {
+      return false;
+    } else {
+      obj[char] = (obj[char] || 0) + 1;
+    }
+  }
+  return true;
+}
+
+console.log(longestSubStringBruteForce(str57));
+
+//T(n)= O(n × n × n) = O(n³)
+
+//Optimized way using array
+
+function longestSubStringUsingArr(str) {
+  if (!str) {
+    return "";
+  }
+  const currentStrArr = [];
+  let subStr = "";
+  let maxLength = 0;
+
+  for (let i = 0; i < str.length; i++) {
+    const isExist = currentStrArr.indexOf(str[i]);
+    if (isExist !== -1) {
+      currentStrArr.splice(0, isExist + 1);
+    }
+
+    currentStrArr.push(str[i]);
+
+    if (currentStrArr.length >= maxLength) {
+      maxLength = currentStrArr.length;
+      subStr = currentStrArr.join("");
+    }
+  }
+  console.log(maxLength, subStr);
+  return subStr;
+}
+
+console.log(longestSubStringUsingArr(str57));
+// T(n) =O(n2)
+// S(n)= O(n)
+
+// Sliding window approach using set
