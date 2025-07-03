@@ -1917,3 +1917,45 @@ To achieve asynchronous operation in JS following things will help:
 - callbacks
 - Promises
 - Async/Await
+
+### What is parser ?
+
+A parser or syntax parser is program that reads your code line by line.
+
+### JS Engine
+
+A JavaScript engine is simply a computer program that receives JavaScript source code and compiles it to the binary instruction(machine code) that a CPU can understand.
+
+### Execution context
+
+The browser's JavaScript engine create a special environment to handle transformation and execution of JavaScript code. The environment is known as the execution context.
+During runtime of execution context the specific code gets parsed by a parser, the variables and functions are stored in memory, executable byte-code gets generated and the code gets executed.
+
+Type of execution context
+
+- Global execution context
+- Functional or local execution context
+
+The creation of execution context happens into two phase
+
+- 1. Creation phase
+- 2. Execution phase
+
+1. Creation phase: In the creation phase, the execution context first associate with an execution context object. In this phase, all variables get allocated their memory and intialized with undefined in the key-value form
+   And functions declaration are done.
+   eg. hoisting is occured in this phase.
+
+2. Execution phase: Finally, right after the creation phase of execution context comes the execution phase. This is the stage where the actual code execution begins.
+
+### What is Callstack ?
+
+Callstack is a data structure for JavaScript interpreters to keep track of function calls(execution context) in the program. It has two major actions :
+
+- Whenever you call a function for its execution, the function will be pushed into the callstack.
+- Whenever the execution is completed, the function is popped out of the stack.
+
+### What is event loop ?
+
+The event queue follows the queue data structure. It stores async callbacks to be added to the callstack. It is known as the callback queue or macrotask queue.
+Whenever the callstack receives an async function, it is moved into the web API. Based on the function, web API executes it and awaits the result. Once it is finished, it moves the callback into eventqueue(the callback of the promise it moved into the microtask queue).
+The event loop constantly checks whether or not the call stack is empty. Once the callstack is empty and there is a callback in the event queue then it will move into callstack to execute. If there is any callback in the microtask queue as it will move first. The microtask queue has a higher priority than a macrotask queue.
