@@ -1460,3 +1460,8 @@ const deepCopy = structuredClone(original);
 
 //Note if nested object containing function strinfying and parsing object will not work
 const deepCopy2 = JSON.parse(JSON.stringify(original));
+
+// 31 Interview Questions by Shruti Kapoor
+
+// Q. Implement Promise in JavaScript
+// you are suppose to create Class creates a Promise, utilises promise returns a then, catch and finally method

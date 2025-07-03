@@ -1783,3 +1783,137 @@ console.log(iterator.next());
 console.log(iterator.next());
 
 ```
+
+---
+
+# Definition and Examples
+
+### What is prototype ?
+
+Every object in JavaScript has a prototype, which is another object that serves as blueprint or template for the properties and methods that the object should have access to.
+
+In JavaScript, every object has an internal property called [[Prototype]] (commonly accessed via `.prototype` or `__proto__`). This is part of the prototype chain, which is how JavaScript implements inheritance.
+A prototype is an object from which other objects inherit properties. When you try to access a property on an object, JavaScript will:
+
+- Look at the object itself.
+- If not found, look at the object's prototype.
+- Keep going up the prototype chain until it finds the property or reaches null
+
+```js
+function Person(name) {
+  this.name = name;
+}
+
+Person.prototype.greetUser = function () {
+  console.log(`Hello ${this.name}`);
+};
+
+const user = new Person("Saurabh");
+
+user.greetUser();
+
+console.log(user.__proto__);
+```
+
+### What is Currying ?
+
+Currying is the process of transforming a function with multiple arguments into a sequence of nested functions, each accepting only one argument at a time.
+
+### What is a pure function ?
+
+A pure function is a function whose output depends only on its input arguments and produces no side effects.
+
+### What is the Temporal Dead Zone(TDZ) ?
+
+The temporal dead zone is a behaviour in Javascript that occurs when declaring a variable with let and const keywords but not var. Accessing the let and const variable before its declaration(within its scope) causes a reference error.
+The time span between the creation of a variable's binding and its declaration is called a temporal dead zone.
+
+```js
+console.log(a);
+console.log(b);
+
+var a = 10;
+var b = 20;
+```
+
+### What is IIFE(Immediately Invoked function expression) ?
+
+IIFE is a JavaScript function that runs as soon as possible as it is defined. The primary reason to use an IIFE is to obtain data privacy because any variable declared within IIFE cannot be accessed by the outside world.
+
+### What is memoization ?
+
+Memoization is a functional programming technique which attempts to increase a function’s performance by caching its previously computed results. Each time a memoized function is called, its parameters are used to index the cache. If the data is present, then it can be returned, without executing the entire function. Otherwise the function is executed and then the result is added to the cache.
+
+```js
+function memoization() {
+  let data = {};
+  return function (a, b) {
+    const key = `${a}${b}`;
+    if (data[key]) {
+      console.log("returning data from cache");
+      return data[key];
+    }
+    const result = a * b;
+    data[key] = result;
+    return result;
+  };
+}
+
+const memo = memoization();
+console.log(memo(5, 10));
+console.log(memo(5, 10));
+```
+
+### What is hoisting ?
+
+Hoisting is a JavaScript mechanism where variables, function declarations and classes are moved to the top of their scope before code execution. Remember that JavaScript only hoists declarations, not initialisation.
+
+```js
+console.log(a);
+var a = 10;
+
+printName();
+function printName() {
+  console.log("Hello Saurabh");
+}
+```
+
+### What are OOPs ?
+
+Object oriented programming(OOPs) is methodology or paradigm to design a program using classes and Objects.
+
+### What are classes in ES6 ?
+
+In ES6, Javascript classes are primarily syntactic sugar over JavaScript’s existing prototype-based inheritance.
+A class can be defined as a blueprint from which objects can be created. Classes does not consume memory.
+
+### What is Object ?
+
+An Object can be defined as an instance of a class. An entity that has a state and behavior(method) is known as an Object.
+
+### What are closures ?
+
+A closure is the combination of a function together with its lexical environment within which that function was declared. i.e, It is an inner function that has access to the outer or enclosing function’s variables, functions and other data even after the outer function has finished its execution.
+Closures are used to encapsulate(hiding) data and used for memoization
+
+### Is JavaScript interpreted language ?
+
+Javascript is interpreted language not compile language. An interpreter in the browser reads over the JavaScript code, interprets each line, and each line and runs it. Nowadays modern browsers use a technology known as Just in Time(JIT) compilation.
+
+### Just In Time(JIT)
+
+JavaScript used to be an interpreted language, but interpreted languages are slower compared to compiled language. In order to optimize the performance of web applications, JavaScript combines both compilation and interpretation. This is called Just in Time.
+
+### What is Synchronous code ?
+
+When code is executed line by line. When a line is completely executed, then only does the code more forward to executed the next line.
+
+### How JavaScript handle Asynchronous operation ?
+
+With Asynchronous code multiple tasks can be executed at the same time while tasks finishes in the background. This is called non-blocking code.
+Asynchronous programming is a way for a computer program to handle multiple tasks a computer simulataneously rather than executing than one after another.
+To achieve asynchronous operation in JS following things will help:
+
+- callbacks
+- Promises
+- Async/Await
