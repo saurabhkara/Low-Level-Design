@@ -1462,6 +1462,15 @@ const deepCopy = structuredClone(original);
 const deepCopy2 = JSON.parse(JSON.stringify(original));
 
 // 31 Interview Questions by Shruti Kapoor
-
+//Day 1
 // Q. Implement Promise in JavaScript
 // you are suppose to create Class creates a Promise, utilises promise returns a then, catch and finally method
+
+//Day 2
+// Q. Implement Debounce function in JavaScript
+
+//Day 3
+// Q. Flattening array using recursive method
+
+// Day 4
+// Q. Throattle Function
