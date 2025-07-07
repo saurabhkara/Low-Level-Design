@@ -1,10 +1,10 @@
-//SOLID Principal
+//SOLID Principle
 
-### The SOLID principles are a set of five design principles that help developers write more maintainable, flexible, and scalable code.
+### The SOLID principles are a set of five design principles in Object Oriented Programming language that help developers to write readable, maintainble, scalable and reuseable code.
 
 ## S - Single Responsibility Principle(SRP)
 
-- ### A class should have a single responsibility
+- A Class should have only one reason to change, meaning it should have only one job or responsiblity.
 
 ## O - Open-Close Principle (OCP)
 
