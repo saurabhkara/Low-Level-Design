@@ -61,6 +61,7 @@
 | 55. | [Sum of Unique Elements](#sum-of-unique-elements)                                                                                                                                                                                                                                                 |
 | 56. | [Unique Number of Occurrences](#unique-number-of-occurrences)                                                                                                                                                                                                                                     |
 | 57. | [Longest Substring Without Repeating Characters](#longest-substring-without-repeating-characters)                                                                                                                                                                                                 |
+| 58. | [Merge the strings by adding alternative letter](#merge-the-strings-by-adding-alternative-letter)                                                                                                                                                                                                 |
 
 ## A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters
 
@@ -1988,6 +1989,34 @@ function isStrContainingUniqueChar(str) {
 console.log(longestSubStringBruteForce(str57));
 
 //T(n)= O(n × n × n) = O(n³)
+```
+
+### Merge the strings by adding alternative letter
+
+```
+let str58A = "Ram";
+let str58B = "Sita";
+
+function mergeAlternatveLetter(str1, str2) {
+  if (typeof str1 === "string" ||  typeof str2 === "string") {
+    return;
+  }
+
+  let result = "";
+
+  for (let i = 0; i < Math.max(str1.length, str2.length); i++) {
+    if (str1[i]) {
+      result = result + str1[i];
+    }
+    if (str2[i]) {
+      result = result + str2[i];
+    }
+  }
+  return result;
+}
+
+console.log(mergeAlternatveLetter(str58A, str58B));
+
 ```
 
 //https://docs.google.com/document/d/1hI4D_1CaxDWgf_mNHH0-5A7FBwFaFimJITEK-ggFimo/mobilebasic

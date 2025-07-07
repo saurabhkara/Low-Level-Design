@@ -1791,3 +1791,28 @@ console.log(longestSubStringUsingArr(str57));
 // S(n)= O(n)
 
 // Sliding window approach using set
+
+// Q.58 Merge the strings by adding alternative letter
+
+let str58A = "Ram";
+let str58B = "Sita";
+
+function mergeAlternatveLetter(str1, str2) {
+  if (typeof str1 === "string" || typeof str2 === "string") {
+    return;
+  }
+
+  let result = "";
+
+  for (let i = 0; i < Math.max(str1.length, str2.length); i++) {
+    if (str1[i]) {
+      result = result + str1[i];
+    }
+    if (str2[i]) {
+      result = result + str2[i];
+    }
+  }
+  return result;
+}
+
+console.log(mergeAlternatveLetter(str58A, str58B));
