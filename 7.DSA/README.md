@@ -62,6 +62,7 @@
 | 56. | [Unique Number of Occurrences](#unique-number-of-occurrences)                                                                                                                                                                                                                                     |
 | 57. | [Longest Substring Without Repeating Characters](#longest-substring-without-repeating-characters)                                                                                                                                                                                                 |
 | 58. | [Merge the strings by adding alternative letter](#merge-the-strings-by-adding-alternative-letter)                                                                                                                                                                                                 |
+| 59. | [Linear Search](#linear-search)                                                                                                                                                                                                                                                                   |
 
 ## A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters
 
@@ -2049,6 +2050,33 @@ function mergeAlternatveLetter(str1, str2) {
 }
 
 console.log(mergeAlternatveLetter(str58A, str58B));
+
+//T(n)= O(n)
+
+```
+
+### Linear Search
+
+```
+const arr59 = [5, 4, 6, 7, 8, 2];
+
+function linearSearch(arr, key) {
+  if (!Array.isArray(arr)) {
+    return;
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] == key) {
+      return i;
+    }
+  }
+
+  return -1;
+}
+
+console.log(linearSearch(arr59, 2));
+
+// T(n)=O(n)
 
 ```
 

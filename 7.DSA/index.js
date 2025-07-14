@@ -1798,7 +1798,7 @@ let str58A = "Ram";
 let str58B = "Sita";
 
 function mergeAlternatveLetter(str1, str2) {
-  if (typeof str1 === "string" || typeof str2 === "string") {
+  if (typeof str1 !== "string" || typeof str2 !== "string") {
     return;
   }
 
@@ -1817,4 +1817,30 @@ function mergeAlternatveLetter(str1, str2) {
 
 console.log(mergeAlternatveLetter(str58A, str58B));
 
+//T(n)= O(n)
+
 // Q.59 Linear Search
+
+const arr59 = [5, 4, 6, 7, 8, 2];
+
+function linearSearch(arr, key) {
+  if (!Array.isArray(arr)) {
+    return;
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] == key) {
+      return i;
+    }
+  }
+
+  return -1;
+}
+
+console.log(linearSearch(arr59, 2));
+
+// T(n)=O(n)
+
+//Q.60 Binary Search
+
+const arr60 = [5, 6, 8, 12, 15, 25, 30, 35];
