@@ -1989,6 +1989,39 @@ function isStrContainingUniqueChar(str) {
 console.log(longestSubStringBruteForce(str57));
 
 //T(n)= O(n × n × n) = O(n³)
+
+
+//Optimized way using array
+
+function longestSubStringUsingArr(str) {
+  if (!str) {
+    return "";
+  }
+  const currentStrArr = [];
+  let subStr = "";
+  let maxLength = 0;
+
+  for (let i = 0; i < str.length; i++) {
+    const isExist = currentStrArr.indexOf(str[i]);
+    if (isExist !== -1) {
+      currentStrArr.splice(0, isExist + 1);
+    }
+
+    currentStrArr.push(str[i]);
+
+    if (currentStrArr.length >= maxLength) {
+      maxLength = currentStrArr.length;
+      subStr = currentStrArr.join("");
+    }
+  }
+  console.log(maxLength, subStr);
+  return subStr;
+}
+
+console.log(longestSubStringUsingArr(str57));
+// T(n) =O(n2)
+// S(n)= O(n)
+
 ```
 
 ### Merge the strings by adding alternative letter

@@ -1816,3 +1816,5 @@ function mergeAlternatveLetter(str1, str2) {
 }
 
 console.log(mergeAlternatveLetter(str58A, str58B));
+
+// Q.59 Linear Search
