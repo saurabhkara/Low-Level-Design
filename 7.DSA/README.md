@@ -63,6 +63,7 @@
 | 57. | [Longest Substring Without Repeating Characters](#longest-substring-without-repeating-characters)                                                                                                                                                                                                 |
 | 58. | [Merge the strings by adding alternative letter](#merge-the-strings-by-adding-alternative-letter)                                                                                                                                                                                                 |
 | 59. | [Linear Search](#linear-search)                                                                                                                                                                                                                                                                   |
+| 60. | [Binary Search](#binary-search)                                                                                                                                                                                                                                                                   |
 
 ## A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters
 
@@ -2077,6 +2078,64 @@ function linearSearch(arr, key) {
 console.log(linearSearch(arr59, 2));
 
 // T(n)=O(n)
+
+```
+
+### Binary Search
+
+```
+const arr60 = [5, 6, 8, 12, 15, 25, 30, 35];
+
+function binarSearch(arr, elem) {
+  if (!Array.isArray(arr)) {
+    return;
+  }
+
+  let start = 0;
+  let end = arr.length - 1;
+
+  while (start <= end) {
+    const mid = parseInt((start + end) / 2);
+    if (elem === arr[mid]) {
+      return mid;
+    } else if (elem > arr[mid]) {
+      start = mid;
+    } else {
+      end = mid;
+    }
+  }
+
+  return -1;
+}
+
+console.log(binarSearch(arr60, 25));
+
+//T(n)= O(log N)
+
+//Binary Search using Recursion
+
+function binarSearchUsingRecursion(arr, key, start, end) {
+  if (!Array.isArray(arr)) {
+    return;
+  }
+
+  if (start > end) {
+    return -1;
+  }
+  const mid = parseInt((start + end) / 2);
+
+  if (key === arr[mid]) {
+    return mid;
+  } else if (key < arr[mid]) {
+    return binarSearchUsingRecursion(arr, key, start, mid - 1);
+  } else {
+    return binarSearchUsingRecursion(arr, key, mid + 1, end);
+  }
+}
+
+console.log(binarSearchUsingRecursion(arr60, 15, 0, arr60.length - 1));
+console.log(binarSearchUsingRecursion(arr60, 17, 0, arr60.length - 1));
+//T(n)=O(log n)
 
 ```
 
