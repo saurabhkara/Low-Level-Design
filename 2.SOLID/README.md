@@ -27,3 +27,18 @@
 
 //reference https://medium.com/backticks-tildes/the-s-o-l-i-d-principles-in-pictures-b34ce2f1e898
 // https://blog.algomaster.io/p/solid-principles-explained-with-code
+
+### Practice
+
+- To run typescript file, there are multiple ways to run typescript file
+
+### First way
+
+1.  tsc fileName.ts
+2.  node fileName.ts
+
+### Second way
+
+using ts-node, install it globally
+
+- ts-node fileName.ts
