@@ -35,3 +35,21 @@ Types of System design
 - 5. Component design : Breakdown system into smaller, manageable parts
 - 6. Scalability and performance planning : Caching, Load balancing, Data partitionalig etc.
 - 7. Security consideration : Authentication, authorization, encryption etc.
+
+### Design Pattern
+
+A design pattern is a proven, reusable solution to a common problem in software design. Think of it as a blueprint — not code itself, but a general guide on how to structure code to solve specific types of problems.
+Promote code reuse and consistency.
+Make code easier to understand, maintain, and extend.
+
+All the design patterns are categorised into three categories
+
+- Creational Design Pattern
+- Behavioral Design Pattern
+- Structural Design pattern
+
+### Creational Design Pattern
+
+Creational design patterns deal with object creation mechanisms — trying to create objects in a manner suitable to the situation
+
+- Factory Method: Creates objects without specifying the exact class
