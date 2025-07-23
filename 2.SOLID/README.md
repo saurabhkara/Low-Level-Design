@@ -1,6 +1,6 @@
 //SOLID Principle
 
-### The SOLID principles are a set of five design principles in Object Oriented Programming language that help developers to write readable, maintainble, scalable and reuseable code.
+### The SOLID principles are a set of five design principles in Object Oriented Programming language that help developers to write readable, maintainable, scalable and reusable code.
 
 ## S - Single Responsibility Principle(SRP)
 
