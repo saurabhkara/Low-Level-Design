@@ -52,4 +52,5 @@ All the design patterns are categorised into three categories
 
 Creational design patterns deal with object creation mechanisms — trying to create objects in a manner suitable to the situation
 
-- Factory Method: Creates objects without specifying the exact class
+- Factory Design Pattern: Creates objects without specifying the exact class
+- Abstract Factory Design Pattern: Creates families of related objects without specifying their concrete classes

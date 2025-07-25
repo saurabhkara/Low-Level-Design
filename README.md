@@ -8,6 +8,8 @@
 
 ## - YAGNI Principle
 
-## KISS Principle
+## - KISS Principle
 
-## Design Patterns
+## - Design Patterns
+
+## - Data Structure & Algorithm
