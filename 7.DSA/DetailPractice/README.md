@@ -22,3 +22,19 @@ An algorithm is a set of step-by-step instructions to solve a given problem
 IPO: Take Input, process data and Output
 Flowchart
 Pseudo code
+
+How data stored in memory: 1. Stack and 2. Heap memory
+
+- Primitive data stores in Stack
+- Non-primitive data stored in Heap memory
+
+### Time and Space Complexity
+
+Time complexity measures how the execution time of an algorithm increases as the input size grows.
+while space complexity measures how the memory usage of an algorithm increases with the input size.
+
+Notation to measure time and space complexity
+
+- Big Oh(O)
+- Theta (θ)
+- Omega( Ω)
