@@ -12,4 +12,4 @@
 
 ### 2. Abstract Design Pattern : The Abstract Factory pattern is a creational design pattern that provides an interface for creating families of related or dependent objects without specifying their concrete classes.
 
-### 2. Singleton Design Pattern : The Singleton design pattern is a structural design pattern that ensures a class has only one instance and provides a global point of access to that instance. It’s useful when you want to control access to shared resources, like a configuration object, logging service, or database connection.
+### 3. Singleton Design Pattern : The Singleton design pattern is a structural design pattern that ensures a class has only one instance and provides a global point of access to that instance. It’s useful when you want to control access to shared resources, like a configuration object, logging service, or database connection.
