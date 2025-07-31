@@ -51,3 +51,66 @@ function pascalTriangleRecursson(numOfRows) {
 }
 
 console.log(pascalTriangleRecursson(2));
+
+//Find Tringular sum of an array
+
+//Recursive way
+
+var triangularSum = function (nums) {
+  if (!Array.isArray(nums)) {
+    return;
+  }
+
+  if (nums.length === 1) {
+    return nums[0];
+  }
+
+  const midElementArr = [];
+
+  for (let i = 0; i < nums.length - 1; i++) {
+    const element = nums[i] + nums[i + 1];
+    const final = element % 10;
+    midElementArr[i] = final;
+  }
+  return triangularSum(midElementArr);
+};
+
+//T(n) = O(n2);
+//S(n)= O(n)
+
+//Optimize way using loop
+
+var triangularSum = function (nums) {
+  while (nums.length > 1) {
+    for (let i = 0; i < nums.length - 1; i++) {
+      const element = (nums[i] + nums[i + 1]) % 10;
+      nums[i] = element;
+    }
+    nums.pop();
+  }
+  return nums[0];
+};
+
+//T(n) =O(n2)
+//S(n) = O(1)
+
+// Transpose of matrix
+
+var transpose = function (matrix) {
+  const row = matrix.length;
+  const col = matrix[0].length;
+
+  const result = [];
+
+  for (let i = 0; i < col; i++) {
+    let rowArr = [];
+
+    for (let j = 0; j < row; j++) {
+      rowArr[j] = matrix[j][i];
+    }
+    result[i] = rowArr;
+  }
+  return result;
+};
+
+//T(n) = O(n2)
