@@ -93,24 +93,3 @@ var triangularSum = function (nums) {
 
 //T(n) =O(n2)
 //S(n) = O(1)
-
-// Transpose of matrix
-
-var transpose = function (matrix) {
-  const row = matrix.length;
-  const col = matrix[0].length;
-
-  const result = [];
-
-  for (let i = 0; i < col; i++) {
-    let rowArr = [];
-
-    for (let j = 0; j < row; j++) {
-      rowArr[j] = matrix[j][i];
-    }
-    result[i] = rowArr;
-  }
-  return result;
-};
-
-//T(n) = O(n2)
