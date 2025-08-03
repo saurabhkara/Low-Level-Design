@@ -54,3 +54,5 @@ Creational design patterns deal with object creation mechanisms — trying to cr
 
 - Factory Design Pattern: Creates objects without specifying the exact class
 - Abstract Factory Design Pattern: Creates families of related objects without specifying their concrete classes
+- Singleton Design Pattern: Ensure a class has only one instance, and provide a global point of access to it
+- Prototype Design Pattern: Create new objects by copying (cloning) an existing object (prototype)
