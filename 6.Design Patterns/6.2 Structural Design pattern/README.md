@@ -9,3 +9,5 @@
 5. Decorator Design Pattern
 6. Proxy Design Pattern
 7. FlyWeight Design Pattern
+
+### Decorator design pattern : The Decorator pattern is a structural design pattern that allows you to add new behavior or responsibilities to objects dynamically without modifying their original structure or class.
