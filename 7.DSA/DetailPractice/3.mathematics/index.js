@@ -84,8 +84,6 @@ function factorial(num) {
 
 console.log(factorial(5));
 
-//7654963001
-
 // Factors of a given number
 
 function factors(num) {
@@ -123,6 +121,47 @@ console.log(factorsOptimized(15));
 
 //T(n)= (O(√n))
 
-// Armstrong number
-
 //Mutiples of a number
+// First 5 multiple of given number
+
+function multiplesOfNumber(num) {
+  if (typeof num !== "number") {
+    throw new Error("Input must be number");
+  }
+
+  if (!Number.isInteger(num) || num <= 0) {
+    throw new Error("number must be Positive Integer");
+  }
+  const result = [num];
+  for (let i = 2; i <= 5; i++) {
+    result.push(i * num);
+  }
+  return result;
+}
+
+console.log(multiplesOfNumber(5));
+// console.log(multiplesOfNumber(-5));
+// console.log(multiplesOfNumber(4.5));
+
+// Armstrong number
+// number that is equal to the sum of its own digits each raised to the power of the number of digits.
+
+function isArmstrongNumber(num) {
+  if (typeof num !== "number") {
+    throw new Error("Input must be number");
+  }
+  const length = num.toString().length;
+  let temp = num;
+  let result = 0;
+  while (temp > 0) {
+    let lastDigit = temp % 10;
+    temp = parseInt(temp / 10);
+
+    result = result + lastDigit ** length;
+  }
+  return result === num;
+}
+
+console.log(isArmstrongNumber(123));
+console.log(isArmstrongNumber(153));
+// T(n)= O(d ) : d = number of digits
