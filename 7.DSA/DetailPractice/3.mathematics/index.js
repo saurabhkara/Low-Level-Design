@@ -165,3 +165,60 @@ function isArmstrongNumber(num) {
 console.log(isArmstrongNumber(123));
 console.log(isArmstrongNumber(153));
 // T(n)= O(d ) : d = number of digits
+
+//Palindrome number
+
+function isPalindrome(num) {
+  if (typeof num !== "number") {
+    throw new Error("Input must be number");
+  }
+
+  const numArr = num.toString().split("");
+  const length = numArr.length;
+  const mid = Math.ceil(length / 2);
+  for (let i = 0; i < mid; i++) {
+    if (numArr[i] !== numArr[length - i - 1]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(isPalindrome(121));
+console.log(isPalindrome(1221));
+
+function isAnagram(num1, num2) {
+  if (typeof num1 !== "number" || typeof num2 !== "number") {
+    throw new Error("Input must be number");
+  }
+
+  const obj = {};
+  let temp = num1;
+
+  while (temp > 0) {
+    const lastD = temp % 10;
+    temp = parseInt(temp / 10);
+    if (obj[lastD]) {
+      obj[lastD] = obj[lastD] + 1;
+    } else {
+      obj[lastD] = 1;
+    }
+  }
+
+  temp = num2;
+
+  while (temp > 0) {
+    let lastD = temp % 10;
+    temp = parseInt(temp / 10);
+    if (obj[lastD] <= 0) {
+      return false;
+    } else {
+      obj[lastD] = obj[lastD] - 1;
+    }
+  }
+  console.log(obj);
+  return true;
+}
+
+console.log(isAnagram(123, 123));
+console.log(isAnagram(123, 1213));
