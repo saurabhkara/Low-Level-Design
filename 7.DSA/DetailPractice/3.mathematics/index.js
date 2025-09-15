@@ -222,3 +222,31 @@ function isAnagram(num1, num2) {
 
 console.log(isAnagram(123, 123));
 console.log(isAnagram(123, 1213));
+
+//T(n) = O(d) // number of digits
+
+//Repeated Digit Number
+
+function repeatedDigitNumber(num) {
+  if (typeof num !== "number" || num < 0) {
+    throw new Error("Input must be a positive number");
+  }
+
+  let result = num;
+
+  while (result >= 10) {
+    let sum = 0;
+
+    while (result > 0) {
+      const lastDigit = result % 10;
+      sum = sum + lastDigit;
+      result = parseInt(result / 10);
+    }
+
+    result = sum;
+  }
+
+  return result;
+}
+
+console.log(repeatedDigitNumber(598));
