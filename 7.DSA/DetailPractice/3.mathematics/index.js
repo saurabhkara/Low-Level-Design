@@ -250,3 +250,45 @@ function repeatedDigitNumber(num) {
 }
 
 console.log(repeatedDigitNumber(598));
+
+//Fibonacci series
+
+function fibonacciBruteForce(num) {
+  if (typeof num !== "number" || !num) {
+    throw new Error("Input must be number");
+  }
+  if (num < 1) {
+    return 1;
+  }
+
+  let result = [1, 1];
+
+  for (let i = 2; i < num; i++) {
+    result[i] = result[i - 1] + result[i - 2];
+  }
+  return result;
+}
+
+console.log(fibonacciBruteForce(5));
+
+//T(n) = O(n)
+
+function fibonacciRecursive(num) {
+  if (num <= 0) {
+    throw new Error("Input must be positive");
+  }
+
+  if (num == 1 || num == 2) {
+    return 1;
+  }
+
+  return fibonacciRecursive(num - 1) + fibonacciRecursive(num - 2);
+}
+
+console.log(fibonacciRecursive(5));
+
+//T(n)= O(2ⁿ)
+//S(n) = O(n)
+//Memoize to reduce time complexity to O(n)
+
+// Base conversion
