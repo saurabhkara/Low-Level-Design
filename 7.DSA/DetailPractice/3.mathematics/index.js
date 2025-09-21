@@ -292,3 +292,26 @@ console.log(fibonacciRecursive(5));
 //Memoize to reduce time complexity to O(n)
 
 // Base conversion
+
+// Decimal to Binary
+
+function decimalToBinary(num) {
+  if (typeof num !== "number") {
+    throw new Error("Input must be Number");
+  }
+  if (num === 0) {
+    return 0;
+  }
+  let result = "";
+  let temp = num;
+  let rem;
+  while (temp > 0) {
+    rem = temp % 2;
+    temp = parseInt(temp / 2);
+    result = rem + result;
+  }
+  return result;
+}
+
+console.log(decimalToBinary(5));
+console.log(decimalToBinary(6));
